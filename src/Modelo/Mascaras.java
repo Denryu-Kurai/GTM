@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Modelo;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Alfonso Arcos
- */
+// @author Alfonso Arcos
 public class Mascaras extends javax.swing.JFrame {
 
     public void mascaraDNI(final JTextField a) {
@@ -21,6 +13,7 @@ public class Mascaras extends javax.swing.JFrame {
         }
 
         a.addKeyListener(new KeyAdapter() {
+            @Override
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
                 if (a.getText().length() < 8) {
@@ -47,6 +40,7 @@ public class Mascaras extends javax.swing.JFrame {
         }
 
         a.addKeyListener(new KeyAdapter() {
+            @Override
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
                 if (!(a.getText().length() < tam && !Character.isDigit(c))) {
@@ -63,6 +57,7 @@ public class Mascaras extends javax.swing.JFrame {
         }
 
         a.addKeyListener(new KeyAdapter() {
+            @Override
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
                 if (!(a.getText().length() < tam)) {
@@ -79,6 +74,7 @@ public class Mascaras extends javax.swing.JFrame {
         }
 
         a.addKeyListener(new KeyAdapter() {
+            @Override
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
                 if (!Character.isDigit(c) || a.getText().length() > tam - 1) {
@@ -96,6 +92,7 @@ public class Mascaras extends javax.swing.JFrame {
 
         a.addKeyListener(new KeyAdapter() {
 
+            @Override
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
                 if ((!Character.isDigit(c) || a.getText().length() > tam - 1) && (c != '.' || a.getText().contains("."))) {
