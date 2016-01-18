@@ -1,4 +1,4 @@
-package Conexion;
+package Modelo;
 
 import java.sql.*;
 import java.util.logging.Level;
