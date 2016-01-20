@@ -25,7 +25,7 @@ public class Consultas {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-    }
+    }//insertarCliente
 
     public void insertCoche(String matric, String marca, String modelo, String color, String plazas, int ejes, int puertas, String dniduenio) {
         try {
@@ -37,5 +37,6 @@ public class Consultas {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-    }
+    }//insertarCoche
+
 }
