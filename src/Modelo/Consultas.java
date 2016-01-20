@@ -5,13 +5,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 //@author jairo
-public class Modelo {
+public class Consultas {
 
     ConMysql con;
     Statement stm;
     ResultSet rst;
 
-    public Modelo() {
+    public Consultas() {
         this.con = new ConMysql();
     }
 
