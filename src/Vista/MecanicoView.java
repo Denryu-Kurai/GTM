@@ -28,12 +28,12 @@ public class MecanicoView extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        btnTaller = new javax.swing.JButton();
+        btnPintura = new javax.swing.JButton();
+        btnListCar = new javax.swing.JButton();
+        btnItv = new javax.swing.JButton();
+        btnPresup = new javax.swing.JButton();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
         panelLista = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -55,7 +55,7 @@ public class MecanicoView extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jList1 = new javax.swing.JList<String>();
         jLabel10 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         panelITV = new javax.swing.JPanel();
@@ -89,7 +89,7 @@ public class MecanicoView extends javax.swing.JFrame {
         jTable5 = new javax.swing.JTable();
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        jLayeredPane2 = new javax.swing.JLayeredPane();
         supLista = new javax.swing.JPanel();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
@@ -106,15 +106,15 @@ public class MecanicoView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Taller");
+        btnTaller.setText("Taller");
 
-        jButton2.setText("Pintura");
+        btnPintura.setText("Pintura");
 
-        jButton3.setText("Lista de Coches");
+        btnListCar.setText("Lista de Coches");
 
-        jButton4.setText("ITV");
+        btnItv.setText("ITV");
 
-        jButton5.setText("PRESUPUESTO");
+        btnPresup.setText("PRESUPUESTO");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -122,15 +122,15 @@ public class MecanicoView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnListCar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPresup, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addComponent(btnTaller, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPintura, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(104, 104, 104)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnItv, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -138,17 +138,17 @@ public class MecanicoView extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnItv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnTaller, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPintura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPresup, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnListCar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 980, 130));
 
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -257,10 +257,10 @@ public class MecanicoView extends javax.swing.JFrame {
                     .addComponent(jCheckBox1)
                     .addComponent(jCheckBox2)
                     .addComponent(jCheckBox3))
-                .addGap(0, 54, Short.MAX_VALUE))
+                .addGap(0, 66, Short.MAX_VALUE))
         );
 
-        jPanel2.add(panelLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 620, 520));
+        jLayeredPane1.add(panelLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 620, 520));
 
         jLabel9.setText("BUSCAR");
 
@@ -279,10 +279,10 @@ public class MecanicoView extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane5.setViewportView(jList1);
 
@@ -332,7 +332,7 @@ public class MecanicoView extends javax.swing.JFrame {
                         .addGap(20, 20, 20))))
         );
 
-        jPanel2.add(panelPresupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 620, 520));
+        jLayeredPane1.add(panelPresupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 620, 520));
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -425,7 +425,7 @@ public class MecanicoView extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel2.add(panelITV, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 620, 520));
+        jLayeredPane1.add(panelITV, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 620, 520));
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -518,7 +518,7 @@ public class MecanicoView extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel2.add(panelPintura, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 620, 520));
+        jLayeredPane1.add(panelPintura, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 620, 520));
 
         jLabel11.setText("BUSCAR");
 
@@ -580,11 +580,11 @@ public class MecanicoView extends javax.swing.JFrame {
                 .addContainerGap(67, Short.MAX_VALUE))
         );
 
-        jPanel2.add(panelTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 620, 520));
+        jLayeredPane1.add(panelTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 620, 520));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 660, 560));
+        getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 660, 560));
 
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLayeredPane2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton6.setText("PASAR A PRESUPUESTO");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -645,7 +645,7 @@ public class MecanicoView extends javax.swing.JFrame {
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel3.add(supLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 230, 500));
+        jLayeredPane2.add(supLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 230, 500));
 
         jButton14.setText("TERMINAR COCHE");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -671,7 +671,7 @@ public class MecanicoView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel3.add(supTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 230, 500));
+        jLayeredPane2.add(supTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 230, 500));
 
         javax.swing.GroupLayout supPinturaLayout = new javax.swing.GroupLayout(supPintura);
         supPintura.setLayout(supPinturaLayout);
@@ -684,7 +684,7 @@ public class MecanicoView extends javax.swing.JFrame {
             .addGap(0, 500, Short.MAX_VALUE)
         );
 
-        jPanel3.add(supPintura, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 230, 500));
+        jLayeredPane2.add(supPintura, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 230, 500));
 
         javax.swing.GroupLayout supITVLayout = new javax.swing.GroupLayout(supITV);
         supITV.setLayout(supITVLayout);
@@ -697,7 +697,7 @@ public class MecanicoView extends javax.swing.JFrame {
             .addGap(0, 500, Short.MAX_VALUE)
         );
 
-        jPanel3.add(supITV, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 230, 500));
+        jLayeredPane2.add(supITV, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 230, 500));
 
         javax.swing.GroupLayout supPresupuestoLayout = new javax.swing.GroupLayout(supPresupuesto);
         supPresupuesto.setLayout(supPresupuestoLayout);
@@ -710,9 +710,9 @@ public class MecanicoView extends javax.swing.JFrame {
             .addGap(0, 500, Short.MAX_VALUE)
         );
 
-        jPanel3.add(supPresupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 230, 500));
+        jLayeredPane2.add(supPresupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 230, 500));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, 290, 560));
+        getContentPane().add(jLayeredPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 160, 310, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -770,16 +770,16 @@ public class MecanicoView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnItv;
+    private javax.swing.JButton btnListCar;
+    private javax.swing.JButton btnPintura;
+    private javax.swing.JButton btnPresup;
+    private javax.swing.JButton btnTaller;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
@@ -814,10 +814,10 @@ public class MecanicoView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    public javax.swing.JLayeredPane jLayeredPane1;
+    public javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JList<String> jList1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    public javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
