@@ -43,11 +43,11 @@ public class Controlador implements ActionListener, MouseListener {
         this.vistaLogin.btnRegistrarse.setActionCommand("__Registrarse");
         this.vistaLogin.btnRegistrarse.addActionListener(this);
         
-        this.vistaAdministrativo.btnACerrarUsuario.setActionCommand("__ACerrarUsuario");
-        this.vistaAdministrativo.btnACerrarUsuario.addActionListener(this);
+        this.vistaAdministrativo.btnCerrarUsuario.setActionCommand("__ACerrarUsuario");
+        this.vistaAdministrativo.btnCerrarUsuario.addActionListener(this);
         
-        this.vistaAdministrativo.btnASalir.setActionCommand("__ASalir");
-        this.vistaAdministrativo.btnASalir.addActionListener(this);
+        this.vistaAdministrativo.btnSalir.setActionCommand("__ASalir");
+        this.vistaAdministrativo.btnSalir.addActionListener(this);
         
         this.vistaLogin.setVisible(true);
         
