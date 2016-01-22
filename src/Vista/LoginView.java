@@ -33,6 +33,8 @@ public class LoginView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GTM - Login");
+        setLocation(new java.awt.Point(0, 0));
+        setLocationByPlatform(true);
         setMinimumSize(new java.awt.Dimension(256, 148));
         setPreferredSize(new java.awt.Dimension(256, 148));
         setResizable(false);
@@ -96,6 +98,7 @@ public class LoginView extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
