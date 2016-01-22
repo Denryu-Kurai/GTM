@@ -668,7 +668,7 @@ public class MecanicoView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel L1_panelITV;
     public javax.swing.JPanel L1_panelLista;
-    private javax.swing.JPanel L1_panelPintura;
+    public javax.swing.JPanel L1_panelPintura;
     public javax.swing.JPanel L1_panelPresupuesto;
     public javax.swing.JPanel L1_panelTaller;
     public javax.swing.JPanel L2_panelITV;
