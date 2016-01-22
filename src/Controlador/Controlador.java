@@ -1,6 +1,8 @@
 package Controlador;
 
 // @author Denryu Kurai Seishi
+// @author Jairo Gallardo
+// @author Alfonso Arcos
 import Vista.AdministrativoView;
 import Vista.LoginView;
 import Vista.MecanicoView;
@@ -51,16 +53,12 @@ public class Controlador implements ActionListener, MouseListener {
         //Botones del Mecanico
         vistaMecanico.btnListCar.setActionCommand("__Listame");
         vistaMecanico.btnListCar.addActionListener(this);
-
         vistaMecanico.btnItv.setActionCommand("__Presupuesteame");
         vistaMecanico.btnItv.addActionListener(this);
-
         vistaMecanico.btnPresup.setActionCommand("__Tallerizame");
         vistaMecanico.btnPresup.addActionListener(this);
-
         vistaMecanico.btnTaller.setActionCommand("__Pintame");
         vistaMecanico.btnTaller.addActionListener(this);
-
         vistaMecanico.btnPintura.setActionCommand("__ITVme");
         vistaMecanico.btnPintura.addActionListener(this);
 
@@ -104,8 +102,10 @@ public class Controlador implements ActionListener, MouseListener {
                             + "Sin tocar contraseña.");
                 }
                 break;
+           
             case __Registrarse:
                 break;
+           
             case __ACerrarUsuario:
                 this.user = null;
                 this.vistaLogin.txtUsuario.setText("");
@@ -113,76 +113,82 @@ public class Controlador implements ActionListener, MouseListener {
                 this.vistaAdministrativo.setVisible(false);
                 this.vistaLogin.setVisible(true);
                 break;
+           
             case __Listame:
-                //Layered 1
+                //Paneles Layered 1
                 vistaMecanico.L1_panelLista.setVisible(true);
                 vistaMecanico.L1_panelPresupuesto.setVisible(false);
                 vistaMecanico.L1_panelTaller.setVisible(false);
                 vistaMecanico.L1_panelPintura.setVisible(false);
                 vistaMecanico.L1_panelITV.setVisible(false);
-                //Layered 2
+                //Paneles Layered 2
                 vistaMecanico.L2_panelLista.setVisible(true);
                 vistaMecanico.L2_panelPresupuesto.setVisible(false);
                 vistaMecanico.L2_panelTaller.setVisible(false);
                 vistaMecanico.L2_panelPintura.setVisible(false);
                 vistaMecanico.L2_panelITV.setVisible(false);
                 break;
+            
             case __Presupuesteame:
-                //Layered 1
+                //Paneles Layered 1
                 vistaMecanico.L1_panelLista.setVisible(false);
                 vistaMecanico.L1_panelPresupuesto.setVisible(true);
                 vistaMecanico.L1_panelTaller.setVisible(false);
                 vistaMecanico.L1_panelPintura.setVisible(false);
                 vistaMecanico.L1_panelITV.setVisible(false);
-                //Layered 2
+                //Paneles Layered 2
                 vistaMecanico.L2_panelLista.setVisible(false);
                 vistaMecanico.L2_panelPresupuesto.setVisible(true);
                 vistaMecanico.L2_panelTaller.setVisible(false);
                 vistaMecanico.L2_panelPintura.setVisible(false);
                 vistaMecanico.L2_panelITV.setVisible(false);
                 break;
+            
             case __Tallerizame:
-                //Layered 1
+                //Paneles Layered 1
                 vistaMecanico.L1_panelLista.setVisible(false);
                 vistaMecanico.L1_panelPresupuesto.setVisible(false);
                 vistaMecanico.L1_panelTaller.setVisible(true);
                 vistaMecanico.L1_panelPintura.setVisible(false);
                 vistaMecanico.L1_panelITV.setVisible(false);
-                //Layered 2
+                //Paneles Layered 2
                 vistaMecanico.L2_panelLista.setVisible(false);
                 vistaMecanico.L2_panelPresupuesto.setVisible(false);
                 vistaMecanico.L2_panelTaller.setVisible(true);
                 vistaMecanico.L2_panelPintura.setVisible(false);
                 vistaMecanico.L2_panelITV.setVisible(false);
                 break;
+            
             case __Pintame:
-                //Layered 1
+                //Paneles Layered 1
                 vistaMecanico.L1_panelLista.setVisible(false);
                 vistaMecanico.L1_panelPresupuesto.setVisible(false);
                 vistaMecanico.L1_panelTaller.setVisible(false);
                 vistaMecanico.L1_panelPintura.setVisible(true);
                 vistaMecanico.L1_panelITV.setVisible(false);
-                //Layered 2
+                //Paneles Layered 2
                 vistaMecanico.L2_panelLista.setVisible(false);
                 vistaMecanico.L2_panelPresupuesto.setVisible(false);
                 vistaMecanico.L2_panelTaller.setVisible(false);
                 vistaMecanico.L2_panelPintura.setVisible(true);
                 vistaMecanico.L2_panelITV.setVisible(false);
                 break;
+            
             case __ITVme:
-                //Layered 1
+                //Paneles Layered 1
                 vistaMecanico.L1_panelLista.setVisible(false);
                 vistaMecanico.L1_panelPresupuesto.setVisible(false);
                 vistaMecanico.L1_panelTaller.setVisible(false);
                 vistaMecanico.L1_panelPintura.setVisible(false);
                 vistaMecanico.L1_panelITV.setVisible(true);
-                //Layered 2
+                //Paneles Layered 2
                 vistaMecanico.L2_panelLista.setVisible(false);
                 vistaMecanico.L2_panelPresupuesto.setVisible(false);
                 vistaMecanico.L2_panelTaller.setVisible(false);
                 vistaMecanico.L2_panelPintura.setVisible(false);
                 vistaMecanico.L2_panelITV.setVisible(true);
                 break;
+           
             case __ASalir:
                 System.exit(0);
                 break;
