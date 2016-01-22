@@ -1,7 +1,6 @@
 package Controlador;
 
 // @author Denryu Kurai Seishi
-
 import Vista.AdministrativoView;
 import Vista.LoginView;
 import Vista.MecanicoView;
@@ -12,109 +11,130 @@ import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 
 public class Controlador implements ActionListener, MouseListener {
-    
+
     LoginView vistaLogin;
     AdministrativoView vistaAdministrativo;
     MecanicoView vistaMecanico;
     private String user;
-    
-    public Controlador (LoginView vL, AdministrativoView vA, MecanicoView vM) {
-        
+
+    public Controlador(LoginView vL, AdministrativoView vA, MecanicoView vM) {
+
         this.vistaLogin = vL;
         this.vistaAdministrativo = vA;
         this.vistaMecanico = vM;
-        
+
     }
-    
+
     public enum AccionMVC {
-        
+
         __Conectar,
         __Registrarse,
         __ACerrarUsuario,
-        __ASalir;
-        
+        __ASalir,
+        //pendiente de revision
+        __Listame, __Tallerizame, __Pintame, __ITVme, __Presupuesteame;
     }
-    
-    public void iniciar () {
-        
-        this.vistaLogin.btnConectar.setActionCommand("__Conectar");
-        this.vistaLogin.btnConectar.addActionListener(this);
-        
-        this.vistaLogin.btnRegistrarse.setActionCommand("__Registrarse");
-        this.vistaLogin.btnRegistrarse.addActionListener(this);
-        
-        this.vistaAdministrativo.btnCerrarUsuario.setActionCommand("__ACerrarUsuario");
-        this.vistaAdministrativo.btnCerrarUsuario.addActionListener(this);
-        
-        this.vistaAdministrativo.btnSalir.setActionCommand("__ASalir");
-        this.vistaAdministrativo.btnSalir.addActionListener(this);
-        
-        this.vistaLogin.setVisible(true);
-        
+
+    public void iniciar() {
+        //Botones del Login
+        vistaLogin.btnConectar.setActionCommand("__Conectar");
+        vistaLogin.btnConectar.addActionListener(this);
+        vistaLogin.btnRegistrarse.setActionCommand("__Registrarse");
+        vistaLogin.btnRegistrarse.addActionListener(this);
+
+        //Botones del Administrativo
+        vistaAdministrativo.btnCerrarUsuario.setActionCommand("__ACerrarUsuario");
+        vistaAdministrativo.btnCerrarUsuario.addActionListener(this);
+        vistaAdministrativo.btnSalir.setActionCommand("__ASalir");
+        vistaAdministrativo.btnSalir.addActionListener(this);
+
+        //Botones del Mecanico
+        vistaMecanico.btnListCar.setActionCommand("__Listame");
+        vistaMecanico.btnListCar.addActionListener(this);
+
+        vistaMecanico.btnPresup.setActionCommand("__Tallerizame");
+        vistaMecanico.btnPresup.addActionListener(this);
+
+        vistaMecanico.btnTaller.setActionCommand("__Pintame");
+        vistaMecanico.btnTaller.addActionListener(this);
+
+        vistaMecanico.btnPintura.setActionCommand("__ITVme");
+        vistaMecanico.btnPintura.addActionListener(this);
+
+        vistaMecanico.btnItv.setActionCommand("__Presupuesteame");
+        vistaMecanico.btnItv.addActionListener(this);
+
+        vistaLogin.setVisible(true);
+
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+
         switch (AccionMVC.valueOf(e.getActionCommand())) {
-            
-            case __Conectar: 
+            case __Conectar:
                 this.user = vistaLogin.txtUsuario.getText();
-                
                 if (this.user.equals("Administrativo")) {
-                    
                     this.vistaLogin.setVisible(false);
                     this.vistaAdministrativo.setVisible(true);
-                    
                 } else if (this.user.equals("Mecanico")) {
-                    
-                    this.vistaLogin.setVisible(false);
-                    this.vistaMecanico.setVisible(true);
-                    
+                    vistaLogin.setVisible(false);
+                    vistaMecanico.setVisible(true);
+                    //Ponemos los paneles en false, los activamos con los botones
+                    //Layered 1
+                    vistaMecanico.L1_panelLista.setVisible(true);
+                    vistaMecanico.L1_panelPresupuesto.setVisible(false);
+                    vistaMecanico.L1_panelTaller.setVisible(false);
+                    vistaMecanico.L1_panelPintura.setVisible(false);
+                    vistaMecanico.L1_panelITV.setVisible(false);
+                    //Layered 2
+                    vistaMecanico.L2_panelLista.setVisible(true);
+                    vistaMecanico.L2_panelPresupuesto.setVisible(false);
+                    vistaMecanico.L2_panelTaller.setVisible(false);
+                    vistaMecanico.L2_panelPintura.setVisible(false);
+                    vistaMecanico.L2_panelITV.setVisible(false);
+
                 } else {
-                    
                     JOptionPane.showMessageDialog(this.vistaLogin, "Error al conectar. \n"
                             + "Usuarios: \n"
                             + "- Administrativo \n"
                             + "- Mecanico \n"
                             + "Sin tocar contraseña.");
-                    
                 }
                 break;
-                
             case __Registrarse:
                 break;
-                
             case __ACerrarUsuario:
                 this.user = null;
                 this.vistaLogin.txtUsuario.setText("");
                 this.vistaLogin.txtContraseña.setText("");
-                
                 this.vistaAdministrativo.setVisible(false);
                 this.vistaLogin.setVisible(true);
                 break;
-                
             case __ASalir:
                 System.exit(0);
                 break;
-            
         }
-        
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {}
+    public void mouseClicked(MouseEvent e) {
+    }
 
     @Override
-    public void mousePressed(MouseEvent e) {}
+    public void mousePressed(MouseEvent e) {
+    }
 
     @Override
-    public void mouseReleased(MouseEvent e) {}
+    public void mouseReleased(MouseEvent e) {
+    }
 
     @Override
-    public void mouseEntered(MouseEvent e) {}
+    public void mouseEntered(MouseEvent e) {
+    }
 
     @Override
-    public void mouseExited(MouseEvent e) {}
+    public void mouseExited(MouseEvent e) {
+    }
 
 }
