@@ -1,8 +1,10 @@
 package Modelo;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
 
 //@author jairo
 public class Consultas {
@@ -38,5 +40,33 @@ public class Consultas {
             ex.printStackTrace();
         }
     }//insertarCoche
-
+    
+    
+    
+    public DefaultTableModel tablaCoches(){
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("MATRICULA");
+        modelo.addColumn("MODELO");
+        modelo.addColumn("MARCA");
+        
+         con.abrir();
+        Connection cn = con.getConexion();
+        try {
+            Statement s = cn.createStatement();
+            ResultSet rs = s.executeQuery("select matricula,modelo,marca from coche;");
+            while (rs.next()) {
+                Object[] fila = new Object[3];
+                for (int i = 0; i < 3; i++) {
+                    fila[i] = rs.getObject(i + 1);
+                }
+                modelo.addRow(fila);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        con.cerrar();  
+        return modelo;
+    }//tablaCoches
+    
+    
 }

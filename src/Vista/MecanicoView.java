@@ -22,7 +22,7 @@ public class MecanicoView extends javax.swing.JFrame {
         jLayeredPane1 = new javax.swing.JLayeredPane();
         L1_panelLista = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaLista = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -31,7 +31,6 @@ public class MecanicoView extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
         jCheckBox3 = new javax.swing.JCheckBox();
@@ -124,7 +123,7 @@ public class MecanicoView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaLista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -135,7 +134,7 @@ public class MecanicoView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaLista);
 
         jLabel2.setText("AQUI VA LA IMAGEN DEL COCHE EN EL CASO");
 
@@ -172,8 +171,6 @@ public class MecanicoView extends javax.swing.JFrame {
 
         jLabel7.setText("TELEFONO");
 
-        jLabel8.setText("jLabel8");
-
         jCheckBox1.setText("TALLER");
 
         jCheckBox2.setText("PINTURA");
@@ -198,7 +195,6 @@ public class MecanicoView extends javax.swing.JFrame {
                                     .addComponent(jLabel5))
                                 .addGap(91, 91, 91)
                                 .addGroup(L1_panelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel6)))
                             .addGroup(L1_panelListaLayout.createSequentialGroup()
@@ -223,9 +219,7 @@ public class MecanicoView extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
-                .addGroup(L1_panelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel8))
+                .addComponent(jLabel5)
                 .addGap(47, 47, 47)
                 .addGroup(L1_panelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox1)
@@ -272,7 +266,7 @@ public class MecanicoView extends javax.swing.JFrame {
             L1_panelPinturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(L1_panelPinturaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, Short.MAX_VALUE)
+                .addComponent(jColorChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 451, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(L1_panelPinturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
@@ -691,8 +685,8 @@ public class MecanicoView extends javax.swing.JFrame {
     public javax.swing.JButton btnTaller;
     public javax.swing.JButton btnUpImage;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
+    public javax.swing.JButton jButton12;
+    public javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     public javax.swing.JCheckBox jCheckBox1;
     public javax.swing.JCheckBox jCheckBox2;
@@ -708,7 +702,6 @@ public class MecanicoView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     public javax.swing.JLayeredPane jLayeredPane1;
     public javax.swing.JLayeredPane jLayeredPane2;
@@ -718,13 +711,13 @@ public class MecanicoView extends javax.swing.JFrame {
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    public javax.swing.JTable jTable1;
+    public javax.swing.JScrollPane jScrollPane6;
     public javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable5;
+    public javax.swing.JTable jTable5;
     private javax.swing.JTextField jTextField1;
+    public javax.swing.JTable tablaLista;
     public javax.swing.JTextField txtBuscaCar_Presup;
-    private javax.swing.JTextField txtBuscaCar_Taller;
+    public javax.swing.JTextField txtBuscaCar_Taller;
     public javax.swing.JTextField txtPrecioFinal_Presup;
     // End of variables declaration//GEN-END:variables
 }

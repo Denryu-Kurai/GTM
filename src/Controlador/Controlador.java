@@ -3,6 +3,7 @@ package Controlador;
 // @author Denryu Kurai Seishi
 // @author Jairo Gallardo
 // @author Alfonso Arcos
+import Modelo.Consultas;
 import Vista.AdministrativoView;
 import Vista.LoginView;
 import Vista.MecanicoView;
@@ -17,6 +18,7 @@ public class Controlador implements ActionListener, MouseListener {
     LoginView vistaLogin;
     AdministrativoView vistaAdministrativo;
     MecanicoView vistaMecanico;
+    Consultas consulta;
     private String user;
 
     public Controlador(LoginView vL, AdministrativoView vA, MecanicoView vM) {
@@ -24,7 +26,7 @@ public class Controlador implements ActionListener, MouseListener {
         this.vistaLogin = vL;
         this.vistaAdministrativo = vA;
         this.vistaMecanico = vM;
-
+       
     }
 
     public enum AccionMVC {
@@ -38,6 +40,12 @@ public class Controlador implements ActionListener, MouseListener {
     }
 
     public void iniciar() {
+        //Tablas
+        vistaMecanico.tablaLista.setModel(consulta.tablaCoches());
+        
+        
+        
+        
         //Botones del Login
         vistaLogin.btnConectar.setActionCommand("__Conectar");
         vistaLogin.btnConectar.addActionListener(this);
