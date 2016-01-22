@@ -111,6 +111,17 @@ public class Controlador implements ActionListener, MouseListener {
                 this.vistaAdministrativo.setVisible(false);
                 this.vistaLogin.setVisible(true);
                 break;
+            case __Listame:
+                break;
+
+            case __Tallerizame:
+                break;
+            case __Presupuesteame:
+                break;
+            case __Pintame:
+                break;
+            case __ITVme:
+                break;
             case __ASalir:
                 System.exit(0);
                 break;
