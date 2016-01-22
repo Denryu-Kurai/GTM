@@ -64,6 +64,21 @@ public class Controlador implements ActionListener, MouseListener {
         vistaMecanico.btnPintura.setActionCommand("__ITVme");
         vistaMecanico.btnPintura.addActionListener(this);
 
+        //Ponemos los paneles en false, los activamos con los botones
+        //Layered 1
+        vistaMecanico.L1_panelLista.setVisible(true);
+        vistaMecanico.L1_panelPresupuesto.setVisible(false);
+        vistaMecanico.L1_panelTaller.setVisible(false);
+        vistaMecanico.L1_panelPintura.setVisible(false);
+        vistaMecanico.L1_panelITV.setVisible(false);
+        //Layered 2
+        vistaMecanico.L2_panelLista.setVisible(true);
+        vistaMecanico.L2_panelPresupuesto.setVisible(false);
+        vistaMecanico.L2_panelTaller.setVisible(false);
+        vistaMecanico.L2_panelPintura.setVisible(false);
+        vistaMecanico.L2_panelITV.setVisible(false);
+        
+        //Lanzamos el Login
         vistaLogin.setVisible(true);
 
     }
@@ -80,19 +95,6 @@ public class Controlador implements ActionListener, MouseListener {
                 } else if (this.user.equals("Mecanico")) {
                     vistaLogin.setVisible(false);
                     vistaMecanico.setVisible(true);
-                    //Ponemos los paneles en false, los activamos con los botones
-                    //Layered 1
-                    vistaMecanico.L1_panelLista.setVisible(true);
-                    vistaMecanico.L1_panelPresupuesto.setVisible(false);
-                    vistaMecanico.L1_panelTaller.setVisible(false);
-                    vistaMecanico.L1_panelPintura.setVisible(false);
-                    vistaMecanico.L1_panelITV.setVisible(false);
-                    //Layered 2
-                    vistaMecanico.L2_panelLista.setVisible(true);
-                    vistaMecanico.L2_panelPresupuesto.setVisible(false);
-                    vistaMecanico.L2_panelTaller.setVisible(false);
-                    vistaMecanico.L2_panelPintura.setVisible(false);
-                    vistaMecanico.L2_panelITV.setVisible(false);
 
                 } else {
                     JOptionPane.showMessageDialog(this.vistaLogin, "Error al conectar. \n"
