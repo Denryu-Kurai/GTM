@@ -12,7 +12,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Date;
-import javax.swing.JOptionPane;
 
 public class Controlador implements ActionListener, MouseListener {
 
@@ -22,13 +21,14 @@ public class Controlador implements ActionListener, MouseListener {
     Consultas consulta;
     private Date fecha = new Date();
     private String user;
+    private String passw;
 
     public Controlador(LoginView vL, AdministrativoView vA, MecanicoView vM) {
 
         this.vistaLogin = vL;
         this.vistaAdministrativo = vA;
         this.vistaMecanico = vM;
-       
+
     }
 
     public enum AccionMVC {
@@ -42,12 +42,7 @@ public class Controlador implements ActionListener, MouseListener {
     }
 
     public void iniciar() {
-        //Tablas
-        vistaMecanico.tablaLista.setModel(consulta.tablaCoches());
-        
-        
-        
-        
+
         //Botones del Login
         vistaLogin.btnConectar.setActionCommand("__Conectar");
         vistaLogin.btnConectar.addActionListener(this);
@@ -85,7 +80,9 @@ public class Controlador implements ActionListener, MouseListener {
         vistaMecanico.L2_panelTaller.setVisible(false);
         vistaMecanico.L2_panelPintura.setVisible(false);
         vistaMecanico.L2_panelITV.setVisible(false);
-        
+
+        //Tablas
+        vistaMecanico.tablaLista.setModel(consulta.tablaCoches());
         //Lanzamos el Login
         vistaLogin.setVisible(true);
 
@@ -96,26 +93,32 @@ public class Controlador implements ActionListener, MouseListener {
 
         switch (AccionMVC.valueOf(e.getActionCommand())) {
             case __Conectar:
-                this.user = vistaLogin.txtUsuario.getText();
-                if (this.user.equals("Administrativo")) {
-                    this.vistaLogin.setVisible(false);
-                    this.vistaAdministrativo.setVisible(true);
-                } else if (this.user.equals("Mecanico")) {
-                    vistaLogin.setVisible(false);
-                    vistaMecanico.setVisible(true);
+                user = vistaLogin.txtUsuario.getText();
+                passw = vistaLogin.txtContraseña.toString();
 
-                } else {
-                    JOptionPane.showMessageDialog(this.vistaLogin, "Error al conectar. \n"
-                            + "Usuarios: \n"
-                            + "- Administrativo \n"
-                            + "- Mecanico \n"
-                            + "Sin tocar contraseña.");
+                if (consulta.getLogin(user, passw) == true) {
+                    vistaLogin.setVisible(false);
+                    vistaAdministrativo.setVisible(true);
                 }
+
+//                if (this.user.equals("Administrativo")) {
+//                    this.vistaLogin.setVisible(false);
+//                    this.vistaAdministrativo.setVisible(true);
+////                } else if (this.user.equals("Mecanico")) {
+////                    vistaLogin.setVisible(false);
+////                    vistaMecanico.setVisible(true);
+//                } else {
+//                    JOptionPane.showMessageDialog(this.vistaLogin, "Error al conectar. \n"
+//                            + "Usuarios: \n"
+//                            + "- Administrativo \n"
+//                            + "- Mecanico \n"
+//                            + "Sin tocar contraseña.");
+//                }
                 break;
-           
+
             case __Registrarse:
                 break;
-           
+
             case __ACerrarUsuario:
                 this.user = null;
                 this.vistaLogin.txtUsuario.setText("");
@@ -123,7 +126,7 @@ public class Controlador implements ActionListener, MouseListener {
                 this.vistaAdministrativo.setVisible(false);
                 this.vistaLogin.setVisible(true);
                 break;
-           
+
             case __Listame:
                 //Paneles Layered 1
                 vistaMecanico.L1_panelLista.setVisible(true);
@@ -138,7 +141,7 @@ public class Controlador implements ActionListener, MouseListener {
                 vistaMecanico.L2_panelPintura.setVisible(false);
                 vistaMecanico.L2_panelITV.setVisible(false);
                 break;
-            
+
             case __Presupuesteame:
                 //Paneles Layered 1
                 vistaMecanico.L1_panelLista.setVisible(false);
@@ -153,7 +156,7 @@ public class Controlador implements ActionListener, MouseListener {
                 vistaMecanico.L2_panelPintura.setVisible(false);
                 vistaMecanico.L2_panelITV.setVisible(false);
                 break;
-            
+
             case __Tallerizame:
                 //Paneles Layered 1
                 vistaMecanico.L1_panelLista.setVisible(false);
@@ -168,7 +171,7 @@ public class Controlador implements ActionListener, MouseListener {
                 vistaMecanico.L2_panelPintura.setVisible(false);
                 vistaMecanico.L2_panelITV.setVisible(false);
                 break;
-            
+
             case __Pintame:
                 //Paneles Layered 1
                 vistaMecanico.L1_panelLista.setVisible(false);
@@ -183,7 +186,7 @@ public class Controlador implements ActionListener, MouseListener {
                 vistaMecanico.L2_panelPintura.setVisible(true);
                 vistaMecanico.L2_panelITV.setVisible(false);
                 break;
-            
+
             case __ITVme:
                 //Paneles Layered 1
                 vistaMecanico.L1_panelLista.setVisible(false);
@@ -198,7 +201,7 @@ public class Controlador implements ActionListener, MouseListener {
                 vistaMecanico.L2_panelPintura.setVisible(false);
                 vistaMecanico.L2_panelITV.setVisible(true);
                 break;
-           
+
             case __ASalir:
                 System.exit(0);
                 break;

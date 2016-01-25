@@ -44,80 +44,74 @@ public class Consultas {
             ex.printStackTrace();
         }
     }//insertarCoche
-    
-    public void insertarHistorial(String matricula,ArrayList lista,Date fecha){
+
+    public void insertarHistorial(String matricula, ArrayList lista, Date fecha) {
         con.abrir();
         Connection cn = con.getConexion();
-        try{
+        try {
             String sql = "insert into historiales (matricula, fecha) values (?,?);";
             PreparedStatement s = cn.prepareStatement(sql);
             s.setString(1, matricula);
             s.setDate(2, new java.sql.Date(fecha.getTime()));
             s.execute();
-           
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        
     }
-    
-    public void insertarReparacion(int historial,int servicio){
-                con.abrir();
+
+    public void insertarReparacion(int historial, int servicio) {
+        con.abrir();
         Connection cn = con.getConexion();
-        try{
+        try {
             String sql = "insert into reparaciones (historial,servicio) values (?,?);";
             PreparedStatement s = cn.prepareStatement(sql);
             s.setInt(1, historial);
             s.setInt(2, servicio);
             s.execute();
-           
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
-    
-    public int getFechaReciente(String matricula){
-        int actual= 0;
-        
-         con.abrir();
+
+    public int getFechaReciente(String matricula) {
+        int actual = 0;
+        con.abrir();
         Connection cn = con.getConexion();
         try {
             Statement s = cn.createStatement();
-            ResultSet rs = s.executeQuery("select id from historiales where matricula='"+matricula+"' Order by fecha des limit = 1");
-            actual=rs.getInt(1);
+            ResultSet rs = s.executeQuery("select id from historiales where matricula='" + matricula + "' Order by fecha des limit = 1");
+            actual = rs.getInt(1);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
         return actual;
     }
-            
-    public DefaultTableModel tablaCoches(){
+
+    public DefaultTableModel tablaCoches() {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("MATRICULA");
         modelo.addColumn("MODELO");
         modelo.addColumn("MARCA");
-        
-         con.abrir();
+        con.abrir();
         Connection cn = con.getConexion();
         try {
-            Statement s = cn.createStatement();
-            ResultSet rs = s.executeQuery("select matricula,modelo,marca from coche;");
-            while (rs.next()) {
+            stm = cn.createStatement();
+            rst = stm.executeQuery("select matricula,modelo,marca from coches;");
+            while (rst.next()) {
                 Object[] fila = new Object[3];
                 for (int i = 0; i < 3; i++) {
-                    fila[i] = rs.getObject(i + 1);
+                    fila[i] = rst.getObject(i + 1);
                 }
                 modelo.addRow(fila);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        con.cerrar();  
+        con.cerrar();
         return modelo;
     }//tablaCoches
-    
-    public DefaultTableModel tablaServicios(){
+
+    public DefaultTableModel tablaServicios() {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("MARCA");
         modelo.addColumn("MODELO");
@@ -140,9 +134,9 @@ public class Consultas {
         }
         return modelo;
     }
-    
-    public DefaultTableModel tablaServiciosFiltrada(String mar,String mod){
-                
+
+    public DefaultTableModel tablaServiciosFiltrada(String mar, String mod) {
+
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("MARCA");
         modelo.addColumn("MODELO");
@@ -152,7 +146,7 @@ public class Consultas {
         Connection cn = con.getConexion();
         try {
             Statement s = cn.createStatement();
-            ResultSet rs = s.executeQuery("select marca,modelo,nombre,precio from servicios where marca like '%"+mar+"%' and modelo like '%"+mod+"%';");
+            ResultSet rs = s.executeQuery("select marca,modelo,nombre,precio from servicios where marca like '%" + mar + "%' and modelo like '%" + mod + "%';");
             while (rs.next()) {
                 Object[] fila = new Object[4];
                 for (int i = 0; i < 4; i++) {
@@ -165,8 +159,21 @@ public class Consultas {
         }
         return modelo;
     }
-    
-    
-    
-    
+
+    public boolean getLogin(String user, String password) {
+        boolean pasa = false;
+        con.abrir();
+        try {
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select usuario, contrasenas from personas where usuario like '" + user + "' and contrasenas like '" + password + "';");
+            if (rst != null) {
+                pasa = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return pasa;
+    }
+
 }
