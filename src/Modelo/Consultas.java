@@ -152,7 +152,7 @@ public class Consultas {
         Connection cn = con.getConexion();
         try {
             Statement s = cn.createStatement();
-            ResultSet rs = s.executeQuery("select marca,modelo,nombre,precio from servicios where marca='%"+mar+"%' and modelo='%"+mod+"%';");
+            ResultSet rs = s.executeQuery("select marca,modelo,nombre,precio from servicios where marca like '%"+mar+"%' and modelo like '%"+mod+"%';");
             while (rs.next()) {
                 Object[] fila = new Object[4];
                 for (int i = 0; i < 4; i++) {
