@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 public class Controlador implements ActionListener, MouseListener {
@@ -19,6 +20,7 @@ public class Controlador implements ActionListener, MouseListener {
     AdministrativoView vistaAdministrativo;
     MecanicoView vistaMecanico;
     Consultas consulta;
+    private Date fecha = new Date();
     private String user;
 
     public Controlador(LoginView vL, AdministrativoView vA, MecanicoView vM) {
