@@ -80,9 +80,14 @@ public class Controlador implements ActionListener, MouseListener {
         vistaMecanico.L2_panelTaller.setVisible(false);
         vistaMecanico.L2_panelPintura.setVisible(false);
         vistaMecanico.L2_panelITV.setVisible(false);
+        try {
+            //Tablas
+            vistaMecanico.tablaLista.setModel(consulta.tablaCoches());
+        } catch (Exception e) {
+            e.printStackTrace();
 
-        //Tablas
-        vistaMecanico.tablaLista.setModel(consulta.tablaCoches());
+        }
+
         //Lanzamos el Login
         vistaLogin.setVisible(true);
 

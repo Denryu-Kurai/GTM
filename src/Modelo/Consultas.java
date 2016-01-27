@@ -18,7 +18,7 @@ public class Consultas {
     ResultSet rst;
 
     public Consultas() {
-        this.con = new ConMysql();
+        con = new ConMysql();
     }
 
     public void insertCliente(String Dni, String name, String apell, String direcc, int tlfn) {
@@ -49,7 +49,7 @@ public class Consultas {
         con.abrir();
         Connection cn = con.getConexion();
         try {
-            String sql = "insert into historiales (matricula, fecha) values (?,?);";
+            String sql = "insert into historiales (matricula, fecha) values (?,?)";
             PreparedStatement s = cn.prepareStatement(sql);
             s.setString(1, matricula);
             s.setDate(2, new java.sql.Date(fecha.getTime()));
@@ -63,7 +63,7 @@ public class Consultas {
         con.abrir();
         Connection cn = con.getConexion();
         try {
-            String sql = "insert into reparaciones (historial,servicio) values (?,?);";
+            String sql = "insert into reparaciones (historial,servicio) values (?,?)";
             PreparedStatement s = cn.prepareStatement(sql);
             s.setInt(1, historial);
             s.setInt(2, servicio);
@@ -93,16 +93,18 @@ public class Consultas {
         modelo.addColumn("MODELO");
         modelo.addColumn("MARCA");
         con.abrir();
-        Connection cn = con.getConexion();
         try {
+            Connection cn = con.getConexion();
+
             stm = cn.createStatement();
-            rst = stm.executeQuery("select matricula,modelo,marca from coches;");
+            rst = stm.executeQuery("select matricula,modelo,marca from coches");
             while (rst.next()) {
                 Object[] fila = new Object[3];
                 for (int i = 0; i < 3; i++) {
-                    fila[i] = rst.getObject(i + 1);
+                    fila[i] = rst.getObject(i);
                 }
                 modelo.addRow(fila);
+
             }
         } catch (Exception e) {
             e.printStackTrace();
