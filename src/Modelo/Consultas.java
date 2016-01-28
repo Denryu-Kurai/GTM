@@ -95,16 +95,14 @@ public class Consultas {
         con.abrir();
         try {
             Connection cn = con.getConexion();
-
             stm = cn.createStatement();
             rst = stm.executeQuery("select matricula,modelo,marca from coches");
             while (rst.next()) {
                 Object[] fila = new Object[3];
-                for (int i = 0; i < 3; i++) {
+                for (int i = 1; i <= 3; i++) {
                     fila[i] = rst.getObject(i);
                 }
                 modelo.addRow(fila);
-
             }
         } catch (Exception e) {
             e.printStackTrace();

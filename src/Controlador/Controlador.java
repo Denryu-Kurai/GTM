@@ -1,6 +1,6 @@
 package Controlador;
 
-// @author Denryu Kurai Seishi
+// @author Denryu Kurai Seishi (Pedro)
 // @author Jairo Gallardo
 // @author Alfonso Arcos
 import Modelo.Consultas;
@@ -12,13 +12,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 public class Controlador implements ActionListener, MouseListener {
 
     LoginView vistaLogin;
     AdministrativoView vistaAdministrativo;
     MecanicoView vistaMecanico;
-    Consultas consulta;
+    Consultas consulta = new Consultas();
     private Date fecha = new Date();
     private String user;
     private String passw;
@@ -85,7 +86,6 @@ public class Controlador implements ActionListener, MouseListener {
             vistaMecanico.tablaLista.setModel(consulta.tablaCoches());
         } catch (Exception e) {
             e.printStackTrace();
-
         }
 
         //Lanzamos el Login
@@ -105,13 +105,13 @@ public class Controlador implements ActionListener, MouseListener {
                     vistaLogin.setVisible(false);
                     vistaAdministrativo.setVisible(true);
                 }
-
-//                if (this.user.equals("Administrativo")) {
+//
+//                if (this.user.equals("Administrativo") ) {
 //                    this.vistaLogin.setVisible(false);
 //                    this.vistaAdministrativo.setVisible(true);
-////                } else if (this.user.equals("Mecanico")) {
-////                    vistaLogin.setVisible(false);
-////                    vistaMecanico.setVisible(true);
+//                } else if (this.user.equals("Mecanico")) {
+//                    vistaLogin.setVisible(false);
+//                    vistaMecanico.setVisible(true);
 //                } else {
 //                    JOptionPane.showMessageDialog(this.vistaLogin, "Error al conectar. \n"
 //                            + "Usuarios: \n"
