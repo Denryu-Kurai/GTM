@@ -72,6 +72,26 @@ public class Consultas {
             ex.printStackTrace();
         }
     }
+    
+        public Object datosLista(int id){
+        Object[] datos = new Object[8];
+        con.abrir();
+        try{
+            Connection cn = con.getConexion();
+        stm = cn.createStatement();
+            rst = stm.executeQuery("select c.modelo,c.marca,c.matricula,p.telefono,l.taller,l.pintura,l.itv  from coches as c, lugares as l,personas as p where dni like '"+id+"'");
+         while (rst.next()) {                
+                for (int i = 0; i < 8; i++) {
+                    datos[i] = rst.getObject(i);
+                  // ASI SE PASA DE DATO  String s = (String)datos[1];
+                }
+                
+            }
+        }catch(Exception e){
+            
+        }
+        return datos;
+    }
 
     public int getFechaReciente(String matricula) {
         int actual = 0;
