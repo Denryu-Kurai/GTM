@@ -106,19 +106,6 @@ public class Consultas {
         }
         return actual;
     }
-    
-    public ArrayList datosLista(int id){
-        Object[] datos = new Object[8];
-        con.abrir();
-        try{
-            Connection cn = con.getConexion();
-        stm = cn.createStatement();
-            rst = stm.executeQuery("select  from coches");
-        }catch(Exception e){
-            
-        }
-        return null;
-    }
 
     public DefaultTableModel tablaCoches() {
         DefaultTableModel modelo = new DefaultTableModel();
