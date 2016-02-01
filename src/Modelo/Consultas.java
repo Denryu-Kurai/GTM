@@ -72,23 +72,23 @@ public class Consultas {
             ex.printStackTrace();
         }
     }
-    
-        public Object datosLista(int id){
+
+    public Object datosLista(int id) {
         Object[] datos = new Object[8];
         con.abrir();
-        try{
+        try {
             Connection cn = con.getConexion();
-        stm = cn.createStatement();
-            rst = stm.executeQuery("select c.modelo,c.marca,c.matricula,p.telefono,l.taller,l.pintura,l.itv  from coches as c, lugares as l,personas as p where dni like '"+id+"'");
-         while (rst.next()) {                
+            stm = cn.createStatement();
+            rst = stm.executeQuery("select c.modelo,c.marca,c.matricula,p.telefono,l.taller,l.pintura,l.itv  from coches as c, lugares as l,personas as p where dni like '" + id + "'");
+            while (rst.next()) {
                 for (int i = 0; i < 8; i++) {
                     datos[i] = rst.getObject(i);
-                  // ASI SE PASA DE DATO  String s = (String)datos[1];
+                    // ASI SE PASA DE DATO  String s = (String)datos[1];
                 }
-                
+
             }
-        }catch(Exception e){
-            
+        } catch (Exception e) {
+
         }
         return datos;
     }
@@ -119,8 +119,8 @@ public class Consultas {
             rst = stm.executeQuery("select matricula,modelo,marca from coches");
             while (rst.next()) {
                 Object[] fila = new Object[3];
-                for (int i = 1; i <=3; i++) {
-                    fila[i-1] = rst.getObject(i);
+                for (int i = 1; i <= 3; i++) {
+                    fila[i - 1] = rst.getObject(i);
                 }
                 modelo.addRow(fila);
             }
@@ -196,5 +196,20 @@ public class Consultas {
         return pasa;
     }
 
-    
+    public String getRol(String user) {
+        String ok = "";
+        con.abrir();
+        try {
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select rol from personas where usuario like '" + user + "';");
+            if (rst.next()) {
+                ok = rst.getString(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ok = ok.toLowerCase();
+        return ok;
+    }
+
 }

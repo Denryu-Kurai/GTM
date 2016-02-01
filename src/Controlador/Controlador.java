@@ -105,8 +105,19 @@ public class Controlador implements ActionListener, MouseListener {
                 passw = vistaLogin.txtContraseña.toString();
 
                 if (consulta.getLogin(user, passw) == true) {
-                    vistaLogin.setVisible(false);
-                    vistaAdministrativo.setVisible(true);
+                    switch (consulta.getRol(user)) {
+                        case "mecanico":
+                            vistaLogin.setVisible(false);
+                            vistaMecanico.setVisible(true);
+                            break;
+                        case "administra":
+                            vistaLogin.setVisible(false);
+                            vistaAdministrativo.setVisible(true);
+                            break;
+                        default:
+                            System.out.println("Error al comparar los roles");
+                            break;
+                    }
                 }
 //
 //                if (this.user.equals("Administrativo") ) {
@@ -149,17 +160,17 @@ public class Controlador implements ActionListener, MouseListener {
                 vistaMecanico.L2_panelPintura.setVisible(false);
                 vistaMecanico.L2_panelITV.setVisible(false);
                 break;
-                
+
             case __SubirImagen:
                 JFileChooser chooser = new JFileChooser();
                 FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & GIF Images", "jpg", "gif");
                 chooser.setFileFilter(filter);
                 int returnVal = chooser.showOpenDialog(vistaMecanico);
-                if(returnVal == JFileChooser.APPROVE_OPTION) {
-                    
-                    System.out.println("You chose to open this file: " +
-                    chooser.getSelectedFile().getName());
-                    
+                if (returnVal == JFileChooser.APPROVE_OPTION) {
+
+                    System.out.println("You chose to open this file: "
+                            + chooser.getSelectedFile().getName());
+
                 }
                 break;
 
