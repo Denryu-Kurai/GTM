@@ -12,7 +12,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Date;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Controlador implements ActionListener, MouseListener {
 
@@ -38,6 +40,7 @@ public class Controlador implements ActionListener, MouseListener {
         __Registrarse,
         __ACerrarUsuario,
         __ASalir,
+        __SubirImagen,
         //pendiente de revision
         __Listame, __Presupuesteame, __Tallerizame, __Pintame, __ITVme;
     }
@@ -145,6 +148,19 @@ public class Controlador implements ActionListener, MouseListener {
                 vistaMecanico.L2_panelTaller.setVisible(false);
                 vistaMecanico.L2_panelPintura.setVisible(false);
                 vistaMecanico.L2_panelITV.setVisible(false);
+                break;
+                
+            case __SubirImagen:
+                JFileChooser chooser = new JFileChooser();
+                FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & GIF Images", "jpg", "gif");
+                chooser.setFileFilter(filter);
+                int returnVal = chooser.showOpenDialog(vistaMecanico);
+                if(returnVal == JFileChooser.APPROVE_OPTION) {
+                    
+                    System.out.println("You chose to open this file: " +
+                    chooser.getSelectedFile().getName());
+                    
+                }
                 break;
 
             case __Presupuesteame:

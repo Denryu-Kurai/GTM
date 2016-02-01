@@ -112,8 +112,8 @@ public class Consultas {
             rst = stm.executeQuery("select matricula,modelo,marca from coches");
             while (rst.next()) {
                 Object[] fila = new Object[3];
-                for (int i = 1; i <= 3; i++) {
-                    fila[i] = rst.getObject(i);
+                for (int i = 1; i <=3; i++) {
+                    fila[i-1] = rst.getObject(i);
                 }
                 modelo.addRow(fila);
             }
