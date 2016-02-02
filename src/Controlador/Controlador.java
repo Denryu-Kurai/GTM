@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Date;
+import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -41,7 +42,8 @@ public class Controlador implements ActionListener, MouseListener {
         __ASalir,
         __SubirImagen,
         //pendiente de revision
-        __Listame, __Presupuesteame, __Tallerizame, __Pintame, __ITVme;
+        __Listame, __Presupuesteame, __Tallerizame, __Pintame, __ITVme,
+        __NewCliente;
     }
 
     public void iniciar() {
@@ -58,6 +60,9 @@ public class Controlador implements ActionListener, MouseListener {
         vistaAdministrativo.btnSalir.setActionCommand("__ASalir");
         vistaAdministrativo.btnSalir.addActionListener(this);
 
+        vistaAdministrativo.JDNCbtnAceptar.setActionCommand("__NewCliente");
+        vistaAdministrativo.JDNCbtnAceptar.addActionListener(this);
+
         //Botones del Mecanico
         vistaMecanico.btnListCar.setActionCommand("__Listame");
         vistaMecanico.btnListCar.addActionListener(this);
@@ -70,20 +75,6 @@ public class Controlador implements ActionListener, MouseListener {
         vistaMecanico.btnPintura.setActionCommand("__ITVme");
         vistaMecanico.btnPintura.addActionListener(this);
 
-        //Ponemos los paneles en false, los activamos con los botones
-        //Layered 1
-        vistaMecanico.L1_panelLista.setVisible(true);
-        vistaMecanico.L1_panelPresupuesto.setVisible(false);
-        vistaMecanico.L1_panelTaller.setVisible(false);
-        vistaMecanico.L1_panelPintura.setVisible(false);
-        vistaMecanico.L1_panelITV.setVisible(false);
-        //Layered 2
-        vistaMecanico.L2_panelLista.setVisible(true);
-        vistaMecanico.L2_panelPresupuesto.setVisible(false);
-        vistaMecanico.L2_panelTaller.setVisible(false);
-        vistaMecanico.L2_panelPintura.setVisible(false);
-        vistaMecanico.L2_panelITV.setVisible(false);
-       
         //Lanzamos el Login
         vistaLogin.setVisible(true);
 
@@ -158,6 +149,9 @@ public class Controlador implements ActionListener, MouseListener {
                 this.vistaLogin.txtContraseña.setText("");
                 this.vistaAdministrativo.setVisible(false);
                 this.vistaLogin.setVisible(true);
+                break;
+            case __NewCliente:
+
                 break;
 
             case __Listame:

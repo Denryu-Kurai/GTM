@@ -1,8 +1,5 @@
 package Modelo;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -110,7 +107,6 @@ public class Consultas {
                 return false;
             }
         };
-
         modelo.addColumn("MATRICULA");
         modelo.addColumn("MODELO");
         modelo.addColumn("MARCA");

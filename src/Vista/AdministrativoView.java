@@ -358,7 +358,7 @@ public class AdministrativoView extends javax.swing.JFrame {
     public javax.swing.JButton btnInformes;
     public javax.swing.JMenuItem btnSalir;
     public javax.swing.JButton btnServicios;
-    private javax.swing.JDialog jDiaNewCliente;
+    public javax.swing.JDialog jDiaNewCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
