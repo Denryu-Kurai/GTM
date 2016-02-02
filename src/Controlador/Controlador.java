@@ -103,10 +103,31 @@ public class Controlador implements ActionListener, MouseListener {
                 passw = vistaLogin.txtContraseña.toString();
 
                 if (consulta.getLogin(user, passw) == true) {
+                    System.out.println("usuario y contraseña correctos");
                     switch (consulta.getRol(user)) {
                         case "mecanico":
                             vistaLogin.setVisible(false);
                             vistaMecanico.setVisible(true);
+                            //Ponemos los paneles en false, los activamos con los botones
+                            //Layered 1
+                            vistaMecanico.L1_panelLista.setVisible(true);
+                            vistaMecanico.L1_panelPresupuesto.setVisible(false);
+                            vistaMecanico.L1_panelTaller.setVisible(false);
+                            vistaMecanico.L1_panelPintura.setVisible(false);
+                            vistaMecanico.L1_panelITV.setVisible(false);
+                            //Layered 2
+                            vistaMecanico.L2_panelLista.setVisible(true);
+                            vistaMecanico.L2_panelPresupuesto.setVisible(false);
+                            vistaMecanico.L2_panelTaller.setVisible(false);
+                            vistaMecanico.L2_panelPintura.setVisible(false);
+                            vistaMecanico.L2_panelITV.setVisible(false);
+                            try {
+                                //Tablas
+                                vistaMecanico.tablaLista.setModel(consulta.tablaCoches());
+                            } catch (Exception ex) {
+                                ex.printStackTrace();
+                            }
+
                             break;
                         case "administra":
                             vistaLogin.setVisible(false);
