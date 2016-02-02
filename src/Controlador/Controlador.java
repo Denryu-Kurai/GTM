@@ -12,15 +12,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Date;
-import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Controlador implements ActionListener, MouseListener {
 
-    LoginView vistaLogin;
-    AdministrativoView vistaAdministrativo;
-    MecanicoView vistaMecanico;
+    LoginView vLogin;
+    AdministrativoView vAdmin;
+    MecanicoView vMeca;
     Consultas consulta = new Consultas();
     private Date fecha = new Date();
     private String user;
@@ -28,55 +27,85 @@ public class Controlador implements ActionListener, MouseListener {
 
     public Controlador(LoginView vL, AdministrativoView vA, MecanicoView vM) {
 
-        this.vistaLogin = vL;
-        this.vistaAdministrativo = vA;
-        this.vistaMecanico = vM;
+        this.vLogin = vL;
+        this.vAdmin = vA;
+        this.vMeca = vM;
 
     }
 
     public enum AccionMVC {
 
-        __Conectar,
-        __Registrarse,
+        //Login
+        __Conectar, __Registrarse,
+        //Menu
         __ACerrarUsuario,
         __ASalir,
-        __SubirImagen,
-        //pendiente de revision
-        __Listame, __Presupuesteame, __Tallerizame, __Pintame, __ITVme,
-        __NewCliente;
+        //Administrativo
+        __NewCliente, __ModCliente,
+        __NewCoche, __ModCoche,
+        __Factura, __Informes, __Servicios,
+        //JDialog Administrativo
+        __JdNcliAcepta, __JdNcliCancela, __JdNcoConfirma, __JdNcoCancelar,
+        //Mecanico
+        __Listame, __Presupuesteame, __Tallerizame, __Pintame, __ITVme, __SubirImagen;
     }
 
     public void iniciar() {
 
-        //Botones del Login
-        vistaLogin.btnConectar.setActionCommand("__Conectar");
-        vistaLogin.btnConectar.addActionListener(this);
-        vistaLogin.btnRegistrarse.setActionCommand("__Registrarse");
-        vistaLogin.btnRegistrarse.addActionListener(this);
+//Botones del Login
+        vLogin.btnConectar.setActionCommand("__Conectar");
+        vLogin.btnConectar.addActionListener(this);
+        vLogin.btnRegistrarse.setActionCommand("__Registrarse");
+        vLogin.btnRegistrarse.addActionListener(this);
 
-        //Botones del Administrativo
-        vistaAdministrativo.btnCerrarUsuario.setActionCommand("__ACerrarUsuario");
-        vistaAdministrativo.btnCerrarUsuario.addActionListener(this);
-        vistaAdministrativo.btnSalir.setActionCommand("__ASalir");
-        vistaAdministrativo.btnSalir.addActionListener(this);
+//Acciones del menu
+        vAdmin.btnCerrarUsuario.setActionCommand("__ACerrarUsuario");
+        vAdmin.btnCerrarUsuario.addActionListener(this);
+        vAdmin.btnSalir.setActionCommand("__ASalir");
+        vAdmin.btnSalir.addActionListener(this);
 
-        vistaAdministrativo.JDNCbtnAceptar.setActionCommand("__NewCliente");
-        vistaAdministrativo.JDNCbtnAceptar.addActionListener(this);
+//Botones del Administrativo
+        vAdmin.btnSalir.setActionCommand("__NewCliente");
+        vAdmin.btnSalir.addActionListener(this);
+        vAdmin.btnSalir.setActionCommand("__ModCliente");
+        vAdmin.btnSalir.addActionListener(this);
+        vAdmin.btnSalir.setActionCommand("__NewCoche");
+        vAdmin.btnSalir.addActionListener(this);
+        vAdmin.btnSalir.setActionCommand("__ModCoche");
+        vAdmin.btnSalir.addActionListener(this);
+        vAdmin.btnSalir.setActionCommand("__Factura");
+        vAdmin.btnSalir.addActionListener(this);
+        vAdmin.btnSalir.setActionCommand("__Informes");
+        vAdmin.btnSalir.addActionListener(this);
+        vAdmin.btnSalir.setActionCommand("__Servicios");
+        vAdmin.btnSalir.addActionListener(this);
 
-        //Botones del Mecanico
-        vistaMecanico.btnListCar.setActionCommand("__Listame");
-        vistaMecanico.btnListCar.addActionListener(this);
-        vistaMecanico.btnItv.setActionCommand("__Presupuesteame");
-        vistaMecanico.btnItv.addActionListener(this);
-        vistaMecanico.btnPresup.setActionCommand("__Tallerizame");
-        vistaMecanico.btnPresup.addActionListener(this);
-        vistaMecanico.btnTaller.setActionCommand("__Pintame");
-        vistaMecanico.btnTaller.addActionListener(this);
-        vistaMecanico.btnPintura.setActionCommand("__ITVme");
-        vistaMecanico.btnPintura.addActionListener(this);
+//Botones del JDialogNewCliente
+        vAdmin.JDNCbtnAceptar.setActionCommand("__JdNcliAcepta");
+        vAdmin.JDNCbtnAceptar.addActionListener(this);
+        vAdmin.JDNCbtnAceptar.setActionCommand("__JdNcliCancela");
+        vAdmin.JDNCbtnAceptar.addActionListener(this);
+
+        //Botones del JDialogNewCoche
+        vAdmin.JDNCbtnAceptar.setActionCommand("__JdNcoConfirma");
+        vAdmin.JDNCbtnAceptar.addActionListener(this);
+        vAdmin.JDNCbtnAceptar.setActionCommand("__JdNcoCancelar");
+        vAdmin.JDNCbtnAceptar.addActionListener(this);
+
+//Botones del Mecanico
+        vMeca.btnListCar.setActionCommand("__Listame");
+        vMeca.btnListCar.addActionListener(this);
+        vMeca.btnItv.setActionCommand("__Presupuesteame");
+        vMeca.btnItv.addActionListener(this);
+        vMeca.btnPresup.setActionCommand("__Tallerizame");
+        vMeca.btnPresup.addActionListener(this);
+        vMeca.btnTaller.setActionCommand("__Pintame");
+        vMeca.btnTaller.addActionListener(this);
+        vMeca.btnPintura.setActionCommand("__ITVme");
+        vMeca.btnPintura.addActionListener(this);
 
         //Lanzamos el Login
-        vistaLogin.setVisible(true);
+        vLogin.setVisible(true);
 
     }
 
@@ -84,98 +113,104 @@ public class Controlador implements ActionListener, MouseListener {
     public void actionPerformed(ActionEvent e) {
 
         switch (AccionMVC.valueOf(e.getActionCommand())) {
+            /**
+             * ***********LOGIN*************
+             */
             case __Conectar:
-                user = vistaLogin.txtUsuario.getText();
-                passw = vistaLogin.txtContraseña.toString();
+                user = vLogin.txtUsuario.getText();
+                passw = vLogin.txtContraseña.toString();
 
                 if (consulta.getLogin(user, passw) == true) {
                     System.out.println("usuario y contraseña correctos");
                     switch (consulta.getRol(user)) {
                         case "mecanico":
-                            vistaLogin.setVisible(false);
-                            vistaMecanico.setVisible(true);
+                            vLogin.setVisible(false);
+                            vMeca.setVisible(true);
                             //Ponemos los paneles en false, los activamos con los botones
                             //Layered 1
-                            vistaMecanico.L1_panelLista.setVisible(true);
-                            vistaMecanico.L1_panelPresupuesto.setVisible(false);
-                            vistaMecanico.L1_panelTaller.setVisible(false);
-                            vistaMecanico.L1_panelPintura.setVisible(false);
-                            vistaMecanico.L1_panelITV.setVisible(false);
+                            vMeca.L1_panelLista.setVisible(true);
+                            vMeca.L1_panelPresupuesto.setVisible(false);
+                            vMeca.L1_panelTaller.setVisible(false);
+                            vMeca.L1_panelPintura.setVisible(false);
+                            vMeca.L1_panelITV.setVisible(false);
                             //Layered 2
-                            vistaMecanico.L2_panelLista.setVisible(true);
-                            vistaMecanico.L2_panelPresupuesto.setVisible(false);
-                            vistaMecanico.L2_panelTaller.setVisible(false);
-                            vistaMecanico.L2_panelPintura.setVisible(false);
-                            vistaMecanico.L2_panelITV.setVisible(false);
+                            vMeca.L2_panelLista.setVisible(true);
+                            vMeca.L2_panelPresupuesto.setVisible(false);
+                            vMeca.L2_panelTaller.setVisible(false);
+                            vMeca.L2_panelPintura.setVisible(false);
+                            vMeca.L2_panelITV.setVisible(false);
                             try {
                                 //Tablas
-                                vistaMecanico.tablaLista.setModel(consulta.tablaCoches());
+                                vMeca.tablaLista.setModel(consulta.tablaCoches());
                             } catch (Exception ex) {
                                 ex.printStackTrace();
                             }
 
                             break;
                         case "administra":
-                            vistaLogin.setVisible(false);
-                            vistaAdministrativo.setVisible(true);
+                            vLogin.setVisible(false);
+                            vAdmin.setVisible(true);
                             break;
                         default:
                             System.out.println("Error al comparar los roles");
                             break;
                     }
                 }
-//
-//                if (this.user.equals("Administrativo") ) {
-//                    this.vistaLogin.setVisible(false);
-//                    this.vistaAdministrativo.setVisible(true);
-//                } else if (this.user.equals("Mecanico")) {
-//                    vistaLogin.setVisible(false);
-//                    vistaMecanico.setVisible(true);
-//                } else {
-//                    JOptionPane.showMessageDialog(this.vistaLogin, "Error al conectar. \n"
-//                            + "Usuarios: \n"
-//                            + "- Administrativo \n"
-//                            + "- Mecanico \n"
-//                            + "Sin tocar contraseña.");
-//                }
                 break;
-
             case __Registrarse:
                 break;
+            /**
+             * ********ADMINISTRATIVO*********
+             */
 
-            case __ACerrarUsuario:
-                this.user = null;
-                this.vistaLogin.txtUsuario.setText("");
-                this.vistaLogin.txtContraseña.setText("");
-                this.vistaAdministrativo.setVisible(false);
-                this.vistaLogin.setVisible(true);
-                break;
             case __NewCliente:
-
+                break;
+            case __ModCliente:
+                break;
+            case __NewCoche:
+                break;
+            case __ModCoche:
                 break;
 
+            case __Servicios:
+                break;
+            case __Informes:
+                break;
+            case __Factura:
+                break;
+            //dialogs
+            case __JdNcliAcepta:
+                break;
+            case __JdNcliCancela:
+                break;
+            case __JdNcoConfirma:
+                break;
+            case __JdNcoCancelar:
+                break;
+            /**
+             * ************MECANICO*****************
+             */
             case __Listame:
                 //Paneles Layered 1
-                vistaMecanico.L1_panelLista.setVisible(true);
-                vistaMecanico.L1_panelPresupuesto.setVisible(false);
-                vistaMecanico.L1_panelTaller.setVisible(false);
-                vistaMecanico.L1_panelPintura.setVisible(false);
-                vistaMecanico.L1_panelITV.setVisible(false);
+                vMeca.L1_panelLista.setVisible(true);
+                vMeca.L1_panelPresupuesto.setVisible(false);
+                vMeca.L1_panelTaller.setVisible(false);
+                vMeca.L1_panelPintura.setVisible(false);
+                vMeca.L1_panelITV.setVisible(false);
                 //Paneles Layered 2
-                vistaMecanico.L2_panelLista.setVisible(true);
-                vistaMecanico.L2_panelPresupuesto.setVisible(false);
-                vistaMecanico.L2_panelTaller.setVisible(false);
-                vistaMecanico.L2_panelPintura.setVisible(false);
-                vistaMecanico.L2_panelITV.setVisible(false);
+                vMeca.L2_panelLista.setVisible(true);
+                vMeca.L2_panelPresupuesto.setVisible(false);
+                vMeca.L2_panelTaller.setVisible(false);
+                vMeca.L2_panelPintura.setVisible(false);
+                vMeca.L2_panelITV.setVisible(false);
                 break;
 
             case __SubirImagen:
                 JFileChooser chooser = new JFileChooser();
                 FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & GIF Images", "jpg", "gif");
                 chooser.setFileFilter(filter);
-                int returnVal = chooser.showOpenDialog(vistaMecanico);
+                int returnVal = chooser.showOpenDialog(vMeca);
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
-
                     System.out.println("You chose to open this file: "
                             + chooser.getSelectedFile().getName());
 
@@ -184,64 +219,73 @@ public class Controlador implements ActionListener, MouseListener {
 
             case __Presupuesteame:
                 //Paneles Layered 1
-                vistaMecanico.L1_panelLista.setVisible(false);
-                vistaMecanico.L1_panelPresupuesto.setVisible(true);
-                vistaMecanico.L1_panelTaller.setVisible(false);
-                vistaMecanico.L1_panelPintura.setVisible(false);
-                vistaMecanico.L1_panelITV.setVisible(false);
+                vMeca.L1_panelLista.setVisible(false);
+                vMeca.L1_panelPresupuesto.setVisible(true);
+                vMeca.L1_panelTaller.setVisible(false);
+                vMeca.L1_panelPintura.setVisible(false);
+                vMeca.L1_panelITV.setVisible(false);
                 //Paneles Layered 2
-                vistaMecanico.L2_panelLista.setVisible(false);
-                vistaMecanico.L2_panelPresupuesto.setVisible(true);
-                vistaMecanico.L2_panelTaller.setVisible(false);
-                vistaMecanico.L2_panelPintura.setVisible(false);
-                vistaMecanico.L2_panelITV.setVisible(false);
+                vMeca.L2_panelLista.setVisible(false);
+                vMeca.L2_panelPresupuesto.setVisible(true);
+                vMeca.L2_panelTaller.setVisible(false);
+                vMeca.L2_panelPintura.setVisible(false);
+                vMeca.L2_panelITV.setVisible(false);
                 break;
 
             case __Tallerizame:
                 //Paneles Layered 1
-                vistaMecanico.L1_panelLista.setVisible(false);
-                vistaMecanico.L1_panelPresupuesto.setVisible(false);
-                vistaMecanico.L1_panelTaller.setVisible(true);
-                vistaMecanico.L1_panelPintura.setVisible(false);
-                vistaMecanico.L1_panelITV.setVisible(false);
+                vMeca.L1_panelLista.setVisible(false);
+                vMeca.L1_panelPresupuesto.setVisible(false);
+                vMeca.L1_panelTaller.setVisible(true);
+                vMeca.L1_panelPintura.setVisible(false);
+                vMeca.L1_panelITV.setVisible(false);
                 //Paneles Layered 2
-                vistaMecanico.L2_panelLista.setVisible(false);
-                vistaMecanico.L2_panelPresupuesto.setVisible(false);
-                vistaMecanico.L2_panelTaller.setVisible(true);
-                vistaMecanico.L2_panelPintura.setVisible(false);
-                vistaMecanico.L2_panelITV.setVisible(false);
+                vMeca.L2_panelLista.setVisible(false);
+                vMeca.L2_panelPresupuesto.setVisible(false);
+                vMeca.L2_panelTaller.setVisible(true);
+                vMeca.L2_panelPintura.setVisible(false);
+                vMeca.L2_panelITV.setVisible(false);
                 break;
 
             case __Pintame:
                 //Paneles Layered 1
-                vistaMecanico.L1_panelLista.setVisible(false);
-                vistaMecanico.L1_panelPresupuesto.setVisible(false);
-                vistaMecanico.L1_panelTaller.setVisible(false);
-                vistaMecanico.L1_panelPintura.setVisible(true);
-                vistaMecanico.L1_panelITV.setVisible(false);
+                vMeca.L1_panelLista.setVisible(false);
+                vMeca.L1_panelPresupuesto.setVisible(false);
+                vMeca.L1_panelTaller.setVisible(false);
+                vMeca.L1_panelPintura.setVisible(true);
+                vMeca.L1_panelITV.setVisible(false);
                 //Paneles Layered 2
-                vistaMecanico.L2_panelLista.setVisible(false);
-                vistaMecanico.L2_panelPresupuesto.setVisible(false);
-                vistaMecanico.L2_panelTaller.setVisible(false);
-                vistaMecanico.L2_panelPintura.setVisible(true);
-                vistaMecanico.L2_panelITV.setVisible(false);
+                vMeca.L2_panelLista.setVisible(false);
+                vMeca.L2_panelPresupuesto.setVisible(false);
+                vMeca.L2_panelTaller.setVisible(false);
+                vMeca.L2_panelPintura.setVisible(true);
+                vMeca.L2_panelITV.setVisible(false);
                 break;
 
             case __ITVme:
                 //Paneles Layered 1
-                vistaMecanico.L1_panelLista.setVisible(false);
-                vistaMecanico.L1_panelPresupuesto.setVisible(false);
-                vistaMecanico.L1_panelTaller.setVisible(false);
-                vistaMecanico.L1_panelPintura.setVisible(false);
-                vistaMecanico.L1_panelITV.setVisible(true);
+                vMeca.L1_panelLista.setVisible(false);
+                vMeca.L1_panelPresupuesto.setVisible(false);
+                vMeca.L1_panelTaller.setVisible(false);
+                vMeca.L1_panelPintura.setVisible(false);
+                vMeca.L1_panelITV.setVisible(true);
                 //Paneles Layered 2
-                vistaMecanico.L2_panelLista.setVisible(false);
-                vistaMecanico.L2_panelPresupuesto.setVisible(false);
-                vistaMecanico.L2_panelTaller.setVisible(false);
-                vistaMecanico.L2_panelPintura.setVisible(false);
-                vistaMecanico.L2_panelITV.setVisible(true);
+                vMeca.L2_panelLista.setVisible(false);
+                vMeca.L2_panelPresupuesto.setVisible(false);
+                vMeca.L2_panelTaller.setVisible(false);
+                vMeca.L2_panelPintura.setVisible(false);
+                vMeca.L2_panelITV.setVisible(true);
                 break;
-
+            /**
+             * *********************MENU**************************
+             */
+            case __ACerrarUsuario:
+                this.user = null;
+                this.vLogin.txtUsuario.setText("");
+                this.vLogin.txtContraseña.setText("");
+                this.vAdmin.setVisible(false);
+                this.vLogin.setVisible(true);
+                break;
             case __ASalir:
                 System.exit(0);
                 break;
