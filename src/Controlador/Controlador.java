@@ -89,7 +89,6 @@ public class Controlador implements ActionListener, MouseListener {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         //Lanzamos el Login
         vistaLogin.setVisible(true);
 

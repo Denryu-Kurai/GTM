@@ -92,7 +92,7 @@ public class Consultas {
         return datos;
     }
 
-    public int getFechaReciente(String matricula) {
+        public int getFechaReciente(String matricula) {
         int actual = 0;
         Connection cn = con.getConexion();
         try {
