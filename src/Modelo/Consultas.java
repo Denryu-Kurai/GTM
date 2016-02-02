@@ -90,7 +90,7 @@ public class Consultas {
         return datos;
     }
 
-        public int getFechaReciente(String matricula) {
+    public int getFechaReciente(String matricula) {
         int actual = 0;
         Connection cn = con.getConexion();
         try {
@@ -122,7 +122,6 @@ public class Consultas {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        con.cerrar();
         return modelo;
     }//tablaCoches
 
@@ -175,9 +174,10 @@ public class Consultas {
 
     public boolean getLogin(String user, String password) {
         boolean pasa = false;
+
         try {
             stm = con.getConexion().createStatement();
-            rst = stm.executeQuery("select usuario, contrasenas from personas where usuario like '" + user + "' and contrasenas like '" + password + "';");
+            rst = stm.executeQuery("select usuario, contrasenas from personas where usuario like '" + user + "' and contrasenas = '" + password + "';");
             if (rst != null) {
                 pasa = true;
             }
