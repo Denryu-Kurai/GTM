@@ -104,7 +104,13 @@ public class Consultas {
     }
 
     public DefaultTableModel tablaCoches() {
-        DefaultTableModel modelo = new DefaultTableModel();
+        DefaultTableModel modelo = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int colum) {
+                return false;
+            }
+        };
+
         modelo.addColumn("MATRICULA");
         modelo.addColumn("MODELO");
         modelo.addColumn("MARCA");
