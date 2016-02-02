@@ -1,11 +1,8 @@
-
 package Vista;
 
 // @author Denryu Kurai Seishi
-
 public class AdministrativoView extends javax.swing.JFrame {
 
-   
     public AdministrativoView() {
         initComponents();
     }
@@ -315,9 +312,6 @@ public class AdministrativoView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -343,10 +337,8 @@ public class AdministrativoView extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AdministrativoView().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new AdministrativoView().setVisible(true);
         });
     }
 

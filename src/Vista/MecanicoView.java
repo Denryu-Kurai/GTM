@@ -56,7 +56,7 @@ public class MecanicoView extends javax.swing.JFrame {
         txtPrecioFinal_Presup = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        btnQuitarLista = new javax.swing.JButton();
         L1_panelTaller = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         txtBuscaCar_Taller = new javax.swing.JTextField();
@@ -92,11 +92,6 @@ public class MecanicoView extends javax.swing.JFrame {
         btnPintura.setText("Pintura");
 
         btnItv.setText("ITV");
-        btnItv.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnItvActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -276,11 +271,6 @@ public class MecanicoView extends javax.swing.JFrame {
         jLabel12.setText("NUMERO DE PIEZAS");
 
         jTextField1.setText("jTextField1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
 
         jButton1.setText("-");
 
@@ -355,7 +345,7 @@ public class MecanicoView extends javax.swing.JFrame {
 
         jTextField2.setText("jTextField2");
 
-        jButton3.setText("Quitar de la lista");
+        btnQuitarLista.setText("Quitar de la lista");
 
         javax.swing.GroupLayout L1_panelPresupuestoLayout = new javax.swing.GroupLayout(L1_panelPresupuesto);
         L1_panelPresupuesto.setLayout(L1_panelPresupuestoLayout);
@@ -385,7 +375,7 @@ public class MecanicoView extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, L1_panelPresupuestoLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)
+                        .addComponent(btnQuitarLista)
                         .addGap(108, 108, 108))))
         );
         L1_panelPresupuestoLayout.setVerticalGroup(
@@ -400,7 +390,7 @@ public class MecanicoView extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3)
+                        .addComponent(btnQuitarLista)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
@@ -690,14 +680,6 @@ public class MecanicoView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void btnItvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnItvActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnItvActionPerformed
-
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -725,10 +707,8 @@ public class MecanicoView extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MecanicoView().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new MecanicoView().setVisible(true);
         });
     }
 
@@ -755,13 +735,13 @@ public class MecanicoView extends javax.swing.JFrame {
     public javax.swing.JButton btnListCar;
     public javax.swing.JButton btnPintura;
     public javax.swing.JButton btnPresup;
+    private javax.swing.JButton btnQuitarLista;
     public javax.swing.JButton btnTaller;
     public javax.swing.JButton btnUpImage;
     private javax.swing.JButton jButton1;
     public javax.swing.JButton jButton12;
     public javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
