@@ -19,6 +19,7 @@ public class Consultas {
 
     public Consultas() {
         con = new ConMysql();
+        con.abrir();
     }
 
     public void insertCliente(String Dni, String name, String apell, String direcc, int tlfn) {
@@ -46,7 +47,7 @@ public class Consultas {
     }//insertarCoche
 
     public void insertarHistorial(String matricula, ArrayList lista, Date fecha) {
-        con.abrir();
+
         Connection cn = con.getConexion();
         try {
             String sql = "insert into historiales (matricula, fecha) values (?,?)";
@@ -60,7 +61,7 @@ public class Consultas {
     }
 
     public void insertarReparacion(int historial, int servicio) {
-        con.abrir();
+
         Connection cn = con.getConexion();
         try {
             String sql = "insert into reparaciones (historial,servicio) values (?,?)";
@@ -73,29 +74,26 @@ public class Consultas {
         }
     }
 
-    public Object datosLista(int id) {
+    public Object datosLista(String dni) {
         Object[] datos = new Object[8];
-        con.abrir();
         try {
             Connection cn = con.getConexion();
             stm = cn.createStatement();
-            rst = stm.executeQuery("select c.modelo,c.marca,c.matricula,p.telefono,l.taller,l.pintura,l.itv  from coches as c, lugares as l,personas as p where dni like '" + id + "'");
+            rst = stm.executeQuery("select c.matricula,c.marca,c.modelo,p.telefono,l.taller,l.pintura,l.itv  from coches as c, lugares as l,personas as p where dni = '" + dni + "';");
             while (rst.next()) {
                 for (int i = 0; i < 8; i++) {
                     datos[i] = rst.getObject(i);
                     // ASI SE PASA DE DATO  String s = (String)datos[1];
                 }
-
             }
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
         return datos;
     }
 
     public int getFechaReciente(String matricula) {
         int actual = 0;
-        con.abrir();
         Connection cn = con.getConexion();
         try {
             Statement s = cn.createStatement();
@@ -112,7 +110,6 @@ public class Consultas {
         modelo.addColumn("MATRICULA");
         modelo.addColumn("MODELO");
         modelo.addColumn("MARCA");
-        con.abrir();
         try {
             Connection cn = con.getConexion();
             stm = cn.createStatement();
@@ -137,7 +134,6 @@ public class Consultas {
         modelo.addColumn("MODELO");
         modelo.addColumn("SERVICIO");
         modelo.addColumn("PRECIO");
-        con.abrir();
         Connection cn = con.getConexion();
         try {
             Statement s = cn.createStatement();
@@ -162,7 +158,6 @@ public class Consultas {
         modelo.addColumn("MODELO");
         modelo.addColumn("SERVICIO");
         modelo.addColumn("PRECIO");
-        con.abrir();
         Connection cn = con.getConexion();
         try {
             Statement s = cn.createStatement();
@@ -182,7 +177,6 @@ public class Consultas {
 
     public boolean getLogin(String user, String password) {
         boolean pasa = false;
-        con.abrir();
         try {
             stm = con.getConexion().createStatement();
             rst = stm.executeQuery("select usuario, contrasenas from personas where usuario like '" + user + "' and contrasenas like '" + password + "';");
@@ -198,7 +192,6 @@ public class Consultas {
 
     public String getRol(String user) {
         String ok = "";
-        con.abrir();
         try {
             stm = con.getConexion().createStatement();
             rst = stm.executeQuery("select rol from personas where usuario like '" + user + "';");
