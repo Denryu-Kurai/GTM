@@ -51,7 +51,7 @@ public class MecanicoView extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<String>();
+        jList1 = new javax.swing.JList<>();
         jLabel10 = new javax.swing.JLabel();
         txtPrecioFinal_Presup = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -330,10 +330,10 @@ public class MecanicoView extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane5.setViewportView(jList1);
 
@@ -481,6 +481,12 @@ public class MecanicoView extends javax.swing.JFrame {
             .addGap(0, 520, Short.MAX_VALUE)
         );
 
+        jLayeredPane1.setLayer(L1_panelLista, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(L1_panelPintura, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(L1_panelPresupuesto, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(L1_panelTaller, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(L1_panelITV, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -505,11 +511,6 @@ public class MecanicoView extends javax.swing.JFrame {
                     .addComponent(L1_panelITV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(L1_panelLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
-        jLayeredPane1.setLayer(L1_panelLista, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(L1_panelPintura, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(L1_panelPresupuesto, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(L1_panelTaller, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(L1_panelITV, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         btnUpImage.setText("SUBIR IMAGEN");
 
@@ -619,6 +620,12 @@ public class MecanicoView extends javax.swing.JFrame {
             .addGap(0, 500, Short.MAX_VALUE)
         );
 
+        jLayeredPane2.setLayer(L2_panelLista, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(L2_panelPresupuesto, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(L2_panelTaller, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(L2_panelPintura, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(L2_panelITV, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
         jLayeredPane2.setLayout(jLayeredPane2Layout);
         jLayeredPane2Layout.setHorizontalGroup(
@@ -643,11 +650,6 @@ public class MecanicoView extends javax.swing.JFrame {
                     .addComponent(L2_panelTaller, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(L2_panelPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
-        jLayeredPane2.setLayer(L2_panelLista, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(L2_panelPresupuesto, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(L2_panelTaller, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(L2_panelPintura, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(L2_panelITV, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -769,13 +771,13 @@ public class MecanicoView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     public javax.swing.JCheckBox listaITV;
-    private javax.swing.JTextField listaMarca;
-    private javax.swing.JTextField listaMatricul;
-    private javax.swing.JTextField listaModelo;
+    public javax.swing.JTextField listaMarca;
+    public javax.swing.JTextField listaMatricul;
+    public javax.swing.JTextField listaModelo;
     public javax.swing.JCheckBox listaPintura;
-    private javax.swing.JTextField listaPropietario;
+    public javax.swing.JTextField listaPropietario;
     public javax.swing.JCheckBox listaTaller;
-    private javax.swing.JTextField listaTelefono;
+    public javax.swing.JTextField listaTelefono;
     public javax.swing.JTable tablaLista;
     public javax.swing.JTextField txtBuscaCar_Presup;
     public javax.swing.JTextField txtBuscaCar_Taller;

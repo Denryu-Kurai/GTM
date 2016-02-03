@@ -69,24 +69,62 @@ public class Consultas {
         }
     }
 
-    public Object datosLista(String dni) {
-        Object[] datos = new Object[8];
+    public ArrayList datosLista(String id) {
+        ArrayList<String> datos = new ArrayList<>();
+        con.abrir();
         try {
             Connection cn = con.getConexion();
             stm = cn.createStatement();
-            rst = stm.executeQuery("select c.matricula,c.marca,c.modelo,p.telefono,l.taller,l.pintura,l.itv  from coches as c, lugares as l,personas as p where dni = '" + dni + "';");
+            rst = stm.executeQuery("select c.modelo,c.marca,c.matricula,p.telefono,c.duenio from coches as c,personas as p where p.dni='" + id + "'");
             while (rst.next()) {
-                for (int i = 0; i < 8; i++) {
-                    datos[i] = rst.getObject(i);
-                    // ASI SE PASA DE DATO  String s = (String)datos[1];
+                for (int i = 0; i < 4; i++) {
+                    datos.add(rst.getString(i+1));
+                    
                 }
+
             }
         } catch (Exception e) {
-            e.printStackTrace();
+
         }
         return datos;
     }
 
+    public ArrayList datosLugar(String id){
+        
+    ArrayList<Boolean> datos = new ArrayList<>();
+        con.abrir();
+        try {
+            Connection cn = con.getConexion();
+            stm = cn.createStatement();
+            rst = stm.executeQuery("Select taller,pintura,itv from lugares where matricula='"+id+"'");
+            while (rst.next()) {
+                for (int i = 0; i < 3; i++) {
+                    datos.add(rst.getBoolean(i+1));
+              }
+
+            }
+        } catch (Exception e) {
+
+        }
+        return datos;
+    }
+    
+    public String getDni(String id){
+        String actual = null;
+                Connection cn = con.getConexion();
+        try {
+            Statement s = cn.createStatement();
+            ResultSet rs = s.executeQuery("select duenio from coches where matricula='" + id + "'");
+            if (rs.next()){
+            actual = rs.getString(1);
+            }
+         } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+     return actual;   
+    }
+            
     public int getFechaReciente(String matricula) {
         int actual = 0;
         Connection cn = con.getConexion();

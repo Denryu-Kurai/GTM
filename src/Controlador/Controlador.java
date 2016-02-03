@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -31,6 +32,11 @@ public class Controlador implements ActionListener, MouseListener {
         this.vAdmin = vA;
         this.vMeca = vM;
 
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public enum AccionMVC {
@@ -107,8 +113,32 @@ public class Controlador implements ActionListener, MouseListener {
         //Lanzamos el Login
         vLogin.setVisible(true);
 
+        
+            vMeca.tablaLista.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                int i=vMeca.tablaLista.getSelectedRow();
+                String o = vMeca.tablaLista.getValueAt(i,0).toString();               
+                ArrayList a = consulta.datosLista(consulta.getDni(o));
+                vMeca.listaModelo.setText(a.get(0).toString());
+                vMeca.listaMarca.setText(a.get(1).toString());
+                vMeca.listaPropietario.setText(a.get(2).toString());
+                vMeca.listaTelefono.setText(a.get(3).toString());
+                vMeca.listaMatricul.setText(a.get(4).toString());
+                ArrayList b = consulta.datosLugar(o);
+                vMeca.listaTaller.setSelected((Boolean)b.get(0));
+                vMeca.listaPintura.setSelected((Boolean)b.get(1));
+                vMeca.listaITV.setSelected((Boolean)b.get(2));
+            }
+            });
+        
     }
+            
+                
 
+
+        
+    
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -296,9 +326,7 @@ public class Controlador implements ActionListener, MouseListener {
     public void mouseClicked(MouseEvent e) {
     }
 
-    @Override
-    public void mousePressed(MouseEvent e) {
-    }
+
 
     @Override
     public void mouseReleased(MouseEvent e) {
