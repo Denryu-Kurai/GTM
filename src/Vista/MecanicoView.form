@@ -181,15 +181,15 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="L1_panelPresupuesto" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="L1_panelTaller" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="L1_panelPresupuesto" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="L1_panelITV" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="L1_panelPintura" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
-                  <Component id="L1_panelPintura" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Component id="L1_panelLista" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -197,8 +197,8 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="L1_panelPresupuesto" alignment="0" max="-2" attributes="0"/>
-                  <Component id="L1_panelTaller" min="-2" max="-2" attributes="0"/>
+                  <Component id="L1_panelTaller" alignment="0" max="-2" attributes="0"/>
+                  <Component id="L1_panelPresupuesto" min="-2" max="-2" attributes="0"/>
                   <Component id="L1_panelITV" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="L1_panelPintura" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -464,7 +464,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="L1_panelTaller">
+            <Container class="javax.swing.JPanel" name="L1_panelPresupuesto">
               <Properties>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[690, 540]"/>
@@ -686,7 +686,7 @@
                 </DimensionLayout>
               </Layout>
             </Container>
-            <Container class="javax.swing.JPanel" name="L1_panelPresupuesto">
+            <Container class="javax.swing.JPanel" name="L1_panelTaller">
               <Properties>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[690, 540]"/>
@@ -892,12 +892,12 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="L2_panelPresupuesto" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="L2_panelTaller" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="L2_panelITV" min="296" pref="296" max="-2" attributes="0"/>
+                          <Component id="L2_panelPintura" alignment="0" min="296" pref="296" max="-2" attributes="0"/>
+                          <Component id="L2_panelLista" alignment="0" min="296" pref="296" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="36" max="32767" attributes="0"/>
+                      <EmptySpace pref="10" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="L2_panelITV" min="296" pref="296" max="-2" attributes="0"/>
-                  <Component id="L2_panelPintura" alignment="0" min="296" pref="296" max="-2" attributes="0"/>
-                  <Component id="L2_panelLista" alignment="0" min="296" pref="296" max="-2" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">

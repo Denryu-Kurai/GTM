@@ -153,8 +153,8 @@ public class Controlador implements ActionListener, MouseListener {
                             //Ponemos los paneles en false, los activamos con los botones
                             //Layered 1
                             vMeca.L1_panelLista.setVisible(true);
-                            vMeca.L1_panelPresupuesto.setVisible(false);
                             vMeca.L1_panelTaller.setVisible(false);
+                            vMeca.L1_panelPresupuesto.setVisible(false);
                             vMeca.L1_panelPintura.setVisible(false);
                             vMeca.L1_panelITV.setVisible(false);
                             //Layered 2
@@ -217,8 +217,8 @@ public class Controlador implements ActionListener, MouseListener {
             case __Listame:
                 //Paneles Layered 1
                 vMeca.L1_panelLista.setVisible(true);
-                vMeca.L1_panelPresupuesto.setVisible(false);
                 vMeca.L1_panelTaller.setVisible(false);
+                vMeca.L1_panelPresupuesto.setVisible(false);
                 vMeca.L1_panelPintura.setVisible(false);
                 vMeca.L1_panelITV.setVisible(false);
                 //Paneles Layered 2
@@ -244,8 +244,8 @@ public class Controlador implements ActionListener, MouseListener {
             case __Presupuesteame:
                 //Paneles Layered 1
                 vMeca.L1_panelLista.setVisible(false);
-                vMeca.L1_panelPresupuesto.setVisible(true);
-                vMeca.L1_panelTaller.setVisible(false);
+                vMeca.L1_panelTaller.setVisible(true);
+                vMeca.L1_panelPresupuesto.setVisible(false);
                 vMeca.L1_panelPintura.setVisible(false);
                 vMeca.L1_panelITV.setVisible(false);
                 //Paneles Layered 2
@@ -259,8 +259,8 @@ public class Controlador implements ActionListener, MouseListener {
             case __Tallerizame:
                 //Paneles Layered 1
                 vMeca.L1_panelLista.setVisible(false);
-                vMeca.L1_panelPresupuesto.setVisible(false);
-                vMeca.L1_panelTaller.setVisible(true);
+                vMeca.L1_panelTaller.setVisible(false);
+                vMeca.L1_panelPresupuesto.setVisible(true);
                 vMeca.L1_panelPintura.setVisible(false);
                 vMeca.L1_panelITV.setVisible(false);
                 //Paneles Layered 2
@@ -274,8 +274,8 @@ public class Controlador implements ActionListener, MouseListener {
             case __Pintame:
                 //Paneles Layered 1
                 vMeca.L1_panelLista.setVisible(false);
-                vMeca.L1_panelPresupuesto.setVisible(false);
                 vMeca.L1_panelTaller.setVisible(false);
+                vMeca.L1_panelPresupuesto.setVisible(false);
                 vMeca.L1_panelPintura.setVisible(true);
                 vMeca.L1_panelITV.setVisible(false);
                 //Paneles Layered 2
@@ -289,8 +289,8 @@ public class Controlador implements ActionListener, MouseListener {
             case __ITVme:
                 //Paneles Layered 1
                 vMeca.L1_panelLista.setVisible(false);
-                vMeca.L1_panelPresupuesto.setVisible(false);
                 vMeca.L1_panelTaller.setVisible(false);
+                vMeca.L1_panelPresupuesto.setVisible(false);
                 vMeca.L1_panelPintura.setVisible(false);
                 vMeca.L1_panelITV.setVisible(true);
                 //Paneles Layered 2

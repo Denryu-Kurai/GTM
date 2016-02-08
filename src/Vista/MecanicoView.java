@@ -40,7 +40,7 @@ public class MecanicoView extends javax.swing.JFrame {
         listaMatricul = new javax.swing.JTextField();
         listaPropietario = new javax.swing.JTextField();
         listaTelefono = new javax.swing.JTextField();
-        L1_panelTaller = new javax.swing.JPanel();
+        L1_panelPresupuesto = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         txtBuscaCar_Taller = new javax.swing.JTextField();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -54,7 +54,7 @@ public class MecanicoView extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         L1_panelITV = new javax.swing.JPanel();
-        L1_panelPresupuesto = new javax.swing.JPanel();
+        L1_panelTaller = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         txtBuscaCar_Presup = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -89,7 +89,7 @@ public class MecanicoView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new java.awt.GridLayout());
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
         btnListCar.setText("Lista de Coches");
         jPanel1.add(btnListCar);
@@ -250,8 +250,8 @@ public class MecanicoView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        L1_panelTaller.setMaximumSize(new java.awt.Dimension(690, 540));
-        L1_panelTaller.setPreferredSize(new java.awt.Dimension(742, 579));
+        L1_panelPresupuesto.setMaximumSize(new java.awt.Dimension(690, 540));
+        L1_panelPresupuesto.setPreferredSize(new java.awt.Dimension(742, 579));
 
         jLabel11.setText("BUSCAR");
 
@@ -274,38 +274,38 @@ public class MecanicoView extends javax.swing.JFrame {
 
         jButton13.setText("GUARDAR");
 
-        javax.swing.GroupLayout L1_panelTallerLayout = new javax.swing.GroupLayout(L1_panelTaller);
-        L1_panelTaller.setLayout(L1_panelTallerLayout);
-        L1_panelTallerLayout.setHorizontalGroup(
-            L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(L1_panelTallerLayout.createSequentialGroup()
+        javax.swing.GroupLayout L1_panelPresupuestoLayout = new javax.swing.GroupLayout(L1_panelPresupuesto);
+        L1_panelPresupuesto.setLayout(L1_panelPresupuestoLayout);
+        L1_panelPresupuestoLayout.setHorizontalGroup(
+            L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(L1_panelPresupuestoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(L1_panelTallerLayout.createSequentialGroup()
+                    .addGroup(L1_panelPresupuestoLayout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addGap(18, 18, 18)
                         .addComponent(txtBuscaCar_Taller, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(L1_panelTallerLayout.createSequentialGroup()
+            .addGroup(L1_panelPresupuestoLayout.createSequentialGroup()
                 .addGap(111, 111, 111)
                 .addComponent(jButton12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
                 .addComponent(jButton13)
                 .addGap(170, 170, 170))
         );
-        L1_panelTallerLayout.setVerticalGroup(
-            L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(L1_panelTallerLayout.createSequentialGroup()
+        L1_panelPresupuestoLayout.setVerticalGroup(
+            L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(L1_panelPresupuestoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(txtBuscaCar_Taller, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton12)
                     .addComponent(jButton13))
                 .addContainerGap())
@@ -371,8 +371,8 @@ public class MecanicoView extends javax.swing.JFrame {
             .addGap(0, 577, Short.MAX_VALUE)
         );
 
-        L1_panelPresupuesto.setMaximumSize(new java.awt.Dimension(690, 540));
-        L1_panelPresupuesto.setPreferredSize(new java.awt.Dimension(742, 579));
+        L1_panelTaller.setMaximumSize(new java.awt.Dimension(690, 540));
+        L1_panelTaller.setPreferredSize(new java.awt.Dimension(742, 579));
 
         jLabel9.setText("MARCA");
 
@@ -408,58 +408,58 @@ public class MecanicoView extends javax.swing.JFrame {
 
         btnQuitarLista.setText("Quitar de la lista");
 
-        javax.swing.GroupLayout L1_panelPresupuestoLayout = new javax.swing.GroupLayout(L1_panelPresupuesto);
-        L1_panelPresupuesto.setLayout(L1_panelPresupuestoLayout);
-        L1_panelPresupuestoLayout.setHorizontalGroup(
-            L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(L1_panelPresupuestoLayout.createSequentialGroup()
+        javax.swing.GroupLayout L1_panelTallerLayout = new javax.swing.GroupLayout(L1_panelTaller);
+        L1_panelTaller.setLayout(L1_panelTallerLayout);
+        L1_panelTallerLayout.setHorizontalGroup(
+            L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(L1_panelTallerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, L1_panelPresupuestoLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, L1_panelTallerLayout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
                         .addComponent(txtBuscaCar_Presup, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(L1_panelPresupuestoLayout.createSequentialGroup()
+                    .addGroup(L1_panelTallerLayout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextField2)))
-                .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(L1_panelPresupuestoLayout.createSequentialGroup()
+                .addGroup(L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(L1_panelTallerLayout.createSequentialGroup()
                         .addGap(100, 100, 100)
-                        .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane5)
-                            .addGroup(L1_panelPresupuestoLayout.createSequentialGroup()
+                            .addGroup(L1_panelTallerLayout.createSequentialGroup()
                                 .addGap(108, 108, 108)
                                 .addComponent(jLabel10)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtPrecioFinal_Presup, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)))
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, L1_panelPresupuestoLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, L1_panelTallerLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnQuitarLista)
                         .addGap(108, 108, 108))))
         );
-        L1_panelPresupuestoLayout.setVerticalGroup(
-            L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(L1_panelPresupuestoLayout.createSequentialGroup()
+        L1_panelTallerLayout.setVerticalGroup(
+            L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(L1_panelTallerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(txtBuscaCar_Presup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(L1_panelPresupuestoLayout.createSequentialGroup()
+                .addGroup(L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(L1_panelTallerLayout.createSequentialGroup()
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnQuitarLista)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(txtPrecioFinal_Presup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(20, 20, 20))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, L1_panelPresupuestoLayout.createSequentialGroup()
-                        .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, L1_panelTallerLayout.createSequentialGroup()
+                        .addGroup(L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
@@ -471,30 +471,30 @@ public class MecanicoView extends javax.swing.JFrame {
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(L1_panelPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(L1_panelTaller, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(L1_panelITV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(L1_panelPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(L1_panelITV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(L1_panelPintura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(L1_panelPintura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(L1_panelLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(L1_panelPresupuesto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(L1_panelTaller, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(L1_panelTaller, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(L1_panelPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(L1_panelITV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(L1_panelPintura, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(L1_panelLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jLayeredPane1.setLayer(L1_panelLista, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(L1_panelTaller, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(L1_panelPresupuesto, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(L1_panelPintura, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(L1_panelITV, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(L1_panelPresupuesto, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(L1_panelTaller, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLayeredPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLayeredPane2.setPreferredSize(new java.awt.Dimension(298, 581));
@@ -624,11 +624,11 @@ public class MecanicoView extends javax.swing.JFrame {
             .addGroup(jLayeredPane2Layout.createSequentialGroup()
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(L2_panelPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(L2_panelTaller, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
-            .addComponent(L2_panelITV, 296, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(L2_panelPintura, 296, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(L2_panelLista, 296, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(L2_panelTaller, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(L2_panelITV, 296, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(L2_panelPintura, 296, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(L2_panelLista, 296, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         jLayeredPane2Layout.setVerticalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
