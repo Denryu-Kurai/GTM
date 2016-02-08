@@ -101,24 +101,23 @@ public class Controlador implements ActionListener, MouseListener {
 //Botones del Mecanico
         vMeca.btnListCar.setActionCommand("__Listame");
         vMeca.btnListCar.addActionListener(this);
-        vMeca.btnItv.setActionCommand("__Presupuesteame");
+        vMeca.btnItv.setActionCommand("__ITVme");
         vMeca.btnItv.addActionListener(this);
-        vMeca.btnPresup.setActionCommand("__Tallerizame");
+        vMeca.btnPresup.setActionCommand("__Presupuesteame");
         vMeca.btnPresup.addActionListener(this);
-        vMeca.btnTaller.setActionCommand("__Pintame");
+        vMeca.btnTaller.setActionCommand("__Tallerizame");
         vMeca.btnTaller.addActionListener(this);
-        vMeca.btnPintura.setActionCommand("__ITVme");
+        vMeca.btnPintura.setActionCommand("__Pintame");
         vMeca.btnPintura.addActionListener(this);
 
         //Lanzamos el Login
         vLogin.setVisible(true);
 
-        
-            vMeca.tablaLista.addMouseListener(new java.awt.event.MouseAdapter() {
+        vMeca.tablaLista.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                int i=vMeca.tablaLista.getSelectedRow();
-                String o = vMeca.tablaLista.getValueAt(i,0).toString();               
+                int i = vMeca.tablaLista.getSelectedRow();
+                String o = vMeca.tablaLista.getValueAt(i, 0).toString();
                 ArrayList a = consulta.datosLista(consulta.getDni(o));
                 vMeca.listaModelo.setText(a.get(0).toString());
                 vMeca.listaMarca.setText(a.get(1).toString());
@@ -126,19 +125,14 @@ public class Controlador implements ActionListener, MouseListener {
                 vMeca.listaTelefono.setText(a.get(3).toString());
                 vMeca.listaMatricul.setText(a.get(4).toString());
                 ArrayList b = consulta.datosLugar(o);
-                vMeca.listaTaller.setSelected((Boolean)b.get(0));
-                vMeca.listaPintura.setSelected((Boolean)b.get(1));
-                vMeca.listaITV.setSelected((Boolean)b.get(2));
+                vMeca.listaTaller.setSelected((Boolean) b.get(0));
+                vMeca.listaPintura.setSelected((Boolean) b.get(1));
+                vMeca.listaITV.setSelected((Boolean) b.get(2));
             }
-            });
-        
+        });
+
     }
-            
-                
 
-
-        
-    
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -325,8 +319,6 @@ public class Controlador implements ActionListener, MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
     }
-
-
 
     @Override
     public void mouseReleased(MouseEvent e) {
