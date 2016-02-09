@@ -1,5 +1,10 @@
 package Modelo;
 
+import java.awt.Image;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -242,5 +247,60 @@ public class Consultas {
         ok = ok.toLowerCase();
         return ok;
     }
+    
+    public void insertImagen (String matricula, String url) {
+        
+        FileInputStream fis = null;
+        try {
+                
+            File file = new File(url);
+            fis = new FileInputStream(file);
+
+            PreparedStatement pstm = con.getConexion().prepareStatement("insert into fotos(matricula, foto) values(" + matricula + ",?)");                
+            pstm.setBinaryStream(1, fis,(int) file.length());
+            pstm.execute();
+            pstm.close();
+                
+        } catch (FileNotFoundException ex) {
+                
+            ex.printStackTrace();
+                
+        } catch (SQLException e) {
+                
+            e.printStackTrace();
+                
+        } finally {
+                
+            try {
+                    
+                fis.close();
+                    
+            } catch (IOException ex) {
+                    
+                ex.printStackTrace();
+                    
+            }
+            
+        }
+        
+    }
+    
+    /* public Image abrirImagen(String matricula) throws SQLException, IOException {
+    
+        Image img=null;
+        String sql = "SELECT * FROM imagen limit 1";
+        
+        Statement stmt = conexion.createStatement();
+        ResultSet results = stmt.executeQuery(sql);
+ 
+        Blob imagen=null;
+        while(results.next())
+        Blob imagen = results.getBlob("Imagen");
+ 
+        rpta= javax.imageio.ImageIO.read(imagen.getBinaryStream());
+        //Esta parte es clave, donde se convierte a imagen
+        return rpta;
+    
+    } */
 
 }

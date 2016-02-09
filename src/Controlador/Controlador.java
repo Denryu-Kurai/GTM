@@ -14,6 +14,7 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Controlador implements ActionListener, MouseListener {
@@ -53,7 +54,8 @@ public class Controlador implements ActionListener, MouseListener {
         //JDialog Administrativo
         __JdNcliAcepta, __JdNcliCancela, __JdNcoConfirma, __JdNcoCancelar,
         //Mecanico
-        __Listame, __Presupuesteame, __Tallerizame, __Pintame, __ITVme, __SubirImagen;
+        __Listame, __Presupuesteame, __Tallerizame, __Pintame, __ITVme,
+        __SubirImagen;
     }
 
     public void iniciar() {
@@ -109,6 +111,9 @@ public class Controlador implements ActionListener, MouseListener {
         vMeca.btnTaller.addActionListener(this);
         vMeca.btnPintura.setActionCommand("__Pintame");
         vMeca.btnPintura.addActionListener(this);
+        
+        vMeca.btnUpImage.setActionCommand("__SubirImagen");
+        vMeca.btnUpImage.addActionListener(this);
 
         //Lanzamos el Login
         vLogin.setVisible(true);
@@ -230,14 +235,24 @@ public class Controlador implements ActionListener, MouseListener {
                 break;
 
             case __SubirImagen:
-                JFileChooser chooser = new JFileChooser();
-                FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & GIF Images", "jpg", "gif");
-                chooser.setFileFilter(filter);
-                int returnVal = chooser.showOpenDialog(vMeca);
-                if (returnVal == JFileChooser.APPROVE_OPTION) {
-                    System.out.println("You chose to open this file: "
-                            + chooser.getSelectedFile().getName());
+                int fila = this.vMeca.tablaLista.getSelectedRow();
+                
+                if (fila == -1) {
+                    
+                    JOptionPane.showMessageDialog(null, "Tiene que seleccionar un coche.");
+                    
+                } else {
+                    
+                    JFileChooser chooser = new JFileChooser();
+                    FileNameExtensionFilter filter = new FileNameExtensionFilter("Imágenes", "jpg", "gif", "png", "bmp");
+                    chooser.setFileFilter(filter);
+                    int returnVal = chooser.showOpenDialog(vMeca);
+                
+                    if (returnVal == JFileChooser.APPROVE_OPTION) {
+                    
+                        consulta.insertImagen((String) this.vMeca.tablaLista.getValueAt(fila, 0), chooser.getSelectedFile().getAbsolutePath());
 
+                    }
                 }
                 break;
 

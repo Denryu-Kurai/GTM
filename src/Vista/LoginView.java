@@ -22,8 +22,7 @@ public class LoginView extends javax.swing.JFrame {
         setTitle("GTM - Login");
         setLocation(new java.awt.Point(0, 0));
         setLocationByPlatform(true);
-        setMinimumSize(new java.awt.Dimension(256, 148));
-        setPreferredSize(new java.awt.Dimension(256, 148));
+        setPreferredSize(new java.awt.Dimension(256, 160));
         setResizable(false);
 
         jLabel1.setText("Usuario:");
@@ -53,7 +52,7 @@ public class LoginView extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                             .addComponent(txtContraseña))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -70,7 +69,7 @@ public class LoginView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnConectar)
                     .addComponent(btnRegistrarse))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
