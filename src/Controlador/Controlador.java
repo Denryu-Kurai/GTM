@@ -111,7 +111,7 @@ public class Controlador implements ActionListener, MouseListener {
         vMeca.btnTaller.addActionListener(this);
         vMeca.btnPintura.setActionCommand("__Pintame");
         vMeca.btnPintura.addActionListener(this);
-        
+
         vMeca.btnUpImage.setActionCommand("__SubirImagen");
         vMeca.btnUpImage.addActionListener(this);
 
@@ -236,20 +236,20 @@ public class Controlador implements ActionListener, MouseListener {
 
             case __SubirImagen:
                 int fila = this.vMeca.tablaLista.getSelectedRow();
-                
+
                 if (fila == -1) {
-                    
+
                     JOptionPane.showMessageDialog(null, "Tiene que seleccionar un coche.");
-                    
+
                 } else {
-                    
+
                     JFileChooser chooser = new JFileChooser();
                     FileNameExtensionFilter filter = new FileNameExtensionFilter("Imágenes", "jpg", "gif", "png", "bmp");
                     chooser.setFileFilter(filter);
                     int returnVal = chooser.showOpenDialog(vMeca);
-                
+
                     if (returnVal == JFileChooser.APPROVE_OPTION) {
-                    
+
                         consulta.insertImagen((String) this.vMeca.tablaLista.getValueAt(fila, 0), chooser.getSelectedFile().getAbsolutePath());
 
                     }

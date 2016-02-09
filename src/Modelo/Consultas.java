@@ -83,8 +83,8 @@ public class Consultas {
             rst = stm.executeQuery("select c.modelo,c.marca,c.matricula,p.telefono,c.duenio from coches as c,personas as p where p.dni='" + id + "'");
             while (rst.next()) {
                 for (int i = 0; i < 4; i++) {
-                    datos.add(rst.getString(i+1));
-                    
+                    datos.add(rst.getString(i + 1));
+
                 }
 
             }
@@ -94,18 +94,18 @@ public class Consultas {
         return datos;
     }
 
-    public ArrayList datosLugar(String id){
-        
-    ArrayList<Boolean> datos = new ArrayList<>();
+    public ArrayList datosLugar(String id) {
+
+        ArrayList<Boolean> datos = new ArrayList<>();
         con.abrir();
         try {
             Connection cn = con.getConexion();
             stm = cn.createStatement();
-            rst = stm.executeQuery("Select taller,pintura,itv from lugares where matricula='"+id+"'");
+            rst = stm.executeQuery("Select taller,pintura,itv from lugares where matricula='" + id + "'");
             while (rst.next()) {
                 for (int i = 0; i < 3; i++) {
-                    datos.add(rst.getBoolean(i+1));
-              }
+                    datos.add(rst.getBoolean(i + 1));
+                }
 
             }
         } catch (Exception e) {
@@ -113,23 +113,23 @@ public class Consultas {
         }
         return datos;
     }
-    
-    public String getDni(String id){
+
+    public String getDni(String id) {
         String actual = null;
-                Connection cn = con.getConexion();
+        Connection cn = con.getConexion();
         try {
             Statement s = cn.createStatement();
             ResultSet rs = s.executeQuery("select duenio from coches where matricula='" + id + "'");
-            if (rs.next()){
-            actual = rs.getString(1);
+            if (rs.next()) {
+                actual = rs.getString(1);
             }
-         } catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        
-     return actual;   
+
+        return actual;
     }
-            
+
     public int getFechaReciente(String matricula) {
         int actual = 0;
         Connection cn = con.getConexion();
@@ -247,60 +247,55 @@ public class Consultas {
         ok = ok.toLowerCase();
         return ok;
     }
-    
-    public void insertImagen (String matricula, String url) {
-        
+
+    public void insertImagen(String matricula, String url) {
+
         FileInputStream fis = null;
         try {
-                
+
             File file = new File(url);
             fis = new FileInputStream(file);
 
-            PreparedStatement pstm = con.getConexion().prepareStatement("insert into fotos(matricula, foto) values(" + matricula + ",?)");                
-            pstm.setBinaryStream(1, fis,(int) file.length());
+            PreparedStatement pstm = con.getConexion().prepareStatement("insert into fotos(matricula, foto) values(" + matricula + ",?)");
+            pstm.setBinaryStream(1, fis, (int) file.length());
             pstm.execute();
             pstm.close();
-                
-        } catch (FileNotFoundException ex) {
-                
+
+        } catch (FileNotFoundException | SQLException ex) {
+
             ex.printStackTrace();
-                
-        } catch (SQLException e) {
-                
-            e.printStackTrace();
-                
+
         } finally {
-                
+
             try {
-                    
+
                 fis.close();
-                    
+
             } catch (IOException ex) {
-                    
+
                 ex.printStackTrace();
-                    
+
             }
-            
+
         }
-        
+
     }
-    
+
     /* public Image abrirImagen(String matricula) throws SQLException, IOException {
     
-        Image img=null;
-        String sql = "SELECT * FROM imagen limit 1";
+     Image img=null;
+     String sql = "SELECT * FROM imagen limit 1";
         
-        Statement stmt = conexion.createStatement();
-        ResultSet results = stmt.executeQuery(sql);
+     Statement stmt = conexion.createStatement();
+     ResultSet results = stmt.executeQuery(sql);
  
-        Blob imagen=null;
-        while(results.next())
-        Blob imagen = results.getBlob("Imagen");
+     Blob imagen=null;
+     while(results.next())
+     Blob imagen = results.getBlob("Imagen");
  
-        rpta= javax.imageio.ImageIO.read(imagen.getBinaryStream());
-        //Esta parte es clave, donde se convierte a imagen
-        return rpta;
+     rpta= javax.imageio.ImageIO.read(imagen.getBinaryStream());
+     //Esta parte es clave, donde se convierte a imagen
+     return rpta;
     
-    } */
-
+     } */
 }
