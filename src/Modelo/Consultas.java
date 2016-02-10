@@ -22,7 +22,9 @@ public class Consultas {
         con.abrir();
     }
 
+    //INSERTAR
     public void insertCliente(String Dni, String name, String apell, String direcc, int tlfn) {
+        con.abrir();
         try {
             stm = con.getConexion().createStatement();
             String sql;
@@ -32,9 +34,11 @@ public class Consultas {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        con.cerrar();
     }//insertarCliente
 
     public void insertCoche(String matric, String marca, String modelo, String color, String plazas, int ejes, int puertas, String dniduenio) {
+        con.abrir();
         try {
             stm = con.getConexion().createStatement();
             String sql;
@@ -44,34 +48,36 @@ public class Consultas {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        con.cerrar();
     }//insertarCoche
 
     public void insertarHistorial(String matricula, ArrayList lista, Date fecha) {
-
-        Connection cn = con.getConexion();
+        con.abrir();
         try {
             String sql = "insert into historiales (matricula, fecha) values (?,?)";
-            PreparedStatement s = cn.prepareStatement(sql);
+            PreparedStatement s = con.getConexion().prepareStatement(sql);
             s.setString(1, matricula);
             s.setDate(2, new java.sql.Date(fecha.getTime()));
             s.execute();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        con.cerrar();
     }
 
     public void insertarReparacion(int historial, int servicio) {
 
-        Connection cn = con.getConexion();
+        con.abrir();
         try {
             String sql = "insert into reparaciones (historial,servicio) values (?,?)";
-            PreparedStatement s = cn.prepareStatement(sql);
+            PreparedStatement s = con.getConexion().prepareStatement(sql);
             s.setInt(1, historial);
             s.setInt(2, servicio);
             s.execute();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        con.cerrar();
     }
 
     public ArrayList datosLista(String id) {
@@ -84,13 +90,11 @@ public class Consultas {
             while (rst.next()) {
                 for (int i = 0; i < 4; i++) {
                     datos.add(rst.getString(i + 1));
-
                 }
-
             }
         } catch (Exception e) {
-
         }
+        con.cerrar();
         return datos;
     }
 
@@ -109,16 +113,17 @@ public class Consultas {
 
             }
         } catch (Exception e) {
-
         }
+        con.cerrar();
         return datos;
     }
 
+    //GETTERs
     public String getDni(String id) {
         String actual = null;
-        Connection cn = con.getConexion();
+        con.abrir();
         try {
-            Statement s = cn.createStatement();
+            Statement s = con.getConexion().createStatement();
             ResultSet rs = s.executeQuery("select duenio from coches where matricula='" + id + "'");
             if (rs.next()) {
                 actual = rs.getString(1);
@@ -126,26 +131,64 @@ public class Consultas {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        con.cerrar();
         return actual;
     }
 
     public int getFechaReciente(String matricula) {
         int actual = 0;
-        Connection cn = con.getConexion();
+        con.abrir();
         try {
-            Statement s = cn.createStatement();
+            Statement s = con.getConexion().createStatement();
             ResultSet rs = s.executeQuery("select id from historiales where matricula='" + matricula + "' Order by fecha des limit = 1");
             actual = rs.getInt(1);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        con.cerrar();
         return actual;
     }
 
+    public boolean getLogin(String user, String password) {
+        boolean pasa = false;
+        con.abrir();
+        try {
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select usuario, contrasenas from personas where usuario like '" + user + "' and contrasenas = '" + password + "';");
+            if (rst != null) {
+                pasa = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        con.cerrar();
+        return pasa;
+    }
+
+    public String getRol(String user) {
+        String ok = "";
+        con.abrir();
+        try {
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select rol from personas where usuario like '" + user + "';");
+            if (rst.next()) {
+                ok = rst.getString(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ok = ok.toLowerCase();
+        con.cerrar();
+        return ok;
+    }
+
+    /**
+     * *********************************
+     */
     public DefaultTableModel tablaCoches() {
         DefaultTableModel modelo = new DefaultTableModel() {
             @Override
+            //Este metodo hace que las celdas de la tabla no sean editables al hacer click en ella
             public boolean isCellEditable(int row, int colum) {
                 return false;
             }
@@ -153,9 +196,9 @@ public class Consultas {
         modelo.addColumn("MATRICULA");
         modelo.addColumn("MODELO");
         modelo.addColumn("MARCA");
+        con.abrir();
         try {
-            Connection cn = con.getConexion();
-            stm = cn.createStatement();
+            stm = con.getConexion().createStatement();
             rst = stm.executeQuery("select matricula,modelo,marca from coches");
             while (rst.next()) {
                 Object[] fila = new Object[3];
@@ -167,15 +210,23 @@ public class Consultas {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        con.cerrar();
         return modelo;
     }//tablaCoches
 
     public DefaultTableModel tablaServicios() {
-        DefaultTableModel modelo = new DefaultTableModel();
+        DefaultTableModel modelo = new DefaultTableModel() {
+            @Override
+            //Este metodo hace que las celdas de la tabla no sean editables al hacer click en ella
+            public boolean isCellEditable(int row, int colum) {
+                return false;
+            }
+        };
         modelo.addColumn("MARCA");
         modelo.addColumn("MODELO");
         modelo.addColumn("SERVICIO");
         modelo.addColumn("PRECIO");
+        con.abrir();
         Connection cn = con.getConexion();
         try {
             Statement s = cn.createStatement();
@@ -190,16 +241,23 @@ public class Consultas {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        con.cerrar();
         return modelo;
     }
 
     public DefaultTableModel tablaServiciosFiltrada(String mar, String mod) {
-
-        DefaultTableModel modelo = new DefaultTableModel();
+        DefaultTableModel modelo = new DefaultTableModel() {
+            @Override
+            //Este metodo hace que las celdas de la tabla no sean editables al hacer click en ella
+            public boolean isCellEditable(int row, int colum) {
+                return false;
+            }
+        };
         modelo.addColumn("MARCA");
         modelo.addColumn("MODELO");
         modelo.addColumn("SERVICIO");
         modelo.addColumn("PRECIO");
+        con.abrir();
         Connection cn = con.getConexion();
         try {
             Statement s = cn.createStatement();
@@ -214,71 +272,30 @@ public class Consultas {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        con.cerrar();
         return modelo;
     }
 
-    public boolean getLogin(String user, String password) {
-        boolean pasa = false;
-
-        try {
-            stm = con.getConexion().createStatement();
-            rst = stm.executeQuery("select usuario, contrasenas from personas where usuario like '" + user + "' and contrasenas = '" + password + "';");
-            if (rst != null) {
-                pasa = true;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return pasa;
-    }
-
-    public String getRol(String user) {
-        String ok = "";
-        try {
-            stm = con.getConexion().createStatement();
-            rst = stm.executeQuery("select rol from personas where usuario like '" + user + "';");
-            if (rst.next()) {
-                ok = rst.getString(1);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        ok = ok.toLowerCase();
-        return ok;
-    }
-
     public void insertImagen(String matricula, String url) {
-
+        con.abrir();
         FileInputStream fis = null;
         try {
-
             File file = new File(url);
             fis = new FileInputStream(file);
-
             PreparedStatement pstm = con.getConexion().prepareStatement("insert into fotos(matricula, foto) values(" + matricula + ",?)");
             pstm.setBinaryStream(1, fis, (int) file.length());
             pstm.execute();
             pstm.close();
-
         } catch (FileNotFoundException | SQLException ex) {
-
             ex.printStackTrace();
-
         } finally {
-
             try {
-
                 fis.close();
-
             } catch (IOException ex) {
-
                 ex.printStackTrace();
-
             }
-
         }
-
+        con.cerrar();
     }
 
     /* public Image abrirImagen(String matricula) throws SQLException, IOException {

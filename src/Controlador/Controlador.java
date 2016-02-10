@@ -94,7 +94,7 @@ public class Controlador implements ActionListener, MouseListener {
         vAdmin.JDNCbtnAceptar.setActionCommand("__JdNcliCancela");
         vAdmin.JDNCbtnAceptar.addActionListener(this);
 
-        //Botones del JDialogNewCoche
+//Botones del JDialogNewCoche
         vAdmin.JDNCbtnAceptar.setActionCommand("__JdNcoConfirma");
         vAdmin.JDNCbtnAceptar.addActionListener(this);
         vAdmin.JDNCbtnAceptar.setActionCommand("__JdNcoCancelar");
@@ -118,6 +118,7 @@ public class Controlador implements ActionListener, MouseListener {
         //Lanzamos el Login
         vLogin.setVisible(true);
 
+        //MouseListener de la Tabla mecanica de los coches dentro de un "Lugar"
         vMeca.tablaLista.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -174,7 +175,6 @@ public class Controlador implements ActionListener, MouseListener {
                             } catch (Exception ex) {
                                 ex.printStackTrace();
                             }
-
                             break;
                         case "administra":
                             vLogin.setVisible(false);
