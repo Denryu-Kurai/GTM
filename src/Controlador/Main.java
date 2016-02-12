@@ -2,9 +2,6 @@ package Controlador;
 
 // @author Denryu Kurai Seishi
 
-import Vista.AdministrativoView;
-import Vista.LoginView;
-import Vista.MecanicoView;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -18,7 +15,7 @@ public class Main {
             
         } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {}
         
-        ControladorLogin controlador = ControladorLogin.getControlador();
+        ControladorLogin controlador = ControladorLogin.getInstance();
         
     }
     

@@ -118,7 +118,7 @@ public class ControladorMecanico implements ActionListener, MouseListener {
             case __ACerrarUsuario:
                 this.vMeca.setVisible(false);
                 
-                ControladorLogin cntrl = ControladorLogin.getControlador();
+                ControladorLogin cntrl = ControladorLogin.getInstance();
                 cntrl.cargar();
                 break;
                 

@@ -4,7 +4,6 @@ package Controlador;
 
 import Modelo.Consultas;
 import Vista.AdministrativoView;
-import Vista.LoginView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -88,7 +87,7 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
             case __ACerrarUsuario:
                 this.vAdmin.setVisible(false);
                 
-                ControladorLogin cntrl = ControladorLogin.getControlador();
+                ControladorLogin cntrl = ControladorLogin.getInstance();
                 cntrl.cargar();
                 break;
                 

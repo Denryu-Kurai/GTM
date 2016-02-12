@@ -12,11 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
 import java.util.Date;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class ControladorLogin implements ActionListener, MouseListener {
     
@@ -28,7 +24,7 @@ public class ControladorLogin implements ActionListener, MouseListener {
     private String passw;
     
     // Patron Singleton
-    public static ControladorLogin getControlador () {
+    public static ControladorLogin getInstance () {
         
         if (c == null) {
             
