@@ -10,7 +10,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 
-//@author jairo
+// @author Denryu Kurai Seishi (Pedro)
+// @author Jairo Gallardo
+// @author Alfonso Arcos
+
 public class Consultas {
 
     ConMysql con;
@@ -277,25 +280,39 @@ public class Consultas {
     }
 
     public void insertImagen(String matricula, String url) {
+        
         con.abrir();
         FileInputStream fis = null;
+        
         try {
+            
             File file = new File(url);
             fis = new FileInputStream(file);
             PreparedStatement pstm = con.getConexion().prepareStatement("insert into fotos(matricula, foto) values(" + matricula + ",?)");
             pstm.setBinaryStream(1, fis, (int) file.length());
             pstm.execute();
             pstm.close();
+            
         } catch (FileNotFoundException | SQLException ex) {
+            
             ex.printStackTrace();
+            
         } finally {
+            
             try {
+                
                 fis.close();
+                
             } catch (IOException ex) {
+                
                 ex.printStackTrace();
+                
             }
+            
         }
+        
         con.cerrar();
+        
     }
 
     /* public Image abrirImagen(String matricula) throws SQLException, IOException {

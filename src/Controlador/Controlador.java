@@ -3,6 +3,7 @@ package Controlador;
 // @author Denryu Kurai Seishi (Pedro)
 // @author Jairo Gallardo
 // @author Alfonso Arcos
+
 import Modelo.Consultas;
 import Vista.AdministrativoView;
 import Vista.LoginView;
@@ -35,44 +36,43 @@ public class Controlador implements ActionListener, MouseListener {
 
     }
 
-    @Override
-    public void mousePressed(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public enum AccionMVC {
 
-        //Login
+        // Login
         __Conectar, __Registrarse,
-        //Menu
-        __ACerrarUsuario,
-        __ASalir,
-        //Administrativo
+        
+        // Menu
+        __ACerrarUsuario, __ASalir,
+        
+        // Administrativo
         __NewCliente, __ModCliente,
         __NewCoche, __ModCoche,
         __Factura, __Informes, __Servicios,
-        //JDialog Administrativo
+        
+        // JDialog Administrativo
         __JdNcliAcepta, __JdNcliCancela, __JdNcoConfirma, __JdNcoCancelar,
-        //Mecanico
+        
+        // Mecanico
         __Listame, __Presupuesteame, __Tallerizame, __Pintame, __ITVme,
         __SubirImagen;
+        
     }
 
     public void iniciar() {
 
-//Botones del Login
+        // Botones del Login
         vLogin.btnConectar.setActionCommand("__Conectar");
         vLogin.btnConectar.addActionListener(this);
         vLogin.btnRegistrarse.setActionCommand("__Registrarse");
         vLogin.btnRegistrarse.addActionListener(this);
 
-//Acciones del menu
+        // Acciones del menu
         vAdmin.btnCerrarUsuario.setActionCommand("__ACerrarUsuario");
         vAdmin.btnCerrarUsuario.addActionListener(this);
         vAdmin.btnSalir.setActionCommand("__ASalir");
         vAdmin.btnSalir.addActionListener(this);
 
-//Botones del Administrativo
+        // Botones del Administrativo
         vAdmin.btnSalir.setActionCommand("__NewCliente");
         vAdmin.btnSalir.addActionListener(this);
         vAdmin.btnSalir.setActionCommand("__ModCliente");
@@ -88,19 +88,19 @@ public class Controlador implements ActionListener, MouseListener {
         vAdmin.btnSalir.setActionCommand("__Servicios");
         vAdmin.btnSalir.addActionListener(this);
 
-//Botones del JDialogNewCliente
+        // Botones del JDialogNewCliente
         vAdmin.JDNCbtnAceptar.setActionCommand("__JdNcliAcepta");
         vAdmin.JDNCbtnAceptar.addActionListener(this);
         vAdmin.JDNCbtnAceptar.setActionCommand("__JdNcliCancela");
         vAdmin.JDNCbtnAceptar.addActionListener(this);
 
-//Botones del JDialogNewCoche
+        // Botones del JDialogNewCoche
         vAdmin.JDNCbtnAceptar.setActionCommand("__JdNcoConfirma");
         vAdmin.JDNCbtnAceptar.addActionListener(this);
         vAdmin.JDNCbtnAceptar.setActionCommand("__JdNcoCancelar");
         vAdmin.JDNCbtnAceptar.addActionListener(this);
 
-//Botones del Mecanico
+        // Botones del Mecanico
         vMeca.btnListCar.setActionCommand("__Listame");
         vMeca.btnListCar.addActionListener(this);
         vMeca.btnItv.setActionCommand("__ITVme");
@@ -115,10 +115,10 @@ public class Controlador implements ActionListener, MouseListener {
         vMeca.btnUpImage.setActionCommand("__SubirImagen");
         vMeca.btnUpImage.addActionListener(this);
 
-        //Lanzamos el Login
+        // Lanzamos el Login
         vLogin.setVisible(true);
 
-        //MouseListener de la Tabla mecanica de los coches dentro de un "Lugar"
+        // MouseListener de la Tabla mecanica de los coches dentro de un "Lugar"
         vMeca.tablaLista.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -143,7 +143,8 @@ public class Controlador implements ActionListener, MouseListener {
     public void actionPerformed(ActionEvent e) {
 
         switch (AccionMVC.valueOf(e.getActionCommand())) {
-            /**
+            
+            /*
              * ***********LOGIN*************
              */
             case __Conectar:
@@ -151,82 +152,107 @@ public class Controlador implements ActionListener, MouseListener {
                 passw = vLogin.txtContraseña.toString();
 
                 if (consulta.getLogin(user, passw) == true) {
+                    
                     System.out.println("usuario y contraseña correctos");
+                    
                     switch (consulta.getRol(user)) {
+                        
                         case "mecanico":
                             vLogin.setVisible(false);
                             vMeca.setVisible(true);
-                            //Ponemos los paneles en false, los activamos con los botones
-                            //Layered 1
+                            
+                            // Ponemos los paneles en false, los activamos con los botones
+                            // Layered 1
                             vMeca.L1_panelLista.setVisible(true);
                             vMeca.L1_panelTaller.setVisible(false);
                             vMeca.L1_panelPresupuesto.setVisible(false);
                             vMeca.L1_panelPintura.setVisible(false);
                             vMeca.L1_panelITV.setVisible(false);
-                            //Layered 2
+                            
+                            // Layered 2
                             vMeca.L2_panelLista.setVisible(true);
                             vMeca.L2_panelPresupuesto.setVisible(false);
                             vMeca.L2_panelTaller.setVisible(false);
                             vMeca.L2_panelPintura.setVisible(false);
                             vMeca.L2_panelITV.setVisible(false);
+                            
                             try {
-                                //Tablas
+                                
+                                // Tablas
                                 vMeca.tablaLista.setModel(consulta.tablaCoches());
+                                
                             } catch (Exception ex) {
+                                
                                 ex.printStackTrace();
+                                
                             }
                             break;
+                            
                         case "administra":
                             vLogin.setVisible(false);
                             vAdmin.setVisible(true);
                             break;
+                            
                         default:
                             System.out.println("Error al comparar los roles");
                             break;
+                            
                     }
+                    
                 }
                 break;
             case __Registrarse:
                 break;
+                
             /**
              * ********ADMINISTRATIVO*********
              */
-
             case __NewCliente:
                 break;
+                
             case __ModCliente:
                 break;
+                
             case __NewCoche:
                 break;
+                
             case __ModCoche:
                 break;
 
             case __Servicios:
                 break;
+                
             case __Informes:
                 break;
+                
             case __Factura:
                 break;
-            //dialogs
+                
+            // Dialogs
             case __JdNcliAcepta:
                 break;
+                
             case __JdNcliCancela:
                 break;
+                
             case __JdNcoConfirma:
                 break;
+                
             case __JdNcoCancelar:
                 break;
-            /**
+                
+            /*
              * ************MECANICO*****************
              */
             case __Listame:
-                //Paneles Layered 1
+                // Paneles Layered 1
                 vMeca.L1_panelLista.setVisible(true);
                 vMeca.L1_panelTaller.setVisible(false);
                 vMeca.L1_panelPresupuesto.setVisible(false);
                 vMeca.L1_panelPintura.setVisible(false);
                 vMeca.L1_panelITV.setVisible(false);
-                //Paneles Layered 2
+                
+                // Paneles Layered 2
                 vMeca.L2_panelLista.setVisible(true);
                 vMeca.L2_panelPresupuesto.setVisible(false);
                 vMeca.L2_panelTaller.setVisible(false);
@@ -253,17 +279,19 @@ public class Controlador implements ActionListener, MouseListener {
                         consulta.insertImagen((String) this.vMeca.tablaLista.getValueAt(fila, 0), chooser.getSelectedFile().getAbsolutePath());
 
                     }
+                    
                 }
                 break;
 
             case __Presupuesteame:
-                //Paneles Layered 1
+                // Paneles Layered 1
                 vMeca.L1_panelLista.setVisible(false);
                 vMeca.L1_panelTaller.setVisible(true);
                 vMeca.L1_panelPresupuesto.setVisible(false);
                 vMeca.L1_panelPintura.setVisible(false);
                 vMeca.L1_panelITV.setVisible(false);
-                //Paneles Layered 2
+                
+                // Paneles Layered 2
                 vMeca.L2_panelLista.setVisible(false);
                 vMeca.L2_panelPresupuesto.setVisible(true);
                 vMeca.L2_panelTaller.setVisible(false);
@@ -272,13 +300,14 @@ public class Controlador implements ActionListener, MouseListener {
                 break;
 
             case __Tallerizame:
-                //Paneles Layered 1
+                // Paneles Layered 1
                 vMeca.L1_panelLista.setVisible(false);
                 vMeca.L1_panelTaller.setVisible(false);
                 vMeca.L1_panelPresupuesto.setVisible(true);
                 vMeca.L1_panelPintura.setVisible(false);
                 vMeca.L1_panelITV.setVisible(false);
-                //Paneles Layered 2
+                
+                // Paneles Layered 2
                 vMeca.L2_panelLista.setVisible(false);
                 vMeca.L2_panelPresupuesto.setVisible(false);
                 vMeca.L2_panelTaller.setVisible(true);
@@ -287,13 +316,14 @@ public class Controlador implements ActionListener, MouseListener {
                 break;
 
             case __Pintame:
-                //Paneles Layered 1
+                // Paneles Layered 1
                 vMeca.L1_panelLista.setVisible(false);
                 vMeca.L1_panelTaller.setVisible(false);
                 vMeca.L1_panelPresupuesto.setVisible(false);
                 vMeca.L1_panelPintura.setVisible(true);
                 vMeca.L1_panelITV.setVisible(false);
-                //Paneles Layered 2
+                
+                // Paneles Layered 2
                 vMeca.L2_panelLista.setVisible(false);
                 vMeca.L2_panelPresupuesto.setVisible(false);
                 vMeca.L2_panelTaller.setVisible(false);
@@ -302,19 +332,21 @@ public class Controlador implements ActionListener, MouseListener {
                 break;
 
             case __ITVme:
-                //Paneles Layered 1
+                // Paneles Layered 1
                 vMeca.L1_panelLista.setVisible(false);
                 vMeca.L1_panelTaller.setVisible(false);
                 vMeca.L1_panelPresupuesto.setVisible(false);
                 vMeca.L1_panelPintura.setVisible(false);
                 vMeca.L1_panelITV.setVisible(true);
-                //Paneles Layered 2
+                
+                // Paneles Layered 2
                 vMeca.L2_panelLista.setVisible(false);
                 vMeca.L2_panelPresupuesto.setVisible(false);
                 vMeca.L2_panelTaller.setVisible(false);
                 vMeca.L2_panelPintura.setVisible(false);
                 vMeca.L2_panelITV.setVisible(true);
                 break;
+                
             /**
              * *********************MENU**************************
              */
@@ -325,6 +357,7 @@ public class Controlador implements ActionListener, MouseListener {
                 this.vAdmin.setVisible(false);
                 this.vLogin.setVisible(true);
                 break;
+                
             case __ASalir:
                 System.exit(0);
                 break;
@@ -332,19 +365,18 @@ public class Controlador implements ActionListener, MouseListener {
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
-    }
+    public void mouseClicked(MouseEvent e) {}
+    
+    @Override
+    public void mousePressed(MouseEvent e) {}
 
     @Override
-    public void mouseReleased(MouseEvent e) {
-    }
+    public void mouseReleased(MouseEvent e) {}
 
     @Override
-    public void mouseEntered(MouseEvent e) {
-    }
+    public void mouseEntered(MouseEvent e) {}
 
     @Override
-    public void mouseExited(MouseEvent e) {
-    }
+    public void mouseExited(MouseEvent e) {}
 
 }

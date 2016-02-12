@@ -1,6 +1,7 @@
 package Vista;
 
-//@author Alfonso Arcos
+// @author Alfonso Arcos
+
 public class MecanicoView extends javax.swing.JFrame {
 
    

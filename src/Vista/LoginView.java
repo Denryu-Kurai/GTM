@@ -1,5 +1,7 @@
 package Vista;
 
+// @author Jairo Gallardo
+
 public class LoginView extends javax.swing.JFrame {
 
     public LoginView() {

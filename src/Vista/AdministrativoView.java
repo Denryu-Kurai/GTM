@@ -1,6 +1,7 @@
 package Vista;
 
 // @author Denryu Kurai Seishi
+
 public class AdministrativoView extends javax.swing.JFrame {
 
     public AdministrativoView() {
