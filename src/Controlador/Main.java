@@ -18,7 +18,7 @@ public class Main {
             
         } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {}
         
-        new Controlador(new LoginView(), new AdministrativoView(), new MecanicoView()).iniciar();
+        ControladorLogin controlador = ControladorLogin.getControlador();
         
     }
     
