@@ -54,13 +54,28 @@ public class Consultas {
         con.cerrar();
     }//insertarCoche
 
-    public void insertarHistorial(String matricula, ArrayList lista, Date fecha) {
+    public void insertarHistorial(String matricula, Date fecha) {
         con.abrir();
         try {
             String sql = "insert into historiales (matricula, fecha) values (?,?)";
             PreparedStatement s = con.getConexion().prepareStatement(sql);
             s.setString(1, matricula);
             s.setDate(2, new java.sql.Date(fecha.getTime()));
+            s.execute();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        con.cerrar();
+    }
+    
+    public void insertarFactura(Date fecha, String historial,double precio){
+        con.abrir();
+        try {
+            String sql = "insert into facturas (fecha, historial,precio) values (?,?,?)";
+            PreparedStatement s = con.getConexion().prepareStatement(sql);
+            s.setDate(1, new java.sql.Date(fecha.getTime()));
+            s.setInt(2,Integer.valueOf(historial) );
+            s.setDouble(3, precio);
             s.execute();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -137,14 +152,17 @@ public class Consultas {
         con.cerrar();
         return actual;
     }
+    
 
-    public int getFechaReciente(String matricula) {
+    public int getIdFechaReciente(String matricula) {
         int actual = 0;
         con.abrir();
         try {
             Statement s = con.getConexion().createStatement();
-            ResultSet rs = s.executeQuery("select id from historiales where matricula='" + matricula + "' Order by fecha des limit = 1");
-            actual = rs.getInt(1);
+            ResultSet rs = s.executeQuery("select id from historiales where matricula='" + matricula + "' Order by fecha desc limit 1");
+            if (rs.next()) {
+                actual = rs.getInt(1);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -185,6 +203,13 @@ public class Consultas {
         return ok;
     }
 
+    //FINALIZADORES
+    public void finPresupuesto(ArrayList a){
+       
+        
+        
+    }
+    
     /**
      * *********************************
      */
@@ -225,6 +250,7 @@ public class Consultas {
                 return false;
             }
         };
+        modelo.addColumn("ID");
         modelo.addColumn("MARCA");
         modelo.addColumn("MODELO");
         modelo.addColumn("SERVICIO");
@@ -233,10 +259,10 @@ public class Consultas {
         Connection cn = con.getConexion();
         try {
             Statement s = cn.createStatement();
-            ResultSet rs = s.executeQuery("select marca,modelo,nombre,precio from servicios;");
+            ResultSet rs = s.executeQuery("select * from servicios;");
             while (rs.next()) {
-                Object[] fila = new Object[4];
-                for (int i = 0; i < 4; i++) {
+                Object[] fila = new Object[5];
+                for (int i = 0; i < 5; i++) {
                     fila[i] = rs.getObject(i + 1);
                 }
                 modelo.addRow(fila);

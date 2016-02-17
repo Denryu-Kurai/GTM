@@ -9,9 +9,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.ListModel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class ControladorMecanico implements ActionListener, MouseListener {
@@ -19,6 +21,7 @@ public class ControladorMecanico implements ActionListener, MouseListener {
     MecanicoView vMeca;
     Consultas consulta = new Consultas();
     DefaultListModel modeloLista = new DefaultListModel();
+    private Date fecha = new Date();
     public ControladorMecanico (MecanicoView vA) {
         
         this.vMeca = vA;
@@ -32,7 +35,7 @@ public class ControladorMecanico implements ActionListener, MouseListener {
         
         // Mecanico
         __Listame, __Presupuesteame, __Tallerizame, __Pintame, __ITVme,
-        __SubirImagen;
+        __SubirImagen,__FinPresupuesto;
         
     }
     
@@ -55,9 +58,12 @@ public class ControladorMecanico implements ActionListener, MouseListener {
         vMeca.btnTaller.addActionListener(this);
         vMeca.btnPintura.setActionCommand("__Pintame");
         vMeca.btnPintura.addActionListener(this);
-
         vMeca.btnUpImage.setActionCommand("__SubirImagen");
         vMeca.btnUpImage.addActionListener(this);
+        vMeca.btnEndCar_supPresupuesto.setActionCommand("__FinPresupuesto");
+        vMeca.btnEndCar_supPresupuesto.addActionListener(this);
+
+        
         
         // MouseListener de la Tabla mecanica de los coches dentro de un "Lugar"
         vMeca.tablaLista.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -68,9 +74,9 @@ public class ControladorMecanico implements ActionListener, MouseListener {
                 ArrayList a = consulta.datosLista(consulta.getDni(o));
                 vMeca.listaModelo.setText(a.get(0).toString());
                 vMeca.listaMarca.setText(a.get(1).toString());
-                vMeca.listaPropietario.setText(a.get(2).toString());
+                vMeca.listaPropietario.setText(consulta.getDni(o));
                 vMeca.listaTelefono.setText(a.get(3).toString());
-                vMeca.listaMatricul.setText(a.get(4).toString());
+                vMeca.listaMatricul.setText(a.get(2).toString());
                 ArrayList b = consulta.datosLugar(o);
                 vMeca.listaTaller.setSelected((Boolean) b.get(0));
                 vMeca.listaPintura.setSelected((Boolean) b.get(1));
@@ -95,10 +101,10 @@ public class ControladorMecanico implements ActionListener, MouseListener {
           
                 int i = vMeca.jTable2.getSelectedRow();
                 
-                 String o =  vMeca.jTable2.getValueAt(i, 2).toString()+" "+vMeca.jTable2.getValueAt(i, 0).toString()+" "+vMeca.jTable2.getValueAt(i, 1).toString();
+                 String o = vMeca.jTable2.getValueAt(i, 0)+" "+vMeca.jTable2.getValueAt(i, 3).toString()+" "+vMeca.jTable2.getValueAt(i, 1).toString()+" "+vMeca.jTable2.getValueAt(i, 2).toString();
                  modeloLista.addElement(o);
                 vMeca.jList1.setModel(modeloLista);
-                String uno = (vMeca.jTable2.getValueAt(i, 3).toString()) ;
+                String uno = (vMeca.jTable2.getValueAt(i, 4).toString()) ;
                 
                 double dos = Double.valueOf(vMeca.txtPrecioFinal_Presup.getText());
                
@@ -198,11 +204,42 @@ public class ControladorMecanico implements ActionListener, MouseListener {
                     
                 }
                 break;
+            case __FinPresupuesto:
+                consulta.insertarHistorial(vMeca.matriculaPresupuesto.getText(), fecha);
+                int id = consulta.getIdFechaReciente(vMeca.matriculaPresupuesto.getText());
+                ListModel a = vMeca.jList1.getModel();
+                
+                for(int i=0;i<a.getSize();i++){
+                    String c = (String)a.getElementAt(i);
+                    c=(c.substring(0, 1));
+                    consulta.insertarReparacion(id, Integer.valueOf(c));
+                }
+                consulta.insertarFactura(fecha, String.valueOf(id), Double.valueOf(vMeca.txtPrecioFinal_Presup.getText()));
+                vMeca.jList1.setModel(new DefaultListModel());
+                vMeca.dueñoPresupuesto.setText("");
+                vMeca.matriculaPresupuesto.setText("");
+                vMeca.txtPrecioFinal_Presup.setText("0");
+                
+                                // Paneles Layered 1
+                vMeca.L1_panelLista.setVisible(true);
+                vMeca.L1_panelPresupuesto.setVisible(false);
+                vMeca.L1_panelTaller.setVisible(false);
+                vMeca.L1_panelPintura.setVisible(false);
+                vMeca.L1_panelITV.setVisible(false);
+                
+                // Paneles Layered 2
+                vMeca.L2_panelLista.setVisible(true);
+                vMeca.L2_panelPresupuesto.setVisible(false);
+                vMeca.L2_panelTaller.setVisible(false);
+                vMeca.L2_panelPintura.setVisible(false);
+                vMeca.L2_panelITV.setVisible(false);
+                break;
 
             case __Presupuesteame:
                 vMeca.jTable2.setModel(consulta.tablaServicios());
-                
-                
+                int i =vMeca.tablaLista.getSelectedRow();
+                vMeca.dueñoPresupuesto.setText(vMeca.listaPropietario.getText());
+                vMeca.matriculaPresupuesto.setText(vMeca.listaMatricul.getText());
                 // Paneles Layered 1
                 vMeca.L1_panelLista.setVisible(false);
                 vMeca.L1_panelPresupuesto.setVisible(true);
