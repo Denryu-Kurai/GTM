@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -17,7 +18,7 @@ public class ControladorMecanico implements ActionListener, MouseListener {
     
     MecanicoView vMeca;
     Consultas consulta = new Consultas();
-    
+    DefaultListModel modeloLista = new DefaultListModel();
     public ControladorMecanico (MecanicoView vA) {
         
         this.vMeca = vA;
@@ -74,16 +75,47 @@ public class ControladorMecanico implements ActionListener, MouseListener {
                 vMeca.listaTaller.setSelected((Boolean) b.get(0));
                 vMeca.listaPintura.setSelected((Boolean) b.get(1));
                 vMeca.listaITV.setSelected((Boolean) b.get(2));
+                
+                if(vMeca.listaITV.isSelected()==true){
+                    vMeca.btnGoItv.enable(true);
+                }
+                if(vMeca.listaTaller.isSelected()==true){
+                    vMeca.btnGoTaller.enable(true);
+                }
+                if(vMeca.listaPintura.isSelected()==true){
+                    vMeca.btnGoPaint.enable(true);
+                }
+                
             }
         });
+        //FORMA DE RECOGER DATOS DE UNA TABLA
+        vMeca.jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+          
+                int i = vMeca.jTable2.getSelectedRow();
+                
+                 String o =  vMeca.jTable2.getValueAt(i, 2).toString()+" "+vMeca.jTable2.getValueAt(i, 0).toString()+" "+vMeca.jTable2.getValueAt(i, 1).toString();
+                 modeloLista.addElement(o);
+                vMeca.jList1.setModel(modeloLista);
+                String uno = (vMeca.jTable2.getValueAt(i, 3).toString()) ;
+                
+                double dos = Double.valueOf(vMeca.txtPrecioFinal_Presup.getText());
+               
+                double total = Double.valueOf(uno) + dos;
+              
+                vMeca.txtPrecioFinal_Presup.setText(String.valueOf(total));
+            }
+        });
+        //
         
         vMeca.setVisible(true);
                             
         // Ponemos los paneles en false, los activamos con los botones
         // Layered 1
         vMeca.L1_panelLista.setVisible(true);
-        vMeca.L1_panelTaller.setVisible(false);
         vMeca.L1_panelPresupuesto.setVisible(false);
+        vMeca.L1_panelTaller.setVisible(false);
         vMeca.L1_panelPintura.setVisible(false);
         vMeca.L1_panelITV.setVisible(false);
 
@@ -98,7 +130,6 @@ public class ControladorMecanico implements ActionListener, MouseListener {
                                 
             // Tabla
             vMeca.tablaLista.setModel(consulta.tablaCoches());
-
         } catch (Exception ex) {
 
             ex.printStackTrace();
@@ -132,8 +163,8 @@ public class ControladorMecanico implements ActionListener, MouseListener {
             case __Listame:
                 // Paneles Layered 1
                 vMeca.L1_panelLista.setVisible(true);
-                vMeca.L1_panelTaller.setVisible(false);
                 vMeca.L1_panelPresupuesto.setVisible(false);
+                vMeca.L1_panelTaller.setVisible(false);
                 vMeca.L1_panelPintura.setVisible(false);
                 vMeca.L1_panelITV.setVisible(false);
                 
@@ -169,10 +200,13 @@ public class ControladorMecanico implements ActionListener, MouseListener {
                 break;
 
             case __Presupuesteame:
+                vMeca.jTable2.setModel(consulta.tablaServicios());
+                
+                
                 // Paneles Layered 1
                 vMeca.L1_panelLista.setVisible(false);
-                vMeca.L1_panelTaller.setVisible(true);
-                vMeca.L1_panelPresupuesto.setVisible(false);
+                vMeca.L1_panelPresupuesto.setVisible(true);
+                vMeca.L1_panelTaller.setVisible(false);
                 vMeca.L1_panelPintura.setVisible(false);
                 vMeca.L1_panelITV.setVisible(false);
                 
@@ -187,8 +221,8 @@ public class ControladorMecanico implements ActionListener, MouseListener {
             case __Tallerizame:
                 // Paneles Layered 1
                 vMeca.L1_panelLista.setVisible(false);
-                vMeca.L1_panelTaller.setVisible(false);
-                vMeca.L1_panelPresupuesto.setVisible(true);
+                vMeca.L1_panelPresupuesto.setVisible(false);
+                vMeca.L1_panelTaller.setVisible(true);
                 vMeca.L1_panelPintura.setVisible(false);
                 vMeca.L1_panelITV.setVisible(false);
                 
@@ -203,8 +237,8 @@ public class ControladorMecanico implements ActionListener, MouseListener {
             case __Pintame:
                 // Paneles Layered 1
                 vMeca.L1_panelLista.setVisible(false);
-                vMeca.L1_panelTaller.setVisible(false);
                 vMeca.L1_panelPresupuesto.setVisible(false);
+                vMeca.L1_panelTaller.setVisible(false);
                 vMeca.L1_panelPintura.setVisible(true);
                 vMeca.L1_panelITV.setVisible(false);
                 
@@ -219,8 +253,8 @@ public class ControladorMecanico implements ActionListener, MouseListener {
             case __ITVme:
                 // Paneles Layered 1
                 vMeca.L1_panelLista.setVisible(false);
-                vMeca.L1_panelTaller.setVisible(false);
                 vMeca.L1_panelPresupuesto.setVisible(false);
+                vMeca.L1_panelTaller.setVisible(false);
                 vMeca.L1_panelPintura.setVisible(false);
                 vMeca.L1_panelITV.setVisible(true);
                 

@@ -278,7 +278,7 @@ public class Consultas {
         con.cerrar();
         return modelo;
     }
-
+    
     public void insertImagen(String matricula, String url) {
         
         con.abrir();
