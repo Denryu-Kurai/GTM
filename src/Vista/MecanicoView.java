@@ -14,6 +14,7 @@ public class MecanicoView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         btnListCar = new javax.swing.JButton();
@@ -41,6 +42,7 @@ public class MecanicoView extends javax.swing.JFrame {
         listaMatricul = new javax.swing.JTextField();
         listaPropietario = new javax.swing.JTextField();
         listaTelefono = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox();
         L1_panelTaller = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         txtBuscaCar_Taller = new javax.swing.JTextField();
@@ -61,7 +63,7 @@ public class MecanicoView extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jList1 = new javax.swing.JList<String>();
         jLabel10 = new javax.swing.JLabel();
         txtPrecioFinal_Presup = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -94,6 +96,17 @@ public class MecanicoView extends javax.swing.JFrame {
         btnSalir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new java.awt.GridLayout(1, 0));
@@ -108,6 +121,11 @@ public class MecanicoView extends javax.swing.JFrame {
         jPanel1.add(btnPintura);
 
         btnItv.setText("ITV");
+        btnItv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnItvActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnItv);
 
         btnPresup.setText("PRESUPUESTO");
@@ -180,13 +198,17 @@ public class MecanicoView extends javax.swing.JFrame {
 
         listaITV.setText("ITV");
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos los coches", "Para presupuesto", "Para Arreglar" }));
+
         javax.swing.GroupLayout L1_panelListaLayout = new javax.swing.GroupLayout(L1_panelLista);
         L1_panelLista.setLayout(L1_panelListaLayout);
         L1_panelListaLayout.setHorizontalGroup(
             L1_panelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(L1_panelListaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(L1_panelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(L1_panelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(L1_panelListaLayout.createSequentialGroup()
@@ -217,7 +239,7 @@ public class MecanicoView extends javax.swing.JFrame {
                                     .addComponent(listaTelefono)
                                     .addComponent(listaPropietario)))
                             .addGroup(L1_panelListaLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(listaTaller)
                                 .addGap(18, 18, 18)
                                 .addComponent(listaPintura)
@@ -228,11 +250,11 @@ public class MecanicoView extends javax.swing.JFrame {
         );
         L1_panelListaLayout.setVerticalGroup(
             L1_panelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, L1_panelListaLayout.createSequentialGroup()
-                .addGroup(L1_panelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(L1_panelListaLayout.createSequentialGroup()
+            .addGroup(L1_panelListaLayout.createSequentialGroup()
+                .addGroup(L1_panelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, L1_panelListaLayout.createSequentialGroup()
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                         .addGroup(L1_panelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(listaModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -251,9 +273,11 @@ public class MecanicoView extends javax.swing.JFrame {
                             .addComponent(listaTaller)
                             .addComponent(listaPintura)
                             .addComponent(listaITV)))
-                    .addGroup(L1_panelListaLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, L1_panelListaLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1)))
+                        .addComponent(jComboBox1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -298,7 +322,7 @@ public class MecanicoView extends javax.swing.JFrame {
             .addGroup(L1_panelTallerLayout.createSequentialGroup()
                 .addGap(111, 111, 111)
                 .addComponent(jButton12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
                 .addComponent(jButton13)
                 .addGap(170, 170, 170))
         );
@@ -310,7 +334,7 @@ public class MecanicoView extends javax.swing.JFrame {
                     .addComponent(jLabel11)
                     .addComponent(txtBuscaCar_Taller, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton12)
@@ -336,7 +360,7 @@ public class MecanicoView extends javax.swing.JFrame {
             .addGroup(L1_panelPinturaLayout.createSequentialGroup()
                 .addGroup(L1_panelPinturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, L1_panelPinturaLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(82, Short.MAX_VALUE)
                         .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(L1_panelPinturaLayout.createSequentialGroup()
                         .addGap(122, 122, 122)
@@ -354,7 +378,7 @@ public class MecanicoView extends javax.swing.JFrame {
             L1_panelPinturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(L1_panelPinturaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jColorChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jColorChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(L1_panelPinturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
@@ -371,11 +395,11 @@ public class MecanicoView extends javax.swing.JFrame {
         L1_panelITV.setLayout(L1_panelITVLayout);
         L1_panelITVLayout.setHorizontalGroup(
             L1_panelITVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+            .addGap(0, 742, Short.MAX_VALUE)
         );
         L1_panelITVLayout.setVerticalGroup(
             L1_panelITVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 577, Short.MAX_VALUE)
+            .addGap(0, 579, Short.MAX_VALUE)
         );
 
         L1_panelPresupuesto.setMaximumSize(new java.awt.Dimension(690, 540));
@@ -429,7 +453,7 @@ public class MecanicoView extends javax.swing.JFrame {
             .addGroup(L1_panelPresupuestoLayout.createSequentialGroup()
                 .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(L1_panelPresupuestoLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(89, Short.MAX_VALUE)
                         .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -446,7 +470,7 @@ public class MecanicoView extends javax.swing.JFrame {
                 .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(L1_panelPresupuestoLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(jScrollPane5)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, L1_panelPresupuestoLayout.createSequentialGroup()
                         .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -473,7 +497,7 @@ public class MecanicoView extends javax.swing.JFrame {
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnQuitarLista)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                         .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
                             .addComponent(matriculaPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -502,12 +526,6 @@ public class MecanicoView extends javax.swing.JFrame {
                         .addContainerGap())))
         );
 
-        jLayeredPane1.setLayer(L1_panelLista, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(L1_panelTaller, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(L1_panelPintura, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(L1_panelITV, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(L1_panelPresupuesto, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -531,6 +549,11 @@ public class MecanicoView extends javax.swing.JFrame {
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(L1_panelLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+        jLayeredPane1.setLayer(L1_panelLista, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(L1_panelTaller, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(L1_panelPintura, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(L1_panelITV, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(L1_panelPresupuesto, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLayeredPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLayeredPane2.setPreferredSize(new java.awt.Dimension(298, 581));
@@ -666,12 +689,6 @@ public class MecanicoView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLayeredPane2.setLayer(L2_panelLista, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(L2_panelTaller, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(L2_panelPintura, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(L2_panelITV, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(L2_panelPresupuesto, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
         jLayeredPane2.setLayout(jLayeredPane2Layout);
         jLayeredPane2Layout.setHorizontalGroup(
@@ -693,6 +710,11 @@ public class MecanicoView extends javax.swing.JFrame {
             .addComponent(L2_panelPintura, 579, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(L2_panelITV, 579, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+        jLayeredPane2.setLayer(L2_panelLista, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(L2_panelTaller, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(L2_panelPintura, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(L2_panelITV, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(L2_panelPresupuesto, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -759,6 +781,10 @@ public class MecanicoView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEndCar_supPresupuestoActionPerformed
 
+    private void btnItvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnItvActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnItvActionPerformed
+
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -817,7 +843,7 @@ public class MecanicoView extends javax.swing.JFrame {
     public javax.swing.JButton btnListCar;
     public javax.swing.JButton btnPintura;
     public javax.swing.JButton btnPresup;
-    private javax.swing.JButton btnQuitarLista;
+    public javax.swing.JButton btnQuitarLista;
     public javax.swing.JMenuItem btnSalir;
     public javax.swing.JButton btnTaller;
     public javax.swing.JButton btnUpImage;
@@ -827,6 +853,8 @@ public class MecanicoView extends javax.swing.JFrame {
     public javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JColorChooser jColorChooser1;
+    public javax.swing.JComboBox jComboBox1;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

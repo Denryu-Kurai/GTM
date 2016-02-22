@@ -153,6 +153,21 @@ public class Consultas {
         return actual;
     }
     
+    public Double getDinero(String id){
+        double a=0;
+        con.abrir();
+        try {
+            Statement s = con.getConexion().createStatement();
+            ResultSet rs = s.executeQuery("select precio from servicios where íd ='" + id + "'");
+            if (rs.next()) {
+                a = rs.getDouble(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        con.cerrar();
+        return a;
+    }
 
     public int getIdFechaReciente(String matricula) {
         int actual = 0;

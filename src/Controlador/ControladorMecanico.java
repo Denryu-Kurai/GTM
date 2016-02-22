@@ -35,7 +35,7 @@ public class ControladorMecanico implements ActionListener, MouseListener {
         
         // Mecanico
         __Listame, __Presupuesteame, __Tallerizame, __Pintame, __ITVme,
-        __SubirImagen,__FinPresupuesto;
+        __SubirImagen,__FinPresupuesto,__QuitarLista;
         
     }
     
@@ -50,18 +50,20 @@ public class ControladorMecanico implements ActionListener, MouseListener {
         // Botones del Mecanico
         vMeca.btnListCar.setActionCommand("__Listame");
         vMeca.btnListCar.addActionListener(this);
-        vMeca.btnItv.setActionCommand("__ITVme");
-        vMeca.btnItv.addActionListener(this);
-        vMeca.btnPresup.setActionCommand("__Presupuesteame");
-        vMeca.btnPresup.addActionListener(this);
-        vMeca.btnTaller.setActionCommand("__Tallerizame");
-        vMeca.btnTaller.addActionListener(this);
-        vMeca.btnPintura.setActionCommand("__Pintame");
-        vMeca.btnPintura.addActionListener(this);
+        vMeca.btnGoItv.setActionCommand("__ITVme");
+        vMeca.btnGoItv.addActionListener(this);
+        vMeca.btnGoPresup.setActionCommand("__Presupuesteame");
+        vMeca.btnGoPresup.addActionListener(this);
+        vMeca.btnGoTaller.setActionCommand("__Tallerizame");
+        vMeca.btnGoTaller.addActionListener(this);
+        vMeca.btnGoPaint.setActionCommand("__Pintame");
+        vMeca.btnGoPaint.addActionListener(this);
         vMeca.btnUpImage.setActionCommand("__SubirImagen");
         vMeca.btnUpImage.addActionListener(this);
         vMeca.btnEndCar_supPresupuesto.setActionCommand("__FinPresupuesto");
         vMeca.btnEndCar_supPresupuesto.addActionListener(this);
+        vMeca.btnQuitarLista.setActionCommand("__QuitarLista");
+        vMeca.btnQuitarLista.addActionListener(this);
 
         
         
@@ -69,6 +71,17 @@ public class ControladorMecanico implements ActionListener, MouseListener {
         vMeca.tablaLista.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
+                
+                 vMeca.listaModelo.setText("");
+                vMeca.listaMarca.setText("");
+                vMeca.listaPropietario.setText("");
+                vMeca.listaTelefono.setText("");
+                vMeca.listaMatricul.setText("");
+                
+                vMeca.listaTaller.setSelected(false);
+                vMeca.listaPintura.setSelected(false);
+                vMeca.listaITV.setSelected(false);
+                
                 int i = vMeca.tablaLista.getSelectedRow();
                 String o = vMeca.tablaLista.getValueAt(i, 0).toString();
                 ArrayList a = consulta.datosLista(consulta.getDni(o));
@@ -157,6 +170,18 @@ public class ControladorMecanico implements ActionListener, MouseListener {
                 
                 ControladorLogin cntrl = ControladorLogin.getInstance();
                 cntrl.cargar();
+                break;
+            case __QuitarLista:
+                int l = vMeca.jList1.getSelectedIndex();
+            
+                
+                String op = vMeca.jList1.getSelectedValue();
+                op=(op.substring(0, 1));  
+                double resta = Double.valueOf(vMeca.txtPrecioFinal_Presup.getText())-consulta.getDinero(op);
+                vMeca.txtPrecioFinal_Presup.setText(String.valueOf(resta));
+               modeloLista.remove(l);
+                
+                
                 break;
                 
             case __ASalir:
