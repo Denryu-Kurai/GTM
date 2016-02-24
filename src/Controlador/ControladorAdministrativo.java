@@ -133,7 +133,7 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                     cliente++;
                     
                     this.vAdmin.txtJDNCocheMatricula.setText("");
-                    this.vAdmin.lblJDNCocheDNI.setText(consulta.getDni());
+                    // this.vAdmin.lblJDNCocheDNI.setText(consulta.getDni());
                     this.vAdmin.txtJDNCocheMarca.setText("");
                     this.vAdmin.txtJDNCocheModelo.setText("");
                     this.vAdmin.txtJDNCocheColor.setText("");
