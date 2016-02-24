@@ -3,21 +3,25 @@ package Controlador;
 // @author Denryu Kurai Seishi
 
 import Modelo.Consultas;
+import Modelo.EncriptadorMD5;
 import Vista.AdministrativoView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 
 
 public class ControladorAdministrativo implements ActionListener, MouseListener {
     
     AdministrativoView vAdmin;
     Consultas consulta = new Consultas();
+    EncriptadorMD5 md5 = new EncriptadorMD5();
     
     public ControladorAdministrativo (AdministrativoView vA) {
         
         this.vAdmin = vA;
+        
         
     }
     
@@ -27,12 +31,12 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
         __ACerrarUsuario, __ASalir,
         
         // Administrativo
-        __NewCliente, __ModCliente,
-        __NewCoche, __ModCoche,
+        __NuevoCliente, __ModificarCliente,
+        __NuevoCoche, __ModificarCoche,
         __Factura, __Informes, __Servicios,
         
         // JDialog Administrativo
-        __JdNcliAcepta, __JdNcliCancela, __JdNcoConfirma, __JdNcoCancelar;
+        __JDNClienteAceptar, __JDNClienteCancelar, __JDNCocheAceptar, __JDNCocheCancelar;
         
     }
     
@@ -45,32 +49,32 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
         vAdmin.btnSalir.addActionListener(this);
 
         // Botones del Administrativo
-        vAdmin.btnSalir.setActionCommand("__NewCliente");
-        vAdmin.btnSalir.addActionListener(this);
-        vAdmin.btnSalir.setActionCommand("__ModCliente");
-        vAdmin.btnSalir.addActionListener(this);
-        vAdmin.btnSalir.setActionCommand("__NewCoche");
-        vAdmin.btnSalir.addActionListener(this);
-        vAdmin.btnSalir.setActionCommand("__ModCoche");
-        vAdmin.btnSalir.addActionListener(this);
-        vAdmin.btnSalir.setActionCommand("__Factura");
-        vAdmin.btnSalir.addActionListener(this);
-        vAdmin.btnSalir.setActionCommand("__Informes");
-        vAdmin.btnSalir.addActionListener(this);
-        vAdmin.btnSalir.setActionCommand("__Servicios");
-        vAdmin.btnSalir.addActionListener(this);
+        vAdmin.btnClienteAñadir.setActionCommand("__NuevoCliente");
+        vAdmin.btnClienteAñadir.addActionListener(this);
+        vAdmin.btnClienteModificar.setActionCommand("__ModificarCliente");
+        vAdmin.btnClienteModificar.addActionListener(this);
+        vAdmin.btnCocheAñadir.setActionCommand("__NuevoCoche");
+        vAdmin.btnCocheAñadir.addActionListener(this);
+        vAdmin.btnCocheModificar.setActionCommand("__ModificarCoche");
+        vAdmin.btnCocheModificar.addActionListener(this);
+        vAdmin.btnFacturas.setActionCommand("__Factura");
+        vAdmin.btnFacturas.addActionListener(this);
+        vAdmin.btnInformes.setActionCommand("__Informes");
+        vAdmin.btnInformes.addActionListener(this);
+        vAdmin.btnServicios.setActionCommand("__Servicios");
+        vAdmin.btnServicios.addActionListener(this);
 
         // Botones del JDialogNewCliente
-        vAdmin.JDNCbtnAceptar.setActionCommand("__JdNcliAcepta");
+        vAdmin.JDNCbtnAceptar.setActionCommand("__JDNClienteAceptar");
         vAdmin.JDNCbtnAceptar.addActionListener(this);
-        vAdmin.JDNCbtnAceptar.setActionCommand("__JdNcliCancela");
-        vAdmin.JDNCbtnAceptar.addActionListener(this);
+        vAdmin.JDNCbtnCancelar.setActionCommand("__JDNClienteCancelar");
+        vAdmin.JDNCbtnCancelar.addActionListener(this);
 
         // Botones del JDialogNewCoche
-        vAdmin.JDNCbtnAceptar.setActionCommand("__JdNcoConfirma");
-        vAdmin.JDNCbtnAceptar.addActionListener(this);
-        vAdmin.JDNCbtnAceptar.setActionCommand("__JdNcoCancelar");
-        vAdmin.JDNCbtnAceptar.addActionListener(this);
+        vAdmin.btnJDNCocheAceptar.setActionCommand("__JDNCocheAceptar");
+        vAdmin.btnJDNCocheAceptar.addActionListener(this);
+        vAdmin.btnJDNCocheCancelar.setActionCommand("__JDNCocheCancelar");
+        vAdmin.btnJDNCocheCancelar.addActionListener(this);
         
         vAdmin.setVisible(true);
         
@@ -98,16 +102,49 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
             /**
              * ********ADMINISTRATIVO*********
              */
-            case __NewCliente:
+            case __NuevoCliente:
+                this.vAdmin.JDNCDNI.setText("");
+                this.vAdmin.JDNCNombre.setText("");
+                this.vAdmin.JDNCApellidos.setText("");
+                this.vAdmin.JDNCDireccion.setText("");
+                this.vAdmin.JDNCTelefono.setText("");
+                this.vAdmin.JDNCUsuario.setText("");
+                
+                this.vAdmin.jDiaNewCliente.pack();
+                this.vAdmin.jDiaNewCliente.setLocationRelativeTo(null);
+                this.vAdmin.jDiaNewCliente.setVisible(true);
                 break;
                 
-            case __ModCliente:
+            case __ModificarCliente:
                 break;
                 
-            case __NewCoche:
+            case __NuevoCoche:
+                int cliente = this.vAdmin.lstClientes.getSelectedIndex();
+                
+                if (cliente == -1) {
+                    
+                    JOptionPane.showMessageDialog(null, "Error. Selecciona antes a un cliente.");
+                    
+                } else {
+                    
+                    String matricula, dni, marca, modelo, color;
+                    int puertas, plazas, ejes;
+                    
+                    cliente++;
+                    
+                    this.vAdmin.txtJDNCocheMatricula.setText("");
+                    this.vAdmin.lblJDNCocheDNI.setText(consulta.getDni());
+                    this.vAdmin.txtJDNCocheMarca.setText("");
+                    this.vAdmin.txtJDNCocheModelo.setText("");
+                    this.vAdmin.txtJDNCocheColor.setText("");
+                    this.vAdmin.cbJDNCochePuertas.setSelectedIndex(0);
+                    this.vAdmin.cbJDNCochePlazas.setSelectedIndex(0);
+                    this.vAdmin.cbJDNCocheEjes.setSelectedIndex(0);
+                    
+                }
                 break;
                 
-            case __ModCoche:
+            case __ModificarCoche:
                 break;
 
             case __Servicios:
@@ -120,16 +157,39 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                 break;
                 
             // Dialogs
-            case __JdNcliAcepta:
+            case __JDNClienteAceptar:
+                String dni, nombre, apellidos, direccion, usuario, rol, contraseña;
+                int telefono;
+                
+                dni = this.vAdmin.JDNCDNI.getText();
+                nombre = this.vAdmin.JDNCNombre.getText();
+                apellidos = this.vAdmin.JDNCApellidos.getText();
+                direccion = this.vAdmin.JDNCDireccion.getText();
+                telefono = Integer.parseInt(this.vAdmin.JDNCTelefono.getText());
+                usuario = this.vAdmin.JDNCUsuario.getText();
+                rol = this.vAdmin.JDNClblRol.getText();
+                contraseña = md5.encriptarEnMD5(dni); // La contraseña por defecto es el dni.
+                
+                try {
+                    
+                    consulta.insertarCliente(dni, nombre, apellidos, direccion, telefono, rol, usuario, contraseña);
+                    this.vAdmin.jDiaNewCliente.dispose();
+                
+                } catch (Exception ex) {
+                    
+                    JOptionPane.showMessageDialog(null, "Error al introducir datos en la base de datos.");
+                    
+                }
                 break;
                 
-            case __JdNcliCancela:
+            case __JDNClienteCancelar:
+                this.vAdmin.jDiaNewCliente.dispose();
                 break;
                 
-            case __JdNcoConfirma:
+            case __JDNCocheAceptar:
                 break;
                 
-            case __JdNcoCancelar:
+            case __JDNCocheCancelar:
                 break;
             
         }

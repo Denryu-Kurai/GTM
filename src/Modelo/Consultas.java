@@ -26,19 +26,19 @@ public class Consultas {
     }
 
     //INSERTAR
-    public void insertCliente(String Dni, String name, String apell, String direcc, int tlfn) {
+    public void insertarCliente(String dni, String nombre, String apellidos, String direccion, int telefono, String rol, String usuario, String contraseña) {
         con.abrir();
         try {
             stm = con.getConexion().createStatement();
             String sql;
             sql = "insert into personas (Dni,nombre,apellidos,direccion,telefono,rol,usuario,contrasenas) VALUES"
-                    + " (" + Dni + "," + name + "," + apell + "," + direcc + "," + tlfn + ",'Cliente',null,null)";
+                    + " ('" + dni + "','" + nombre + "','" + apellidos + "','" + direccion + "'," + telefono + ",'" + rol + "','" + usuario + "','" + contraseña + "')";
             stm.executeUpdate(sql);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         con.cerrar();
-    }//insertarCliente
+    } // Inserta un cliente
 
     public void insertCoche(String matric, String marca, String modelo, String color, String plazas, int ejes, int puertas, String dniduenio) {
         con.abrir();
