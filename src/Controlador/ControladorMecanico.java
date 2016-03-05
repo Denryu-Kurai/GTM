@@ -106,13 +106,18 @@ public class ControladorMecanico implements ActionListener, MouseListener {
                 vMeca.listaPintura.setSelected((Boolean) b.get(1));
                 vMeca.listaITV.setSelected((Boolean) b.get(2));
                 if (vMeca.jComboBox1.getSelectedItem().toString().equals("Para Arreglar")) {
-                if(vMeca.listaITV.isSelected()){
+                    if(vMeca.listaITV.isSelected()){
                     vMeca.btnGoItv.setEnabled(true);
-                }
-                if(vMeca.listaTaller.isSelected()){
+                    }
+                    if(vMeca.listaTaller.isSelected()){
                     vMeca.btnGoTaller.setEnabled(true);
+                    }
+
+                }else if(vMeca.jComboBox1.getSelectedItem().toString().equals("Para presupuesto")) {
+                     vMeca.tablaLista.setModel(consulta.tablaCochesParaPresupuesto());
+                     limpiar();
+                     vMeca.btnGoPresup.setEnabled(true);
                 }
-               
                 if(consulta.imagen(vMeca.listaMatricul.getText())==false){
                     ImageIcon fot = new ImageIcon("C:\\Users\\Alfonso Arcos\\Documents\\NetBeansProjects\\GTM\\src\\imagenes\\coche.png");
                     Icon icono = new ImageIcon(fot.getImage().getScaledInstance(vMeca.jLabel2.getWidth(), vMeca.jLabel2.getHeight(), Image.SCALE_DEFAULT));
@@ -123,12 +128,6 @@ public class ControladorMecanico implements ActionListener, MouseListener {
                     Icon icono = new ImageIcon(fot.getImage().getScaledInstance(vMeca.jLabel2.getWidth(), vMeca.jLabel2.getHeight(), Image.SCALE_DEFAULT));
                     vMeca.jLabel2.setIcon(icono);                                      
                 }
-                }else if(vMeca.jComboBox1.getSelectedItem().toString().equals("Para presupuesto")) {
-                     vMeca.tablaLista.setModel(consulta.tablaCochesParaPresupuesto());
-                     limpiar();
-                     vMeca.btnGoPresup.setEnabled(true);
-                }
-                
                 
             }
         });

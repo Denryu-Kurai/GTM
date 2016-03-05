@@ -542,13 +542,14 @@ public class Consultas {
     
     //INTERFAZ CLIENTE
     public String getReparaciones(String matricula){
-        String texto=null;
+        String texto="";
         con.abrir();
         try {
             Statement s = con.getConexion().createStatement();
             ResultSet rs = s.executeQuery("Select nombre from reparaciones as r,servicios as s where r.realizado=1 and s.íd=r.servicio and historial=(Select id from historiales where matricula = '"+matricula+"' Order by fecha desc limit 1)");
-            if (rs.next()) {
-                texto = "Se ha realizado con exito el arreglo "+rs.getString(1)+" en su vehiculo /n";
+            while (rs.next()) {               
+                System.out.println(rs.getString(1));
+                texto = texto+"Se ha realizado con exito el arreglo: "+rs.getString(1)+" en su vehiculo \n";
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -568,7 +569,7 @@ public class Consultas {
                 Object[] fila = new Object[1];
                 
                 for (int i = 1; i <= 1; i++) {
-                    fila[i] = rst.getObject(i);
+                    fila[i-1] = rst.getObject(i);
                 }
                 modelo.addRow(fila);
             }

@@ -27,6 +27,7 @@ public class ControladorLogin implements ActionListener, MouseListener {
     private String user;
     private String passw;
     
+    
     // Patron Singleton
     public static ControladorLogin getInstance () {
         
@@ -108,7 +109,9 @@ public class ControladorLogin implements ActionListener, MouseListener {
                             
                         case "cliente":
                             vLogin.setVisible(false);
-                            new ControladorCliente(new ClienteView()).iniciar();
+                            new ControladorCliente(new ClienteView()).iniciar(user);
+                            
+                            
                             break;
                             
                         default:
