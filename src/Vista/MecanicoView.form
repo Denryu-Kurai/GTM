@@ -98,7 +98,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLayeredPane1" max="32767" attributes="0"/>
-                      <Component id="jLayeredPane2" pref="548" max="32767" attributes="0"/>
+                      <Component id="jLayeredPane2" pref="509" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -183,15 +183,15 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="L1_panelLista" alignment="0" pref="546" max="32767" attributes="0"/>
+                  <Component id="L1_panelLista" alignment="0" pref="507" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Component id="L1_panelTaller" alignment="0" pref="546" max="32767" attributes="0"/>
+                      <Component id="L1_panelTaller" alignment="0" pref="507" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                      <Component id="L1_panelITV" alignment="0" pref="546" max="32767" attributes="0"/>
+                      <Component id="L1_panelITV" alignment="0" pref="507" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
-                      <Component id="L1_panelPresupuesto" alignment="0" pref="546" max="32767" attributes="0"/>
+                      <Component id="L1_panelPresupuesto" alignment="0" pref="507" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -645,7 +645,7 @@
                                       <Component id="jPanel11" max="32767" attributes="0"/>
                                       <Component id="jPanel9" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="187" max="32767" attributes="0"/>
+                                  <EmptySpace pref="107" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jPanel13" alignment="1" max="32767" attributes="0"/>
                                       <Component id="jPanel12" max="32767" attributes="0"/>
@@ -1314,7 +1314,7 @@
                                       <Component id="jCheckBox35" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jCheckBox36" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="250" max="32767" attributes="0"/>
+                                      <EmptySpace pref="170" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1937,7 +1937,7 @@
                                           <Component id="jCheckBox86" alignment="1" min="-2" max="-2" attributes="0"/>
                                           <Component id="jCheckBox65" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="223" max="32767" attributes="0"/>
+                                      <EmptySpace pref="143" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2397,18 +2397,18 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="546" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="507" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Component id="L2_panelLista" alignment="0" pref="546" max="32767" attributes="0"/>
+                      <Component id="L2_panelLista" alignment="0" pref="507" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                      <Component id="L2_panelTaller" alignment="0" pref="546" max="32767" attributes="0"/>
+                      <Component id="L2_panelTaller" alignment="0" pref="507" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
-                      <Component id="L2_panelITV" alignment="0" pref="546" max="32767" attributes="0"/>
+                      <Component id="L2_panelITV" alignment="0" pref="507" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
-                      <Component id="L2_panelPresupuesto" alignment="0" pref="546" max="32767" attributes="0"/>
+                      <Component id="L2_panelPresupuesto" alignment="0" pref="507" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
