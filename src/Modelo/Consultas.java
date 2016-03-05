@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
 // @author Denryu Kurai Seishi (Pedro)
@@ -87,10 +88,11 @@ public class Consultas {
 
         con.abrir();
         try {
-            String sql = "insert into reparaciones (historial,servicio) values (?,?)";
+            String sql = "insert into reparaciones (historial,servicio,realizado) values (?,?,?)";
             PreparedStatement s = con.getConexion().prepareStatement(sql);
             s.setInt(1, historial);
             s.setInt(2, servicio);
+            s.setInt(historial, 0);
             s.execute();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -104,10 +106,11 @@ public class Consultas {
         try {
             Connection cn = con.getConexion();
             stm = cn.createStatement();
-            rst = stm.executeQuery("select c.modelo,c.marca,c.matricula,p.telefono,c.duenio from coches as c,personas as p where p.dni='" + id + "'");
+            rst = stm.executeQuery("select c.modelo,c.marca,c.matricula,p.telefono,c.duenio from coches as c,personas as p where p.dni='" + id + "' && p.dni = c.duenio");
             while (rst.next()) {
                 for (int i = 0; i < 4; i++) {
                     datos.add(rst.getString(i + 1));
+                    
                 }
             }
         } catch (Exception e) {
@@ -218,6 +221,17 @@ public class Consultas {
         return ok;
     }
 
+    public void arreglar(String historial,String servicio){
+                con.abrir();
+        try {
+            String sql = "UPDATE reparaciones SET realizado = 1 where historial='"+historial+"' and servicio="+servicio;
+            PreparedStatement s = con.getConexion().prepareStatement(sql);
+            s.execute();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        con.cerrar();
+    }
     //FINALIZADORES
     public void finPresupuesto(ArrayList a){
        
@@ -242,7 +256,36 @@ public class Consultas {
         con.abrir();
         try {
             stm = con.getConexion().createStatement();
-            rst = stm.executeQuery("select matricula,modelo,marca from coches");
+            rst = stm.executeQuery("select c.matricula,c.modelo,c.marca from coches as c,lugares as l where l.matricula=c.matricula");
+            while (rst.next()) {
+                Object[] fila = new Object[3];
+                for (int i = 1; i <= 3; i++) {
+                    fila[i - 1] = rst.getObject(i);
+                }
+                modelo.addRow(fila);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        con.cerrar();
+        return modelo;
+    }//tablaCoches
+    
+    public DefaultTableModel tablaCochesParaPresupuesto() {
+        DefaultTableModel modelo = new DefaultTableModel() {
+            @Override
+            //Este metodo hace que las celdas de la tabla no sean editables al hacer click en ella
+            public boolean isCellEditable(int row, int colum) {
+                return false;
+            }
+        };
+        modelo.addColumn("MATRICULA");
+        modelo.addColumn("MODELO");
+        modelo.addColumn("MARCA");
+        con.abrir();
+        try {
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select c.matricula,c.modelo,c.marca from coches as c,lugares as l where l.matricula=c.matricula and l.espera = 1");
             while (rst.next()) {
                 Object[] fila = new Object[3];
                 for (int i = 1; i <= 3; i++) {
@@ -257,6 +300,102 @@ public class Consultas {
         return modelo;
     }//tablaCoches
 
+    public DefaultTableModel tablaCochesParaTaller() {
+        DefaultTableModel modelo = new DefaultTableModel() {
+            @Override
+            //Este metodo hace que las celdas de la tabla no sean editables al hacer click en ella
+            public boolean isCellEditable(int row, int colum) {
+                return false;
+            }
+        };
+        modelo.addColumn("MATRICULA");
+        modelo.addColumn("MODELO");
+        modelo.addColumn("MARCA");
+        con.abrir();
+        try {
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select c.matricula,c.modelo,c.marca from coches as c,lugares as l where l.matricula=c.matricula and l.espera = 0");
+            while (rst.next()) {
+                Object[] fila = new Object[3];
+                for (int i = 1; i <= 3; i++) {
+                    fila[i - 1] = rst.getObject(i);
+                }
+                modelo.addRow(fila);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        con.cerrar();
+        return modelo;
+    }//tablaCoches
+    
+    public ImageIcon abrirImagen(String matricula){
+        
+        Image pt = null;
+        Blob imagen=null;
+        con.abrir();
+        Connection conexion = con.getConexion();
+        try{
+        String sql = "SELECT * FROM fotos where matricula='"+matricula+"'";
+        
+        java.sql.Statement stmt = conexion.createStatement();
+        ResultSet results = stmt.executeQuery(sql);
+        
+        while(results.next())
+                
+        imagen = results.getBlob("foto");
+ 
+         pt=  javax.imageio.ImageIO.read(imagen.getBinaryStream());
+        }catch(Exception e){
+            
+        }
+        con.cerrar();
+        ImageIcon icon = new ImageIcon(pt);
+  return icon;
+ }
+   
+    public DefaultTableModel tablaServicios(String matricula){
+        DefaultTableModel modelo = new DefaultTableModel();     
+        modelo.addColumn("MATRICULA");
+        modelo.addColumn("ID REPARACIÓN");
+        modelo.addColumn("REPARACIÓN");
+        
+        con.abrir();
+        try {
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("Select servicio,nombre from reparaciones as r,servicios as s where r.realizado=0 and s.íd=r.servicio and historial=(Select id from historiales where matricula = '"+matricula+"' Order by fecha desc limit 1)");
+            while (rst.next()) {
+                Object[] fila = new Object[3];
+                fila[0]=matricula;
+                for (int i = 1; i <= 2; i++) {
+                    fila[i] = rst.getObject(i);
+                }
+                modelo.addRow(fila);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        con.cerrar();
+        return modelo;
+    }
+    
+    public boolean imagen(String matricula){
+            boolean si = false;
+            con.abrir();
+            Connection conexion = con.getConexion();
+            try{
+             String sql = "SELECT * FROM fotos where matricula='"+matricula+"'";  
+             java.sql.Statement stmt = conexion.createStatement();
+        ResultSet results = stmt.executeQuery(sql);
+        
+        while(results.next())
+            si=true;
+            }catch(Exception e){
+                
+            }
+            return si;
+        }
+    
     public DefaultTableModel tablaServicios() {
         DefaultTableModel modelo = new DefaultTableModel() {
             @Override
@@ -329,8 +468,10 @@ public class Consultas {
             
             File file = new File(url);
             fis = new FileInputStream(file);
-            PreparedStatement pstm = con.getConexion().prepareStatement("insert into fotos(matricula, foto) values(" + matricula + ",?)");
-            pstm.setBinaryStream(1, fis, (int) file.length());
+            
+            PreparedStatement pstm = con.getConexion().prepareStatement("insert into fotos(matricula, foto) values(?,?)");
+            pstm.setString(1, matricula);
+            pstm.setBinaryStream(2, fis, (int) file.length());
             pstm.execute();
             pstm.close();
             
@@ -355,22 +496,41 @@ public class Consultas {
         con.cerrar();
         
     }
-
-    /* public Image abrirImagen(String matricula) throws SQLException, IOException {
     
-     Image img=null;
-     String sql = "SELECT * FROM imagen limit 1";
-        
-     Statement stmt = conexion.createStatement();
-     ResultSet results = stmt.executeQuery(sql);
- 
-     Blob imagen=null;
-     while(results.next())
-     Blob imagen = results.getBlob("Imagen");
- 
-     rpta= javax.imageio.ImageIO.read(imagen.getBinaryStream());
-     //Esta parte es clave, donde se convierte a imagen
-     return rpta;
+    public void finArreglo(String matricula){
+        con.abrir();
+        try {
+            String sql = "UPDATE lugares SET taller = 0 where matricula='"+matricula+"'";
+            PreparedStatement s = con.getConexion().prepareStatement(sql);
+            s.execute();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        con.cerrar();
+    }
     
-     } */
+    public void finITV(String matricula){
+        con.abrir();
+        try {
+            String sql = "UPDATE lugares SET itv = 0 where matricula='"+matricula+"'";
+            PreparedStatement s = con.getConexion().prepareStatement(sql);
+            s.execute();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        con.cerrar();
+    }
+    
+    public void finCoche(String matricula){
+        con.abrir();
+        try {
+            String sql = "Delete from lugares where matricula='"+matricula+"'";
+            PreparedStatement s = con.getConexion().prepareStatement(sql);
+            s.execute();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        con.cerrar();
+    }
+           
 }
