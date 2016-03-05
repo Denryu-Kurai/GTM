@@ -194,7 +194,7 @@ public class Consultas {
         try {
             stm = con.getConexion().createStatement();
             rst = stm.executeQuery("select usuario, contrasenas from personas where usuario like '" + user + "' and contrasenas = '" + password + "';");
-            if (rst != null) {
+            if (rst.next()) {
                 pasa = true;
             }
         } catch (Exception e) {

@@ -5,6 +5,7 @@ package Controlador;
 // @author Alfonso Arcos
 
 import Modelo.Consultas;
+import Modelo.EncriptadorMD5;
 import Vista.AdministrativoView;
 import Vista.LoginView;
 import Vista.MecanicoView;
@@ -13,10 +14,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 public class ControladorLogin implements ActionListener, MouseListener {
     
     private static ControladorLogin c = null;
+    EncriptadorMD5 md5 = new EncriptadorMD5();
     LoginView vLogin;
     Consultas consulta = new Consultas();
     private Date fecha = new Date();
@@ -46,7 +49,7 @@ public class ControladorLogin implements ActionListener, MouseListener {
     public enum AccionMVC {
 
         // Login
-        __Conectar, __Registrarse,
+        __Conectar, __Salir;
         
     }
 
@@ -55,7 +58,7 @@ public class ControladorLogin implements ActionListener, MouseListener {
         // Botones del Login
         vLogin.btnConectar.setActionCommand("__Conectar");
         vLogin.btnConectar.addActionListener(this);
-        vLogin.btnRegistrarse.setActionCommand("__Registrarse");
+        vLogin.btnRegistrarse.setActionCommand("__Salir");
         vLogin.btnRegistrarse.addActionListener(this);
 
         // Lanzamos el Login
@@ -84,8 +87,8 @@ public class ControladorLogin implements ActionListener, MouseListener {
              */
             case __Conectar:
                 user = vLogin.txtUsuario.getText();
-                passw = vLogin.txtContraseña.toString();
-
+                passw = md5.encriptarEnMD5(vLogin.txtContraseña.getText());
+                
                 if (consulta.getLogin(user, passw) == true) {
                     
                     System.out.println("usuario y contraseña correctos");
@@ -108,9 +111,14 @@ public class ControladorLogin implements ActionListener, MouseListener {
                             
                     }
                     
+                } else {
+                    
+                    JOptionPane.showMessageDialog(vLogin, "Usuario y/o Contraseña incorrectos.");
+                    
                 }
                 break;
-            case __Registrarse:
+            case __Salir:
+                System.exit(0);
                 break;
                 
         }
