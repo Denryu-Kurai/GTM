@@ -396,7 +396,7 @@ public class Consultas {
             return si;
         }
     
-    public DefaultTableModel tablaServicios() {
+    public DefaultTableModel tablaServicios(boolean a) {
         DefaultTableModel modelo = new DefaultTableModel() {
             @Override
             //Este metodo hace que las celdas de la tabla no sean editables al hacer click en ella
@@ -411,13 +411,18 @@ public class Consultas {
         modelo.addColumn("PRECIO");
         con.abrir();
         Connection cn = con.getConexion();
+        
+        
         try {
             Statement s = cn.createStatement();
             ResultSet rs = s.executeQuery("select * from servicios;");
             while (rs.next()) {
                 Object[] fila = new Object[5];
                 for (int i = 0; i < 5; i++) {
+                    if(a==true && rs.getInt("íd")==7){
+                    }else{                   
                     fila[i] = rs.getObject(i + 1);
+                    }
                 }
                 modelo.addRow(fila);
             }
@@ -532,5 +537,46 @@ public class Consultas {
         }
         con.cerrar();
     }
-           
+    
+    
+    
+    //INTERFAZ CLIENTE
+    public String getReparaciones(String matricula){
+        String texto=null;
+        con.abrir();
+        try {
+            Statement s = con.getConexion().createStatement();
+            ResultSet rs = s.executeQuery("Select nombre from reparaciones as r,servicios as s where r.realizado=1 and s.íd=r.servicio and historial=(Select id from historiales where matricula = '"+matricula+"' Order by fecha desc limit 1)");
+            if (rs.next()) {
+                texto = "Se ha realizado con exito el arreglo "+rs.getString(1)+" en su vehiculo /n";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        con.cerrar();
+        return texto;
+    }
+    
+    public DefaultTableModel tablaCliente(String dni){
+         DefaultTableModel modelo = new DefaultTableModel();     
+        modelo.addColumn("MATRICULA");       
+        con.abrir();
+        try {
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("Select matricula from coches where duenio='"+dni+"'");
+            while (rst.next()) {
+                Object[] fila = new Object[1];
+                
+                for (int i = 1; i <= 1; i++) {
+                    fila[i] = rst.getObject(i);
+                }
+                modelo.addRow(fila);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        con.cerrar();
+        return modelo;
+    }
+    
 }

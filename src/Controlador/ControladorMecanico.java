@@ -307,7 +307,7 @@ public class ControladorMecanico implements ActionListener, MouseListener {
                 break;
 
             case __Presupuesteame:
-                vMeca.jTable2.setModel(consulta.tablaServicios());
+                vMeca.jTable2.setModel(consulta.tablaServicios(vMeca.listaPintura.isSelected()));
                 int i =vMeca.tablaLista.getSelectedRow();
                 vMeca.dueñoPresupuesto.setText(vMeca.listaPropietario.getText());
                 vMeca.matriculaPresupuesto.setText(vMeca.listaMatricul.getText());
