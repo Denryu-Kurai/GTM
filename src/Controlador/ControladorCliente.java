@@ -51,6 +51,7 @@ public class ControladorCliente implements ActionListener, MouseListener {
              
             }
         });
+        this.vCli.setVisible(true);
     }
    
     @Override

@@ -7,6 +7,7 @@ package Controlador;
 import Modelo.Consultas;
 import Modelo.EncriptadorMD5;
 import Vista.AdministrativoView;
+import Vista.ClienteView;
 import Vista.LoginView;
 import Vista.MecanicoView;
 import java.awt.event.ActionEvent;
@@ -103,6 +104,11 @@ public class ControladorLogin implements ActionListener, MouseListener {
                         case "administra":
                             vLogin.setVisible(false);
                             new ControladorAdministrativo(new AdministrativoView()).iniciar();
+                            break;
+                            
+                        case "cliente":
+                            vLogin.setVisible(false);
+                            new ControladorCliente(new ClienteView()).iniciar();
                             break;
                             
                         default:
