@@ -102,7 +102,7 @@ public class ControladorLogin implements ActionListener, MouseListener {
                             new ControladorMecanico(new MecanicoView()).iniciar();
                             break;
                             
-                        case "administra":
+                        case "administrativo":
                             vLogin.setVisible(false);
                             new ControladorAdministrativo(new AdministrativoView()).iniciar();
                             break;
