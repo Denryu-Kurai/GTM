@@ -37,7 +37,7 @@ public class ControladorMecanico implements ActionListener, MouseListener {
         
         // Menu
         __ACerrarUsuario, __ASalir,
-        
+        ITV,Taller,Presupuesto,
         // Mecanico
         __Listame, __Presupuesteame, __Tallerizame, __Pintame, __ITVme,__FinITV,__FinCoche,
         __SubirImagen,__FinPresupuesto,__FinArreglo,__ITV1,__ITV2,__ITV3,__ArreglarParte,__QuitarLista;
@@ -45,7 +45,9 @@ public class ControladorMecanico implements ActionListener, MouseListener {
     }
     
     public void iniciar () {
-        
+        vMeca.btnItv.setEnabled(false);
+        vMeca.btnTaller.setEnabled(false);
+        vMeca.btnPresup.setEnabled(false);
         // Acciones del menu
         vMeca.btnCerrarUsuario.setActionCommand("__ACerrarUsuario");
         vMeca.btnCerrarUsuario.addActionListener(this);
@@ -81,6 +83,12 @@ public class ControladorMecanico implements ActionListener, MouseListener {
         vMeca.btnEndCar_supITV.addActionListener(this);
         vMeca.btnEndCar_supLista.setActionCommand("__FinCoche");
         vMeca.btnEndCar_supLista.addActionListener(this);
+        vMeca.btnItv.setActionCommand("ITV");
+        vMeca.btnItv.addActionListener(this);
+        vMeca.btnPresup.setActionCommand("Presupuesto");
+        vMeca.btnPresup.addActionListener(this);
+        vMeca.btnTaller.setActionCommand("Taller");
+        vMeca.btnTaller.addActionListener(this);
         //INICIO
         vMeca.btnUpImage.setEnabled(false);vMeca.btnGoItv.setEnabled(false);
         vMeca.btnGoTaller.setEnabled(false);vMeca.btnEndCar_supLista.setEnabled(false);
@@ -108,15 +116,18 @@ public class ControladorMecanico implements ActionListener, MouseListener {
                 if (vMeca.jComboBox1.getSelectedItem().toString().equals("Para Arreglar")) {
                     if(vMeca.listaITV.isSelected()){
                     vMeca.btnGoItv.setEnabled(true);
+                    vMeca.btnItv.setEnabled(true);
                     }
                     if(vMeca.listaTaller.isSelected()){
                     vMeca.btnGoTaller.setEnabled(true);
+                    vMeca.btnTaller.setEnabled(true);
                     }
 
                 }else if(vMeca.jComboBox1.getSelectedItem().toString().equals("Para presupuesto")) {
                      vMeca.tablaLista.setModel(consulta.tablaCochesParaPresupuesto());
                      limpiar();
                      vMeca.btnGoPresup.setEnabled(true);
+                     vMeca.btnPresup.setEnabled(true);
                 }
                 if(consulta.imagen(vMeca.listaMatricul.getText())==false){
                     ImageIcon fot = new ImageIcon(getClass().getResource("/imagenes/coche.png"));
@@ -324,6 +335,27 @@ public class ControladorMecanico implements ActionListener, MouseListener {
                 
                 vMeca.L2_panelITV.setVisible(false);
                 break;
+                
+                case Presupuesto:
+                vMeca.jTable2.setModel(consulta.tablaServicios(vMeca.listaPintura.isSelected()));
+                 i =vMeca.tablaLista.getSelectedRow();
+                vMeca.dueñoPresupuesto.setText(vMeca.listaPropietario.getText());
+                vMeca.matriculaPresupuesto.setText(vMeca.listaMatricul.getText());
+                // Paneles Layered 1
+                vMeca.L1_panelLista.setVisible(false);
+                vMeca.L1_panelPresupuesto.setVisible(true);
+                vMeca.L1_panelTaller.setVisible(false);
+                
+                vMeca.L1_panelITV.setVisible(false);
+                
+                // Paneles Layered 2
+                vMeca.L2_panelLista.setVisible(false);
+                vMeca.L2_panelPresupuesto.setVisible(true);
+                vMeca.L2_panelTaller.setVisible(false);
+                
+                vMeca.L2_panelITV.setVisible(false);
+                break;
+                
 
             case __Tallerizame:
                 vMeca.jTable5.setModel(consulta.tablaServicios(vMeca.listaMatricul.getText()));
@@ -347,24 +379,52 @@ public class ControladorMecanico implements ActionListener, MouseListener {
                 
                 vMeca.L2_panelITV.setVisible(false);
                 break;
-
-            case __Pintame:
+                case Taller:
+                vMeca.jTable5.setModel(consulta.tablaServicios(vMeca.listaMatricul.getText()));
+                if(this.vMeca.jTable5.getRowCount()==0 ){
+                   vMeca.jButton12.setEnabled(false);
+                   vMeca.btnEndCar_supTaller.setEnabled(true);
+                   vMeca.matriculaPresupuesto.setText(vMeca.listaMatricul.getText());
+                   vMeca.dueñoPresupuesto.setText(vMeca.listaPropietario.getText());
+                }
                 // Paneles Layered 1
                 vMeca.L1_panelLista.setVisible(false);
                 vMeca.L1_panelPresupuesto.setVisible(false);
-                vMeca.L1_panelTaller.setVisible(false);
-               
+                vMeca.L1_panelTaller.setVisible(true);
+                
                 vMeca.L1_panelITV.setVisible(false);
+                
+                // Paneles Layered 2
+                vMeca.L2_panelLista.setVisible(false);
+                vMeca.L2_panelPresupuesto.setVisible(false);
+                vMeca.L2_panelTaller.setVisible(true);
+                
+                vMeca.L2_panelITV.setVisible(false);
+                break;
+
+
+
+            case __ITVme:
+                
+                vMeca.jTabbedPane1.setEnabledAt(1, false);
+                vMeca.jTabbedPane1.setEnabledAt(2, false);
+                
+                // Paneles Layered 1
+                
+                vMeca.L1_panelLista.setVisible(false);
+                vMeca.L1_panelPresupuesto.setVisible(false);
+                vMeca.L1_panelTaller.setVisible(false);
+                
+                vMeca.L1_panelITV.setVisible(true);
                 
                 // Paneles Layered 2
                 vMeca.L2_panelLista.setVisible(false);
                 vMeca.L2_panelPresupuesto.setVisible(false);
                 vMeca.L2_panelTaller.setVisible(false);
                 
-                vMeca.L2_panelITV.setVisible(false);
+                vMeca.L2_panelITV.setVisible(true);
                 break;
-
-            case __ITVme:
+                case ITV:
                 
                 vMeca.jTabbedPane1.setEnabledAt(1, false);
                 vMeca.jTabbedPane1.setEnabledAt(2, false);
