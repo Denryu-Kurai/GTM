@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 
 
 public class ControladorAdministrativo implements ActionListener, MouseListener {
@@ -87,7 +88,54 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
         vAdmin.btnCEliminar.setActionCommand("__EliminarCoche");
         vAdmin.btnCEliminar.addActionListener(this);
         
-        // Prepara la vista.
+        // Prepara las tablas.
+        vAdmin.tblUsuarios.setModel(consulta.tablaUsuariosAdministrativo());
+        vAdmin.tblUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                
+                vAdmin.txtUDNI.setFocusable(false);
+                vAdmin.btnUInsertar.setVisible(false);
+                vAdmin.btnUModificar.setVisible(true);
+                vAdmin.btnUEliminar.setVisible(true);
+                
+                vAdmin.pnUsuario.setVisible(true);
+                vAdmin.pnCoche.setVisible(false);
+                vAdmin.pnBlanco.setVisible(false);
+                
+                limpiar();
+                
+                int fila = vAdmin.tblUsuarios.getSelectedRow();
+                String id = (String) vAdmin.tblUsuarios.getValueAt(fila, 0);
+                String[] persona = consulta.getPersona(id);
+                
+                vAdmin.txtUDNI.setText(persona[0]);
+                vAdmin.txtUUsuario.setText(persona[1]);
+                vAdmin.txtUNombre.setText(persona[2]);
+                vAdmin.txtUApellidos.setText(persona[3]);
+                vAdmin.txtUDireccion.setText(persona[4]);
+                vAdmin.txtUTelefono.setText(persona[5]);
+                
+                if (persona[6].equals("cliente")) {
+                    
+                    vAdmin.cbURol.setSelectedIndex(0);
+                    
+                } else if (persona[6].equals("mecanico")) {
+                    
+                    vAdmin.cbURol.setSelectedIndex(1);
+                    
+                } else {
+                    
+                    vAdmin.cbURol.setSelectedIndex(2);
+                    
+                }
+                
+            }
+        });
+        
+        vAdmin.tblCoches.setModel(consulta.tablaCochesAdministrativo());
+        
+        // Prepara la vista Administrativa.
         vAdmin.pnUC.setVisible(true);
         vAdmin.pnBlanco.setVisible(true);
         vAdmin.pnUsuario.setVisible(false);
@@ -169,9 +217,53 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                 break;
                 
             case __AñadirUsuario:
+                limpiar();
+                
+                vAdmin.txtUDNI.setFocusable(true);
+                vAdmin.btnUInsertar.setVisible(true);
+                vAdmin.btnUModificar.setVisible(false);
+                vAdmin.btnUEliminar.setVisible(false);
+                
+                vAdmin.pnUsuario.setVisible(true);
+                vAdmin.pnCoche.setVisible(false);
+                vAdmin.pnBlanco.setVisible(false);
                 break;
                 
             case __InsertarUsuario:
+                String dni, nombre, apellidos, direccion, usuario, contraseña, rol;
+                int telefono, c;
+                
+                c = 0;
+                
+                if (vAdmin.txtUDNI.getText().equals("")) c++;
+                if (vAdmin.txtUUsuario.getText().equals("")) c++;
+                if (vAdmin.txtUNombre.getText().equals("")) c++;
+                if (vAdmin.txtUApellidos.getText().equals("")) c++;
+                if (vAdmin.txtUDireccion.getText().equals("")) c++;
+                if (vAdmin.txtUTelefono.getText().equals("")) c++;
+                
+                if (c > 0) {
+                    
+                    JOptionPane.showMessageDialog(vAdmin, "Error. Rellena todos los campos.");
+                    
+                } else {
+                    
+                    dni = vAdmin.txtUDNI.getText();
+                    usuario = vAdmin.txtUUsuario.getText();
+                    nombre = vAdmin.txtUNombre.getText();
+                    apellidos = vAdmin.txtUApellidos.getText();
+                    direccion = vAdmin.txtUDireccion.getText();
+                    telefono = Integer.parseInt(vAdmin.txtUTelefono.getText());
+                    
+                    consulta.insertarUsuario(dni, nombre, apellidos, direccion, telefono, (String) vAdmin.cbURol.getSelectedItem(), usuario, md5.encriptarEnMD5(dni));
+                    
+                    vAdmin.tblUsuarios.setModel(consulta.tablaUsuariosAdministrativo());
+                    
+                    vAdmin.pnUsuario.setVisible(false);
+                    vAdmin.pnCoche.setVisible(false);
+                    vAdmin.pnBlanco.setVisible(true);
+                    
+                }
                 break;
                 
             case __ModificarUsuario:
@@ -187,6 +279,27 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                 break;
                 
             case __AñadirCoche:
+                int fila = this.vAdmin.tblUsuarios.getSelectedRow();
+                
+                if (fila == -1) {
+                    
+                    JOptionPane.showMessageDialog(null, "Tiene que seleccionar un usuario.");
+                    
+                } else {
+                    
+                    limpiar();
+                
+                    vAdmin.btnCInsertar.setVisible(true);
+                    vAdmin.btnCModificar.setVisible(false);
+                    vAdmin.btnCEliminar.setVisible(false);
+                
+                    vAdmin.pnUsuario.setVisible(false);
+                    vAdmin.pnCoche.setVisible(true);
+                    vAdmin.pnBlanco.setVisible(false);
+                    
+                    vAdmin.txtCPropietario.setText((String) vAdmin.tblUsuarios.getValueAt(fila, 0));
+                    
+                }
                 break;
                 
             case __InsertarCoche:
@@ -199,6 +312,27 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                 break;
             
         }
+        
+    }
+    
+    public void limpiar () {
+        
+        vAdmin.txtUDNI.setText("");
+        vAdmin.txtUUsuario.setText("");
+        vAdmin.txtUNombre.setText("");
+        vAdmin.txtUApellidos.setText("");
+        vAdmin.txtUDireccion.setText("");
+        vAdmin.txtUTelefono.setText("");
+        vAdmin.cbURol.setSelectedIndex(0);
+        
+        vAdmin.txtCMatricula.setText("");
+        vAdmin.txtCPropietario.setText("");
+        vAdmin.txtCMarca.setText("");
+        vAdmin.txtCModelo.setText("");
+        vAdmin.txtCColor.setText("");
+        vAdmin.cbCPlazas.setSelectedIndex(0);
+        vAdmin.cbCEjes.setSelectedIndex(0);
+        vAdmin.cbCPuertas.setSelectedIndex(0);
         
     }
 

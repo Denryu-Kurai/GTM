@@ -87,7 +87,7 @@ public class AdministrativoView extends javax.swing.JFrame {
         setTitle("GTM - Administrativo");
         setMinimumSize(new java.awt.Dimension(980, 650));
 
-        jPanel7.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel7.setLayout(new java.awt.GridLayout());
 
         btnUC.setText("Usuarios / Coches");
         jPanel7.add(btnUC);
@@ -164,11 +164,11 @@ public class AdministrativoView extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Matrícula", "Marca", "Modelo"
+                "Matrícula", "Propietario", "Marca", "Modelo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -327,6 +327,7 @@ public class AdministrativoView extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCPropietario.setFocusable(false);
 
         jLabel1.setText("Matrícula:");
 

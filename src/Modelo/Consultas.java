@@ -25,9 +25,12 @@ public class Consultas {
         con = new ConMysql();
         con.abrir();
     }
-
-    //INSERTAR
-    public void insertarCliente(String dni, String nombre, String apellidos, String direccion, int telefono, String rol, String usuario, String contraseña) {
+    
+    /**
+     * **************PARTE ADMINISTRATIVA*******************
+     */
+    // Usuarios
+    public void insertarUsuario(String dni, String nombre, String apellidos, String direccion, int telefono, String rol, String usuario, String contraseña) {
         con.abrir();
         try {
             stm = con.getConexion().createStatement();
@@ -39,7 +42,26 @@ public class Consultas {
             ex.printStackTrace();
         }
         con.cerrar();
-    } // Inserta un cliente
+    } // Inserta un usuario.
+    
+    public void modificarUsuario(String dni, String nombre, String apellidos, String direccion, int telefono, String rol, String usuario, String contraseña) {
+        con.abrir();
+        try {
+            stm = con.getConexion().createStatement();
+            String sql;
+            sql = "update into personas (Dni,nombre,apellidos,direccion,telefono,rol,usuario,contrasenas) VALUES"
+                    + " ('" + dni + "','" + nombre + "','" + apellidos + "','" + direccion + "'," + telefono + ",'" + rol + "','" + usuario + "','" + contraseña + "')";
+            stm.executeUpdate(sql);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        con.cerrar();
+    } // Modifica un usuario.
+
+    /**
+     * **************INSERTAR*******************
+     */
+    
 
     public void insertCoche(String matric, String marca, String modelo, String color, String plazas, int ejes, int puertas, String dniduenio) {
         con.abrir();
@@ -139,7 +161,9 @@ public class Consultas {
         return datos;
     }
 
-    //GETTERs
+    /**
+     * ***************GETTERS******************
+     */
     public String getDni(String id) {
         String actual = null;
         con.abrir();
@@ -220,6 +244,39 @@ public class Consultas {
         con.cerrar();
         return ok;
     }
+    
+    public String[] getPersona (String dni) {
+        
+        String[] persona = new String[7];
+        
+        con.abrir();
+        
+        try {
+            
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select dni, usuario, nombre, apellidos, direccion, telefono, rol from personas where dni = '" + dni +"';");
+            
+            if (rst.next()) {
+                
+                for (int i = 1; i <= 7; i++) {
+                    
+                    persona[i - 1] = rst.getString(i);
+                    
+                }
+                
+            }
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        
+        con.cerrar();
+        
+        return persona;
+        
+    }
 
     public void arreglar(String historial,String servicio){
                 con.abrir();
@@ -232,6 +289,7 @@ public class Consultas {
         }
         con.cerrar();
     }
+    
     //FINALIZADORES
     public void finPresupuesto(ArrayList a){
        
@@ -242,6 +300,101 @@ public class Consultas {
     /**
      * *********************************
      */
+    public DefaultTableModel tablaUsuariosAdministrativo () {
+        
+        DefaultTableModel modelo = new DefaultTableModel() {
+            @Override
+            //Este metodo hace que las celdas de la tabla no sean editables al hacer click en ella
+            public boolean isCellEditable(int row, int colum) {
+                return false;
+            }
+        };
+        
+        modelo.addColumn("DNI");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellidos");
+        
+        con.abrir();
+        
+        try {
+            
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select dni, nombre, apellidos from personas");
+            
+            while (rst.next()) {
+                
+                Object[] fila = new Object[3];
+                
+                for (int i = 1; i <= 3; i++) {
+                    
+                    fila[i - 1] = rst.getObject(i);
+                    
+                }
+                
+                modelo.addRow(fila);
+                
+            }
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        
+        con.cerrar();
+        
+        return modelo;
+        
+    }
+    
+    public DefaultTableModel tablaCochesAdministrativo () {
+        
+        DefaultTableModel modelo = new DefaultTableModel() {
+            @Override
+            //Este metodo hace que las celdas de la tabla no sean editables al hacer click en ella
+            public boolean isCellEditable(int row, int colum) {
+                return false;
+            }
+        };
+        
+        modelo.addColumn("Matrícula");
+        modelo.addColumn("Propietario");
+        modelo.addColumn("Marca");
+        modelo.addColumn("Modelo");
+        
+        con.abrir();
+        
+        try {
+            
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select matricula, duenio, marca, modelo from coches");
+            
+            while (rst.next()) {
+                
+                Object[] fila = new Object[4];
+                
+                for (int i = 1; i <= 4; i++) {
+                    
+                    fila[i - 1] = rst.getObject(i);
+                    
+                }
+                
+                modelo.addRow(fila);
+                
+            }
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        
+        con.cerrar();
+        
+        return modelo;
+        
+    }
+    
     public DefaultTableModel tablaCoches() {
         DefaultTableModel modelo = new DefaultTableModel() {
             @Override
