@@ -56,7 +56,7 @@ public class ControladorCliente implements ActionListener, MouseListener {
                  vCli.jTextArea2.setText("");
                  vCli.jTextArea2.setText(consulta.getReparaciones(matricula));
              if(consulta.imagen(vCli.dniCliente.getText())==false){
-                    ImageIcon fot = new ImageIcon("C:\\Users\\Alfonso Arcos\\Documents\\NetBeansProjects\\GTM\\src\\imagenes\\coche.png");
+                    ImageIcon fot = new ImageIcon(getClass().getResource("/imagenes/coche.png"));
                     Icon icono = new ImageIcon(fot.getImage().getScaledInstance(vCli.jLabel1.getWidth(), vCli.jLabel1.getHeight(), Image.SCALE_DEFAULT));
                     vCli.jLabel1.setIcon(icono);                  
                     vCli.jLabel1.setText("");

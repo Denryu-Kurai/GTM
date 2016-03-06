@@ -119,7 +119,7 @@ public class ControladorMecanico implements ActionListener, MouseListener {
                      vMeca.btnGoPresup.setEnabled(true);
                 }
                 if(consulta.imagen(vMeca.listaMatricul.getText())==false){
-                    ImageIcon fot = new ImageIcon("C:\\Users\\Alfonso Arcos\\Documents\\NetBeansProjects\\GTM\\src\\imagenes\\coche.png");
+                    ImageIcon fot = new ImageIcon(getClass().getResource("/imagenes/coche.png"));
                     Icon icono = new ImageIcon(fot.getImage().getScaledInstance(vMeca.jLabel2.getWidth(), vMeca.jLabel2.getHeight(), Image.SCALE_DEFAULT));
                     vMeca.jLabel2.setIcon(icono);                  
                     vMeca.jLabel2.setText("");
@@ -330,6 +330,8 @@ public class ControladorMecanico implements ActionListener, MouseListener {
                 if(this.vMeca.jTable5.getRowCount()==0 ){
                    vMeca.jButton12.setEnabled(false);
                    vMeca.btnEndCar_supTaller.setEnabled(true);
+                   vMeca.matriculaPresupuesto.setText(vMeca.listaMatricul.getText());
+                   vMeca.dueñoPresupuesto.setText(vMeca.listaPropietario.getText());
                 }
                 // Paneles Layered 1
                 vMeca.L1_panelLista.setVisible(false);
