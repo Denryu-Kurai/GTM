@@ -51,14 +51,10 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
         vAdmin.btnCerrarUsuario.addActionListener(this);
         vAdmin.btnSalir.setActionCommand("__Salir");
         vAdmin.btnSalir.addActionListener(this);
-        vAdmin.btnCambiarContraseña.setActionCommand("__CambiarContraseña");
-        vAdmin.btnCambiarContraseña.addActionListener(this);
         
         // Botones del Administrativo.
         vAdmin.btnUC.setActionCommand("__SeccionUC");
         vAdmin.btnUC.addActionListener(this);
-        vAdmin.btnServicios.setActionCommand("__SeccionServicios");
-        vAdmin.btnServicios.addActionListener(this);
         vAdmin.btnFacturas.setActionCommand("__SeccionFacturas");
         vAdmin.btnFacturas.addActionListener(this);
         vAdmin.btnInformes.setActionCommand("__SeccionInformes");
@@ -130,17 +126,89 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                     
                 }
                 
+                vAdmin.tblCoches.setModel(consulta.tablaCochesUsuarioAdministrativo(persona[0]));
+                
             }
         });
         
         vAdmin.tblCoches.setModel(consulta.tablaCochesAdministrativo());
+        vAdmin.tblCoches.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                
+                vAdmin.txtCMatricula.setFocusable(false);
+                vAdmin.txtCPropietario.setFocusable(true);
+                vAdmin.btnCInsertar.setVisible(false);
+                vAdmin.btnCModificar.setVisible(true);
+                vAdmin.btnCEliminar.setVisible(true);
+                
+                vAdmin.pnUsuario.setVisible(false);
+                vAdmin.pnCoche.setVisible(true);
+                vAdmin.pnBlanco.setVisible(false);
+                
+                limpiar();
+                
+                int fila = vAdmin.tblCoches.getSelectedRow();
+                String id = (String) vAdmin.tblCoches.getValueAt(fila, 0);
+                String[] coche = consulta.getCoche(id);
+                
+                vAdmin.txtCMatricula.setText(coche[0]);
+                vAdmin.txtCPropietario.setText(coche[1]);
+                vAdmin.txtCMarca.setText(coche[2]);
+                vAdmin.txtCModelo.setText(coche[3]);
+                vAdmin.txtCColor.setText(coche[4]);
+                
+                
+                if (coche[5].equals("2")) {
+                    
+                    vAdmin.cbCPlazas.setSelectedIndex(0);
+                    
+                } else if (coche[5].equals("5")) {
+                    
+                    vAdmin.cbCPlazas.setSelectedIndex(1);
+                    
+                } else if (coche[5].equals("7")) {
+                    
+                    vAdmin.cbCPlazas.setSelectedIndex(2);
+                    
+                } else {
+                    
+                    vAdmin.cbCPlazas.setSelectedIndex(3);
+                    
+                }
+                
+                if (coche[6].equals("2")) {
+                    
+                    vAdmin.cbCEjes.setSelectedIndex(0);
+                    
+                } else {
+                    
+                    vAdmin.cbCEjes.setSelectedIndex(1);
+                    
+                }
+                
+                if (coche[7].equals("3")) {
+                    
+                    vAdmin.cbCPuertas.setSelectedIndex(0);
+                    
+                } else if (coche[7].equals("5")) {
+                    
+                    vAdmin.cbCPuertas.setSelectedIndex(1);
+                    
+                } else {
+                    
+                    vAdmin.cbCPuertas.setSelectedIndex(2);
+                    
+                }
+                
+            }
+        });
         
         // Prepara la vista Administrativa.
         vAdmin.pnUC.setVisible(true);
         vAdmin.pnBlanco.setVisible(true);
         vAdmin.pnUsuario.setVisible(false);
         vAdmin.pnCoche.setVisible(false);
-        vAdmin.pnServicios.setVisible(false);
         vAdmin.pnFacturas.setVisible(false);
         vAdmin.pnInformes.setVisible(false);
         
@@ -150,6 +218,12 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        
+        String dni, nombre, apellidos, direccion, usuario, contraseña, rol;
+        String matricula, propietario, marca, modelo, color;
+        int telefono, fila, c;
+        int puertas, ejes, plazas;
+        boolean r;
         
         switch (ActionMVC.valueOf(e.getActionCommand())) {
             
@@ -178,7 +252,6 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                 vAdmin.pnBlanco.setVisible(true);
                 vAdmin.pnUsuario.setVisible(false);
                 vAdmin.pnCoche.setVisible(false);
-                vAdmin.pnServicios.setVisible(false);
                 vAdmin.pnFacturas.setVisible(false);
                 vAdmin.pnInformes.setVisible(false);
                 break;
@@ -187,7 +260,6 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                 vAdmin.pnUC.setVisible(false);
                 vAdmin.pnUsuario.setVisible(false);
                 vAdmin.pnCoche.setVisible(false);
-                vAdmin.pnServicios.setVisible(true);
                 vAdmin.pnFacturas.setVisible(false);
                 vAdmin.pnInformes.setVisible(false);
                 break;
@@ -196,7 +268,6 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                 vAdmin.pnUC.setVisible(false);
                 vAdmin.pnUsuario.setVisible(false);
                 vAdmin.pnCoche.setVisible(false);
-                vAdmin.pnServicios.setVisible(false);
                 vAdmin.pnFacturas.setVisible(true);
                 vAdmin.pnInformes.setVisible(false);
                 break;
@@ -205,7 +276,6 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                 vAdmin.pnUC.setVisible(false);
                 vAdmin.pnUsuario.setVisible(false);
                 vAdmin.pnCoche.setVisible(false);
-                vAdmin.pnServicios.setVisible(false);
                 vAdmin.pnFacturas.setVisible(false);
                 vAdmin.pnInformes.setVisible(true);
                 break;
@@ -214,6 +284,7 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
              * *************USUARIOS******************
              */
             case __BuscarUsuarios:
+                vAdmin.tblUsuarios.setModel(consulta.buscarUsuariosAdministrativo(vAdmin.txtUBuscar.getText()));
                 break;
                 
             case __AñadirUsuario:
@@ -230,17 +301,15 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                 break;
                 
             case __InsertarUsuario:
-                String dni, nombre, apellidos, direccion, usuario, contraseña, rol;
-                int telefono, c;
-                
                 c = 0;
+                r = false;
                 
-                if (vAdmin.txtUDNI.getText().equals("")) c++;
+                if (vAdmin.txtUDNI.getText().equals("         ")) c++;
                 if (vAdmin.txtUUsuario.getText().equals("")) c++;
                 if (vAdmin.txtUNombre.getText().equals("")) c++;
                 if (vAdmin.txtUApellidos.getText().equals("")) c++;
                 if (vAdmin.txtUDireccion.getText().equals("")) c++;
-                if (vAdmin.txtUTelefono.getText().equals("")) c++;
+                if (vAdmin.txtUTelefono.getText().equals("         ")) c++;
                 
                 if (c > 0) {
                     
@@ -254,8 +323,76 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                     apellidos = vAdmin.txtUApellidos.getText();
                     direccion = vAdmin.txtUDireccion.getText();
                     telefono = Integer.parseInt(vAdmin.txtUTelefono.getText());
+                        
+                    r = consulta.insertarUsuario(dni, nombre, apellidos, direccion, telefono, (String) vAdmin.cbURol.getSelectedItem(), usuario, md5.encriptarEnMD5(dni));
                     
-                    consulta.insertarUsuario(dni, nombre, apellidos, direccion, telefono, (String) vAdmin.cbURol.getSelectedItem(), usuario, md5.encriptarEnMD5(dni));
+                    if (r == true) {
+                        
+                        JOptionPane.showMessageDialog(vAdmin, "Error al insertar el usuario.");
+                        
+                    } else {
+                        
+                        vAdmin.tblCoches.setModel(consulta.tablaCochesAdministrativo());
+                    
+                        vAdmin.pnUsuario.setVisible(false);
+                        vAdmin.pnCoche.setVisible(false);
+                        vAdmin.pnBlanco.setVisible(true);
+                        
+                    }
+                    
+                }
+                break;
+                
+            case __ModificarUsuario:
+                c = 0;
+                r = false;
+                
+                if (vAdmin.txtUUsuario.getText().equals("")) c++;
+                if (vAdmin.txtUNombre.getText().equals("")) c++;
+                if (vAdmin.txtUApellidos.getText().equals("")) c++;
+                if (vAdmin.txtUDireccion.getText().equals("")) c++;
+                if (vAdmin.txtUTelefono.getText().equals("         ")) c++;
+                
+                if (c > 0) {
+                    
+                    JOptionPane.showMessageDialog(vAdmin, "Error. Rellena todos los campos.");
+                    
+                } else {
+                    
+                    dni = vAdmin.txtUDNI.getText();
+                    usuario = vAdmin.txtUUsuario.getText();
+                    nombre = vAdmin.txtUNombre.getText();
+                    apellidos = vAdmin.txtUApellidos.getText();
+                    direccion = vAdmin.txtUDireccion.getText();
+                    telefono = Integer.parseInt(vAdmin.txtUTelefono.getText());
+                        
+                    r = consulta.modificarUsuario(dni, nombre, apellidos, direccion, telefono, (String) vAdmin.cbURol.getSelectedItem(), usuario);
+                    
+                    if (r == true) {
+                        
+                        JOptionPane.showMessageDialog(vAdmin, "Error al modificar el usuario.");
+                        
+                    } else {
+                        
+                        vAdmin.tblUsuarios.setModel(consulta.tablaUsuariosAdministrativo());
+                    
+                        vAdmin.pnUsuario.setVisible(false);
+                        vAdmin.pnCoche.setVisible(false);
+                        vAdmin.pnBlanco.setVisible(true);
+                        
+                    }
+                    
+                }
+                break;
+                
+            case __EliminarUsuario:
+                fila = vAdmin.tblUsuarios.getSelectedRow();
+                dni = (String) vAdmin.tblUsuarios.getValueAt(fila, 0);
+                c = consulta.contarCochesUsuario(dni);
+                
+                if (c == 0) {
+                    
+                    consulta.eliminarUsuario(dni);
                     
                     vAdmin.tblUsuarios.setModel(consulta.tablaUsuariosAdministrativo());
                     
@@ -263,23 +400,22 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                     vAdmin.pnCoche.setVisible(false);
                     vAdmin.pnBlanco.setVisible(true);
                     
+                } else {
+                    
+                    JOptionPane.showMessageDialog(vAdmin, "Error. Ya hay coches almacenados con este usuario.");
+                    
                 }
-                break;
-                
-            case __ModificarUsuario:
-                break;
-                
-            case __EliminarUsuario:
                 break;
                 
             /**
              * *************COCHES******************
              */
             case __BuscarCoches:
+                vAdmin.tblCoches.setModel(consulta.buscarCochesAdministrativo(vAdmin.txtCBuscar.getText()));
                 break;
                 
             case __AñadirCoche:
-                int fila = this.vAdmin.tblUsuarios.getSelectedRow();
+                fila = this.vAdmin.tblUsuarios.getSelectedRow();
                 
                 if (fila == -1) {
                     
@@ -289,6 +425,8 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                     
                     limpiar();
                 
+                    vAdmin.txtCMatricula.setFocusable(true);
+                    vAdmin.txtCPropietario.setFocusable(false);
                     vAdmin.btnCInsertar.setVisible(true);
                     vAdmin.btnCModificar.setVisible(false);
                     vAdmin.btnCEliminar.setVisible(false);
@@ -303,12 +441,113 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                 break;
                 
             case __InsertarCoche:
+                c = 0;
+                r = false;
+                
+                if (vAdmin.txtCMatricula.getText().equals("         ")) c++;
+                if (vAdmin.txtCPropietario.getText().equals("         ")) c++;
+                if (vAdmin.txtCMarca.getText().equals("")) c++;
+                if (vAdmin.txtCModelo.getText().equals("")) c++;
+                if (vAdmin.txtCColor.getText().equals("")) c++;
+                
+                if (c > 0) {
+                    
+                    JOptionPane.showMessageDialog(vAdmin, "Error. Rellena todos los campos.");
+                    
+                } else {
+                    
+                    matricula = vAdmin.txtCMatricula.getText();
+                    propietario = vAdmin.txtCPropietario.getText();
+                    marca = vAdmin.txtCMarca.getText();
+                    modelo = vAdmin.txtCModelo.getText();
+                    color = vAdmin.txtCColor.getText();
+                    plazas = Integer.parseInt((String) vAdmin.cbCPlazas.getSelectedItem());
+                    ejes = Integer.parseInt((String) vAdmin.cbCEjes.getSelectedItem());
+                    puertas = Integer.parseInt((String) vAdmin.cbCPuertas.getSelectedItem());
+                        
+                    r = consulta.insertarCoche(matricula, marca, modelo, color, plazas, ejes, puertas, propietario);
+                    
+                    if (r == true) {
+                        
+                        JOptionPane.showMessageDialog(vAdmin, "Error al insertar el usuario.");
+                        
+                    } else {
+                        
+                        vAdmin.tblCoches.setModel(consulta.tablaUsuariosAdministrativo());
+                    
+                        vAdmin.pnUsuario.setVisible(false);
+                        vAdmin.pnCoche.setVisible(false);
+                        vAdmin.pnBlanco.setVisible(true);
+                        
+                    }
+                    
+                }
                 break;
                 
             case __ModificarCoche:
+                c = 0;
+                r = false;
+                
+                if (vAdmin.txtCMatricula.getText().equals("         ")) c++;
+                if (vAdmin.txtCPropietario.getText().equals("         ")) c++;
+                if (vAdmin.txtCMarca.getText().equals("")) c++;
+                if (vAdmin.txtCModelo.getText().equals("")) c++;
+                if (vAdmin.txtCColor.getText().equals("")) c++;
+                
+                if (c > 0) {
+                    
+                    JOptionPane.showMessageDialog(vAdmin, "Error. Rellena todos los campos.");
+                    
+                } else {
+                    
+                    matricula = vAdmin.txtCMatricula.getText();
+                    propietario = vAdmin.txtCPropietario.getText();
+                    marca = vAdmin.txtCMarca.getText();
+                    modelo = vAdmin.txtCModelo.getText();
+                    color = vAdmin.txtCColor.getText();
+                    plazas = Integer.parseInt((String) vAdmin.cbCPlazas.getSelectedItem());
+                    ejes = Integer.parseInt((String) vAdmin.cbCEjes.getSelectedItem());
+                    puertas = Integer.parseInt((String) vAdmin.cbCPuertas.getSelectedItem());
+                        
+                    r = consulta.modificarCoche(matricula, marca, modelo, color, plazas, ejes, puertas, propietario);
+                    
+                    if (r == true) {
+                        
+                        JOptionPane.showMessageDialog(vAdmin, "Error al modificar el usuario.");
+                        
+                    } else {
+                        
+                        vAdmin.tblUsuarios.setModel(consulta.tablaUsuariosAdministrativo());
+                    
+                        vAdmin.pnUsuario.setVisible(false);
+                        vAdmin.pnCoche.setVisible(false);
+                        vAdmin.pnBlanco.setVisible(true);
+                        
+                    }
+                    
+                }
                 break;
                 
             case __EliminarCoche:
+                fila = vAdmin.tblCoches.getSelectedRow();
+                matricula = (String) vAdmin.tblCoches.getValueAt(fila, 0);
+                c = consulta.contarHistorialCoche(matricula);
+                
+                if (c == 0) {
+                    
+                    consulta.eliminarCoche(matricula);
+                    
+                    vAdmin.tblCoches.setModel(consulta.tablaCochesAdministrativo());
+                    
+                    vAdmin.pnUsuario.setVisible(false);
+                    vAdmin.pnCoche.setVisible(false);
+                    vAdmin.pnBlanco.setVisible(true);
+                    
+                } else {
+                    
+                    JOptionPane.showMessageDialog(vAdmin, "Error. Ya hay un historial almacenado con este coche.");
+                    
+                }
                 break;
             
         }

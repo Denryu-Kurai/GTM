@@ -12,10 +12,10 @@ public class AdministrativoView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel6 = new javax.swing.JPanel();
+        jLayeredPane3 = new javax.swing.JLayeredPane();
+        jLabel2 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         btnUC = new javax.swing.JButton();
-        btnServicios = new javax.swing.JButton();
         btnFacturas = new javax.swing.JButton();
         btnInformes = new javax.swing.JButton();
         jLayeredPane1 = new javax.swing.JLayeredPane();
@@ -73,7 +73,6 @@ public class AdministrativoView extends javax.swing.JFrame {
         cbCEjes = new javax.swing.JComboBox();
         txtCMatricula = new javax.swing.JTextField();
         pnBlanco = new javax.swing.JPanel();
-        pnServicios = new javax.swing.JPanel();
         pnFacturas = new javax.swing.JPanel();
         pnInformes = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -81,29 +80,39 @@ public class AdministrativoView extends javax.swing.JFrame {
         btnCerrarUsuario = new javax.swing.JMenuItem();
         btnSalir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        btnCambiarContraseña = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GTM - Administrativo");
-        setMinimumSize(new java.awt.Dimension(980, 650));
+        setMinimumSize(new java.awt.Dimension(1000, 686));
 
-        jPanel7.setLayout(new java.awt.GridLayout());
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/texturaMetalica.png"))); // NOI18N
 
-        btnUC.setText("Usuarios / Coches");
+        jPanel7.setOpaque(false);
+        jPanel7.setLayout(new java.awt.GridLayout(1, 0));
+
+        btnUC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuarioCoche.png"))); // NOI18N
+        btnUC.setBorderPainted(false);
+        btnUC.setContentAreaFilled(false);
         jPanel7.add(btnUC);
 
-        btnServicios.setText("Servicios");
-        jPanel7.add(btnServicios);
-
-        btnFacturas.setText("Facturas");
+        btnFacturas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/factura.png"))); // NOI18N
+        btnFacturas.setBorderPainted(false);
+        btnFacturas.setContentAreaFilled(false);
         jPanel7.add(btnFacturas);
 
-        btnInformes.setText("Informes");
+        btnInformes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/informes.png"))); // NOI18N
+        btnInformes.setBorderPainted(false);
+        btnInformes.setContentAreaFilled(false);
         jPanel7.add(btnInformes);
 
-        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuarios", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        pnUC.setOpaque(false);
 
-        btnUBuscar.setText("Buscar");
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuarios", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jPanel8.setOpaque(false);
+
+        btnUBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
+        btnUBuscar.setBorderPainted(false);
+        btnUBuscar.setContentAreaFilled(false);
 
         tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -129,12 +138,12 @@ public class AdministrativoView extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(txtUBuscar)
                         .addGap(18, 18, 18)
-                        .addComponent(btnUBuscar)))
+                        .addComponent(btnUBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
@@ -143,21 +152,27 @@ public class AdministrativoView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
+        jPanel10.setOpaque(false);
         jPanel10.setLayout(new java.awt.GridLayout(1, 0));
 
-        btnUAñadir.setText("Añadir Cliente");
+        btnUAñadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/añadirUsuario.png"))); // NOI18N
+        btnUAñadir.setBorderPainted(false);
+        btnUAñadir.setContentAreaFilled(false);
         jPanel10.add(btnUAñadir);
 
-        btnCAñadir.setText("Añadir Coche");
+        btnCAñadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/añadirCoche.png"))); // NOI18N
+        btnCAñadir.setBorderPainted(false);
+        btnCAñadir.setContentAreaFilled(false);
         jPanel10.add(btnCAñadir);
 
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Coches", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jPanel9.setOpaque(false);
 
         tblCoches.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -177,7 +192,9 @@ public class AdministrativoView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblCoches);
 
-        btnCBuscar.setText("Buscar");
+        btnCBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
+        btnCBuscar.setBorderPainted(false);
+        btnCBuscar.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -190,22 +207,24 @@ public class AdministrativoView extends javax.swing.JFrame {
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addComponent(txtCBuscar)
                         .addGap(18, 18, 18)
-                        .addComponent(btnCBuscar)))
+                        .addComponent(btnCBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnCBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCBuscar))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jLayeredPane2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
+        pnUsuario.setOpaque(false);
 
         jLabel5.setText("DNI:");
 
@@ -229,11 +248,17 @@ public class AdministrativoView extends javax.swing.JFrame {
 
         jLabel4.setText("Apellidos:");
 
-        btnUEliminar.setText("Eliminar");
+        btnUEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
+        btnUEliminar.setBorderPainted(false);
+        btnUEliminar.setContentAreaFilled(false);
 
-        btnUModificar.setText("Modificar");
+        btnUModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modificar.png"))); // NOI18N
+        btnUModificar.setBorderPainted(false);
+        btnUModificar.setContentAreaFilled(false);
 
-        btnUInsertar.setText("Insertar");
+        btnUInsertar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/insertar.png"))); // NOI18N
+        btnUInsertar.setBorderPainted(false);
+        btnUInsertar.setContentAreaFilled(false);
 
         try {
             txtUDNI.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########U")));
@@ -316,11 +341,19 @@ public class AdministrativoView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        btnCInsertar.setText("Insertar");
+        pnCoche.setOpaque(false);
 
-        btnCModificar.setText("Modificar");
+        btnCInsertar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/insertar.png"))); // NOI18N
+        btnCInsertar.setBorderPainted(false);
+        btnCInsertar.setContentAreaFilled(false);
 
-        btnCEliminar.setText("Eliminar");
+        btnCModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modificar.png"))); // NOI18N
+        btnCModificar.setBorderPainted(false);
+        btnCModificar.setContentAreaFilled(false);
+
+        btnCEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
+        btnCEliminar.setBorderPainted(false);
+        btnCEliminar.setContentAreaFilled(false);
 
         try {
             txtCPropietario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########U")));
@@ -446,6 +479,8 @@ public class AdministrativoView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        pnBlanco.setOpaque(false);
+
         javax.swing.GroupLayout pnBlancoLayout = new javax.swing.GroupLayout(pnBlanco);
         pnBlanco.setLayout(pnBlancoLayout);
         pnBlancoLayout.setHorizontalGroup(
@@ -505,16 +540,7 @@ public class AdministrativoView extends javax.swing.JFrame {
                 .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout pnServiciosLayout = new javax.swing.GroupLayout(pnServicios);
-        pnServicios.setLayout(pnServiciosLayout);
-        pnServiciosLayout.setHorizontalGroup(
-            pnServiciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 960, Short.MAX_VALUE)
-        );
-        pnServiciosLayout.setVerticalGroup(
-            pnServiciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 509, Short.MAX_VALUE)
-        );
+        pnFacturas.setOpaque(false);
 
         javax.swing.GroupLayout pnFacturasLayout = new javax.swing.GroupLayout(pnFacturas);
         pnFacturas.setLayout(pnFacturasLayout);
@@ -524,8 +550,10 @@ public class AdministrativoView extends javax.swing.JFrame {
         );
         pnFacturasLayout.setVerticalGroup(
             pnFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 509, Short.MAX_VALUE)
+            .addGap(0, 620, Short.MAX_VALUE)
         );
+
+        pnInformes.setOpaque(false);
 
         javax.swing.GroupLayout pnInformesLayout = new javax.swing.GroupLayout(pnInformes);
         pnInformes.setLayout(pnInformesLayout);
@@ -535,11 +563,10 @@ public class AdministrativoView extends javax.swing.JFrame {
         );
         pnInformesLayout.setVerticalGroup(
             pnInformesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 509, Short.MAX_VALUE)
+            .addGap(0, 620, Short.MAX_VALUE)
         );
 
         jLayeredPane1.setLayer(pnUC, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(pnServicios, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(pnFacturas, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(pnInformes, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -549,8 +576,6 @@ public class AdministrativoView extends javax.swing.JFrame {
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnUC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(pnServicios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(pnFacturas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(pnInformes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -559,32 +584,38 @@ public class AdministrativoView extends javax.swing.JFrame {
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnUC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(pnServicios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(pnFacturas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(pnInformes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        jLayeredPane3.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(jPanel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(jLayeredPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane3Layout = new javax.swing.GroupLayout(jLayeredPane3);
+        jLayeredPane3.setLayout(jLayeredPane3Layout);
+        jLayeredPane3Layout.setHorizontalGroup(
+            jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLayeredPane1))
                 .addContainerGap())
+            .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 980, Short.MAX_VALUE))
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        jLayeredPane3Layout.setVerticalGroup(
+            jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLayeredPane1)
                 .addContainerGap())
+            .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 629, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Archivo");
@@ -598,10 +629,6 @@ public class AdministrativoView extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Configuración");
-
-        btnCambiarContraseña.setText("Cambiar Contraseña");
-        jMenu2.add(btnCambiarContraseña);
-
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -610,11 +637,15 @@ public class AdministrativoView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 980, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLayeredPane3))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 659, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLayeredPane3))
         );
 
         pack();
@@ -657,12 +688,10 @@ public class AdministrativoView extends javax.swing.JFrame {
     public javax.swing.JButton btnCEliminar;
     public javax.swing.JButton btnCInsertar;
     public javax.swing.JButton btnCModificar;
-    public javax.swing.JMenuItem btnCambiarContraseña;
     public javax.swing.JMenuItem btnCerrarUsuario;
     public javax.swing.JButton btnFacturas;
     public javax.swing.JButton btnInformes;
     public javax.swing.JMenuItem btnSalir;
-    public javax.swing.JButton btnServicios;
     public javax.swing.JButton btnUAñadir;
     public javax.swing.JButton btnUBuscar;
     public javax.swing.JButton btnUC;
@@ -681,6 +710,7 @@ public class AdministrativoView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -690,11 +720,11 @@ public class AdministrativoView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
+    private javax.swing.JLayeredPane jLayeredPane3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
@@ -704,7 +734,6 @@ public class AdministrativoView extends javax.swing.JFrame {
     public javax.swing.JPanel pnCoche;
     public javax.swing.JPanel pnFacturas;
     public javax.swing.JPanel pnInformes;
-    public javax.swing.JPanel pnServicios;
     public javax.swing.JPanel pnUC;
     public javax.swing.JPanel pnUsuario;
     public javax.swing.JTable tblCoches;

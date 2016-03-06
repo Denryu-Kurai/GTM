@@ -30,53 +30,501 @@ public class Consultas {
      * **************PARTE ADMINISTRATIVA*******************
      */
     // Usuarios
-    public void insertarUsuario(String dni, String nombre, String apellidos, String direccion, int telefono, String rol, String usuario, String contraseña) {
+    public boolean insertarUsuario (String dni, String nombre, String apellidos, String direccion, int telefono, String rol, String usuario, String contraseña) {
+        
         con.abrir();
+        
         try {
+            
             stm = con.getConexion().createStatement();
             String sql;
             sql = "insert into personas (Dni,nombre,apellidos,direccion,telefono,rol,usuario,contrasenas) VALUES"
                     + " ('" + dni + "','" + nombre + "','" + apellidos + "','" + direccion + "'," + telefono + ",'" + rol + "','" + usuario + "','" + contraseña + "')";
             stm.executeUpdate(sql);
+            
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            
+            // ex.printStackTrace();
+            return true;
+            
         }
+        
         con.cerrar();
+        
+        return false;
+        
     } // Inserta un usuario.
     
-    public void modificarUsuario(String dni, String nombre, String apellidos, String direccion, int telefono, String rol, String usuario, String contraseña) {
+    public String[] getPersona (String dni) {
+        
+        String[] persona = new String[7];
+        
         con.abrir();
+        
         try {
+            
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select dni, usuario, nombre, apellidos, direccion, telefono, rol from personas where dni = '" + dni +"';");
+            
+            if (rst.next()) {
+                
+                for (int i = 1; i <= 7; i++) {
+                    
+                    persona[i - 1] = rst.getString(i);
+                    
+                }
+                
+            }
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        
+        con.cerrar();
+        
+        return persona;
+        
+    } // Cojer una persona.
+    
+    public boolean modificarUsuario (String dni, String nombre, String apellidos, String direccion, int telefono, String rol, String usuario) {
+        
+        con.abrir();
+        
+        try {
+            
+            String sql = "UPDATE personas SET nombre = '" + nombre + "', apellidos = '" + apellidos + "', direccion = '" + direccion + "', telefono = '" + telefono + "', rol = '" + rol + "', usuario = '" + usuario + "' where DNI = '" + dni + "'";
+            PreparedStatement s = con.getConexion().prepareStatement(sql);
+            s.execute();
+            
+        } catch (SQLException ex) {
+            
+            // ex.printStackTrace();
+            return true;
+            
+        }
+        
+        con.cerrar();
+        
+        return false;
+        
+    } // Modifica un usuario.
+    
+    public int contarCochesUsuario (String dni) {
+        
+        int c = 0;
+        
+        con.abrir();
+        
+        try {
+            
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select count(*) from coches where duenio ='" + dni + "'");
+            
+            if (rst.next()) c = rst.getInt(1);
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        
+        con.cerrar();
+        
+        return c;
+        
+    } // Cuenta los coches de un usuario.
+    
+    public void eliminarUsuario (String dni) {
+        
+        con.abrir();
+        
+        try {
+            
+            String sql = "delete from personas where dni = '" + dni + "'";
+            PreparedStatement s = con.getConexion().prepareStatement(sql);
+            s.execute();
+            
+        } catch (SQLException ex) {
+            
+            ex.printStackTrace();
+            
+        }
+        
+        con.cerrar();
+        
+    } // Elimina un usuario.
+    
+    // Coches.
+    public boolean insertarCoche (String matric, String marca, String modelo, String color, int plazas, int ejes, int puertas, String dniduenio) {
+        
+        con.abrir();
+        
+        try {
+            
             stm = con.getConexion().createStatement();
             String sql;
-            sql = "update into personas (Dni,nombre,apellidos,direccion,telefono,rol,usuario,contrasenas) VALUES"
-                    + " ('" + dni + "','" + nombre + "','" + apellidos + "','" + direccion + "'," + telefono + ",'" + rol + "','" + usuario + "','" + contraseña + "')";
+            sql = "insert into coches (matricula, marca, modelo, color, plazas, eje, puertas, duenio) VALUES "
+                    + "('" + matric + "', '" + marca + "', '" + modelo + "', '" + color + "', " + plazas + ", " + ejes + ", " + puertas + ", '" + dniduenio + "')";
             stm.executeUpdate(sql);
+            
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            
+            // ex.printStackTrace();
+            return true;
+            
         }
+        
         con.cerrar();
-    } // Modifica un usuario.
+        
+        return false;
+        
+    }// Insertar coche.
+    
+    public String[] getCoche (String matricula) {
+        
+        String[] coche = new String[8];
+        
+        con.abrir();
+        
+        try {
+            
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select matricula, duenio, marca, modelo, color, plazas, eje, puertas from coches where matricula = '" + matricula +"';");
+            
+            if (rst.next()) {
+                
+                for (int i = 1; i <= 8; i++) {
+                    
+                    coche[i - 1] = rst.getString(i);
+                    
+                }
+                
+            }
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        
+        con.cerrar();
+        
+        return coche;
+        
+    } // Cojer un coche.
+    
+    public boolean modificarCoche (String matric, String marca, String modelo, String color, int plazas, int ejes, int puertas, String dniduenio) {
+        
+        con.abrir();
+        
+        try {
+            
+            String sql = "UPDATE coches SET duenio = '" + dniduenio + "', marca = '" + marca + "', modelo = '" + modelo + "', color = '" + color + "', plazas = " + plazas + ", eje = " + ejes + ", puertas = " + puertas + " where matricula = '" + matric + "'";
+            PreparedStatement s = con.getConexion().prepareStatement(sql);
+            s.execute();
+            
+        } catch (SQLException ex) {
+            
+            // ex.printStackTrace();
+            return true;
+            
+        }
+        
+        con.cerrar();
+        
+        return false;
+        
+    } // Modifica un coche.
+    
+    public int contarHistorialCoche (String matricula) {
+        
+        int c = 0;
+        
+        con.abrir();
+        
+        try {
+            
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select count(*) from historiales where matricula ='" + matricula + "'");
+            
+            if (rst.next()) c = rst.getInt(1);
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        
+        con.cerrar();
+        
+        return c;
+        
+    } // Cuenta el trabajos realizados en un coche.
+    
+    public void eliminarCoche (String matricula) {
+        
+        con.abrir();
+        
+        try {
+            
+            String sql = "delete from coches where matricula = '" + matricula + "'";
+            PreparedStatement s = con.getConexion().prepareStatement(sql);
+            s.execute();
+            
+        } catch (SQLException ex) {
+            
+            ex.printStackTrace();
+            
+        }
+        
+        con.cerrar();
+        
+    } // Elimina un coche.
+    
+    // Tablas.
+    public DefaultTableModel tablaUsuariosAdministrativo () {
+        
+        DefaultTableModel modelo = new DefaultTableModel() {
+            @Override
+            //Este metodo hace que las celdas de la tabla no sean editables al hacer click en ella
+            public boolean isCellEditable(int row, int colum) {
+                return false;
+            }
+        };
+        
+        modelo.addColumn("DNI");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellidos");
+        
+        con.abrir();
+        
+        try {
+            
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select dni, nombre, apellidos from personas");
+            
+            while (rst.next()) {
+                
+                Object[] fila = new Object[3];
+                
+                for (int i = 1; i <= 3; i++) {
+                    
+                    fila[i - 1] = rst.getObject(i);
+                    
+                }
+                
+                modelo.addRow(fila);
+                
+            }
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        
+        con.cerrar();
+        
+        return modelo;
+        
+    }
+    
+    public DefaultTableModel buscarUsuariosAdministrativo (String buscar) {
+        
+        DefaultTableModel modelo = new DefaultTableModel() {
+            @Override
+            //Este metodo hace que las celdas de la tabla no sean editables al hacer click en ella
+            public boolean isCellEditable(int row, int colum) {
+                return false;
+            }
+        };
+        
+        modelo.addColumn("DNI");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellidos");
+        
+        con.abrir();
+        
+        try {
+            
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select dni, nombre, apellidos from personas where (dni Like'%" + buscar + "%' ) || (nombre Like'%" + buscar + "%' ) || (apellidos Like'%" + buscar + "%' )");
+            
+            while (rst.next()) {
+                
+                Object[] fila = new Object[3];
+                
+                for (int i = 1; i <= 3; i++) {
+                    
+                    fila[i - 1] = rst.getObject(i);
+                    
+                }
+                
+                modelo.addRow(fila);
+                
+            }
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        
+        con.cerrar();
+        
+        return modelo;
+        
+    }
+    
+    public DefaultTableModel tablaCochesAdministrativo () {
+        
+        DefaultTableModel modelo = new DefaultTableModel() {
+            @Override
+            //Este metodo hace que las celdas de la tabla no sean editables al hacer click en ella
+            public boolean isCellEditable(int row, int colum) {
+                return false;
+            }
+        };
+        
+        modelo.addColumn("Matrícula");
+        modelo.addColumn("Propietario");
+        modelo.addColumn("Marca");
+        modelo.addColumn("Modelo");
+        
+        con.abrir();
+        
+        try {
+            
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select matricula, duenio, marca, modelo from coches");
+            
+            while (rst.next()) {
+                
+                Object[] fila = new Object[4];
+                
+                for (int i = 1; i <= 4; i++) {
+                    
+                    fila[i - 1] = rst.getObject(i);
+                    
+                }
+                
+                modelo.addRow(fila);
+                
+            }
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        
+        con.cerrar();
+        
+        return modelo;
+        
+    }
+    
+    public DefaultTableModel buscarCochesAdministrativo (String buscar) {
+        
+        DefaultTableModel modelo = new DefaultTableModel() {
+            @Override
+            //Este metodo hace que las celdas de la tabla no sean editables al hacer click en ella
+            public boolean isCellEditable(int row, int colum) {
+                return false;
+            }
+        };
+        
+        modelo.addColumn("Matrícula");
+        modelo.addColumn("Propietario");
+        modelo.addColumn("Marca");
+        modelo.addColumn("Modelo");
+        
+        con.abrir();
+        
+        try {
+            
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select matricula, duenio, marca, modelo from coches where (matricula Like'%" + buscar + "%' ) || (marca Like'%" + buscar + "%' ) || (modelo Like'%" + buscar + "%' )");
+            
+            while (rst.next()) {
+                
+                Object[] fila = new Object[4];
+                
+                for (int i = 1; i <= 4; i++) {
+                    
+                    fila[i - 1] = rst.getObject(i);
+                    
+                }
+                
+                modelo.addRow(fila);
+                
+            }
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        
+        con.cerrar();
+        
+        return modelo;
+        
+    }
+    
+    public DefaultTableModel tablaCochesUsuarioAdministrativo (String dni) {
+        
+        DefaultTableModel modelo = new DefaultTableModel() {
+            @Override
+            //Este metodo hace que las celdas de la tabla no sean editables al hacer click en ella
+            public boolean isCellEditable(int row, int colum) {
+                return false;
+            }
+        };
+        
+        modelo.addColumn("Matrícula");
+        modelo.addColumn("Propietario");
+        modelo.addColumn("Marca");
+        modelo.addColumn("Modelo");
+        
+        con.abrir();
+        
+        try {
+            
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select matricula, duenio, marca, modelo from coches where duenio = '" + dni + "'");
+            
+            while (rst.next()) {
+                
+                Object[] fila = new Object[4];
+                
+                for (int i = 1; i <= 4; i++) {
+                    
+                    fila[i - 1] = rst.getObject(i);
+                    
+                }
+                
+                modelo.addRow(fila);
+                
+            }
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        
+        con.cerrar();
+        
+        return modelo;
+        
+    }
 
     /**
      * **************INSERTAR*******************
      */
-    
-
-    public void insertCoche(String matric, String marca, String modelo, String color, String plazas, int ejes, int puertas, String dniduenio) {
-        con.abrir();
-        try {
-            stm = con.getConexion().createStatement();
-            String sql;
-            sql = "insert into coches (matricula,marca,modelo,color,plazas,eje,puertas,foto,duenio) VALUES "
-                    + "(" + matric + "," + marca + "," + modelo + "," + color + "," + plazas + "," + ejes + "," + puertas + ",null," + dniduenio + ")";
-            stm.executeUpdate(sql);
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        con.cerrar();
-    }//insertarCoche
-
     public void insertarHistorial(String matricula, Date fecha) {
         con.abrir();
         try {
@@ -244,39 +692,6 @@ public class Consultas {
         con.cerrar();
         return ok;
     }
-    
-    public String[] getPersona (String dni) {
-        
-        String[] persona = new String[7];
-        
-        con.abrir();
-        
-        try {
-            
-            stm = con.getConexion().createStatement();
-            rst = stm.executeQuery("select dni, usuario, nombre, apellidos, direccion, telefono, rol from personas where dni = '" + dni +"';");
-            
-            if (rst.next()) {
-                
-                for (int i = 1; i <= 7; i++) {
-                    
-                    persona[i - 1] = rst.getString(i);
-                    
-                }
-                
-            }
-            
-        } catch (Exception e) {
-            
-            e.printStackTrace();
-            
-        }
-        
-        con.cerrar();
-        
-        return persona;
-        
-    }
 
     public void arreglar(String historial,String servicio){
                 con.abrir();
@@ -299,102 +714,7 @@ public class Consultas {
     
     /**
      * *********************************
-     */
-    public DefaultTableModel tablaUsuariosAdministrativo () {
-        
-        DefaultTableModel modelo = new DefaultTableModel() {
-            @Override
-            //Este metodo hace que las celdas de la tabla no sean editables al hacer click en ella
-            public boolean isCellEditable(int row, int colum) {
-                return false;
-            }
-        };
-        
-        modelo.addColumn("DNI");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Apellidos");
-        
-        con.abrir();
-        
-        try {
-            
-            stm = con.getConexion().createStatement();
-            rst = stm.executeQuery("select dni, nombre, apellidos from personas");
-            
-            while (rst.next()) {
-                
-                Object[] fila = new Object[3];
-                
-                for (int i = 1; i <= 3; i++) {
-                    
-                    fila[i - 1] = rst.getObject(i);
-                    
-                }
-                
-                modelo.addRow(fila);
-                
-            }
-            
-        } catch (Exception e) {
-            
-            e.printStackTrace();
-            
-        }
-        
-        con.cerrar();
-        
-        return modelo;
-        
-    }
-    
-    public DefaultTableModel tablaCochesAdministrativo () {
-        
-        DefaultTableModel modelo = new DefaultTableModel() {
-            @Override
-            //Este metodo hace que las celdas de la tabla no sean editables al hacer click en ella
-            public boolean isCellEditable(int row, int colum) {
-                return false;
-            }
-        };
-        
-        modelo.addColumn("Matrícula");
-        modelo.addColumn("Propietario");
-        modelo.addColumn("Marca");
-        modelo.addColumn("Modelo");
-        
-        con.abrir();
-        
-        try {
-            
-            stm = con.getConexion().createStatement();
-            rst = stm.executeQuery("select matricula, duenio, marca, modelo from coches");
-            
-            while (rst.next()) {
-                
-                Object[] fila = new Object[4];
-                
-                for (int i = 1; i <= 4; i++) {
-                    
-                    fila[i - 1] = rst.getObject(i);
-                    
-                }
-                
-                modelo.addRow(fila);
-                
-            }
-            
-        } catch (Exception e) {
-            
-            e.printStackTrace();
-            
-        }
-        
-        con.cerrar();
-        
-        return modelo;
-        
-    }
-    
+     */  
     public DefaultTableModel tablaCoches() {
         DefaultTableModel modelo = new DefaultTableModel() {
             @Override
