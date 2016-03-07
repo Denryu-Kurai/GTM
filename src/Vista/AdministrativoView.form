@@ -29,7 +29,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Configuraci&#xf3;n"/>
+            <Property name="text" type="java.lang.String" value="Editar"/>
           </Properties>
         </Menu>
       </SubComponents>
@@ -92,7 +92,7 @@
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Component id="jLabel2" alignment="0" pref="980" max="32767" attributes="0"/>
+                  <Component id="fondo" alignment="0" pref="980" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -106,13 +106,13 @@
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Component id="jLabel2" alignment="0" pref="629" max="32767" attributes="0"/>
+                  <Component id="fondo" alignment="0" pref="629" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="fondo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/texturaMetalica.png"/>
@@ -265,9 +265,9 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnUBuscar" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtUBuscar" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="btnUBuscar" min="-2" pref="32" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jScrollPane3" pref="0" max="32767" attributes="0"/>
@@ -391,7 +391,7 @@
                                   <Component id="txtCBuscar" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" pref="189" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -490,11 +490,11 @@
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="btnUInsertar" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnUInsertar" min="-2" pref="69" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="btnUModificar" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnUModificar" min="-2" pref="70" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="btnUEliminar" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnUEliminar" min="-2" pref="70" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -566,10 +566,12 @@
                                       <Component id="cbURol" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnUEliminar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                                      <Component id="btnUModificar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="btnUInsertar" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="btnUEliminar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <Component id="btnUModificar" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -699,6 +701,9 @@
                               <Format format="########U" subtype="-1" type="5"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUDNIActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                           </AuxValues>
@@ -766,11 +771,11 @@
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          <Component id="btnCInsertar" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnCInsertar" min="-2" pref="69" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="btnCModificar" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnCModificar" min="-2" pref="70" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="btnCEliminar" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnCEliminar" min="-2" pref="70" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
@@ -828,8 +833,8 @@
                                   <EmptySpace pref="56" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="btnCEliminar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                                      <Component id="btnCModificar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                                      <Component id="btnCInsertar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="btnCModificar" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="btnCInsertar" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>

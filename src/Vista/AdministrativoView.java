@@ -13,7 +13,7 @@ public class AdministrativoView extends javax.swing.JFrame {
     private void initComponents() {
 
         jLayeredPane3 = new javax.swing.JLayeredPane();
-        jLabel2 = new javax.swing.JLabel();
+        fondo = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         btnUC = new javax.swing.JButton();
         btnFacturas = new javax.swing.JButton();
@@ -85,7 +85,7 @@ public class AdministrativoView extends javax.swing.JFrame {
         setTitle("GTM - Administrativo");
         setMinimumSize(new java.awt.Dimension(1000, 686));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/texturaMetalica.png"))); // NOI18N
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/texturaMetalica.png"))); // NOI18N
 
         jPanel7.setOpaque(false);
         jPanel7.setLayout(new java.awt.GridLayout(1, 0));
@@ -150,9 +150,9 @@ public class AdministrativoView extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtUBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
@@ -218,7 +218,7 @@ public class AdministrativoView extends javax.swing.JFrame {
                     .addComponent(btnCBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCBuscar))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -265,6 +265,11 @@ public class AdministrativoView extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtUDNI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUDNIActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnUsuarioLayout = new javax.swing.GroupLayout(pnUsuario);
         pnUsuario.setLayout(pnUsuarioLayout);
@@ -274,11 +279,11 @@ public class AdministrativoView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnUsuarioLayout.createSequentialGroup()
-                        .addComponent(btnUInsertar)
+                        .addComponent(btnUInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnUModificar)
+                        .addComponent(btnUModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnUEliminar))
+                        .addComponent(btnUEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnUsuarioLayout.createSequentialGroup()
                         .addGroup(pnUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -334,10 +339,11 @@ public class AdministrativoView extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(cbURol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(pnUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnUInsertar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnUEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnUModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -428,11 +434,11 @@ public class AdministrativoView extends javax.swing.JFrame {
                                     .addComponent(txtCColor)))))
                     .addGroup(pnCocheLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnCInsertar)
+                        .addComponent(btnCInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnCModificar)
+                        .addComponent(btnCModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnCEliminar)))
+                        .addComponent(btnCEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnCocheLayout.setVerticalGroup(
@@ -589,7 +595,7 @@ public class AdministrativoView extends javax.swing.JFrame {
                 .addComponent(pnInformes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLayeredPane3.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(fondo, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(jPanel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(jLayeredPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -604,7 +610,7 @@ public class AdministrativoView extends javax.swing.JFrame {
                     .addComponent(jLayeredPane1))
                 .addContainerGap())
             .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 980, Short.MAX_VALUE))
+                .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 980, Short.MAX_VALUE))
         );
         jLayeredPane3Layout.setVerticalGroup(
             jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -615,7 +621,7 @@ public class AdministrativoView extends javax.swing.JFrame {
                 .addComponent(jLayeredPane1)
                 .addContainerGap())
             .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 629, Short.MAX_VALUE))
+                .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 629, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Archivo");
@@ -628,7 +634,7 @@ public class AdministrativoView extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Configuración");
+        jMenu2.setText("Editar");
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -651,6 +657,10 @@ public class AdministrativoView extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtUDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUDNIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUDNIActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -702,6 +712,7 @@ public class AdministrativoView extends javax.swing.JFrame {
     public javax.swing.JComboBox cbCPlazas;
     public javax.swing.JComboBox cbCPuertas;
     public javax.swing.JComboBox<String> cbURol;
+    private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
@@ -710,7 +721,6 @@ public class AdministrativoView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

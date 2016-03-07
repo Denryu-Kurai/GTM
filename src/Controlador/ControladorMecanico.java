@@ -184,6 +184,8 @@ public class ControladorMecanico implements ActionListener, MouseListener {
                  }
             }
         });
+            
+        vMeca.pack();
         vMeca.setVisible(true);
                             
         // Ponemos los paneles en false, los activamos con los botones
