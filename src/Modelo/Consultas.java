@@ -157,7 +157,7 @@ public class Consultas {
     } // Elimina un usuario.
     
     // Coches.
-    public boolean insertarCoche (String matric, String marca, String modelo, String color, int plazas, int ejes, int puertas, String dniduenio) {
+    public boolean insertarCoche (String matric, String marca, String modelo, String color, int plazas, int ejes, int puertas, String dniduenio, int taller, int itv, int pintura) {
         
         con.abrir();
         
@@ -167,6 +167,10 @@ public class Consultas {
             String sql;
             sql = "insert into coches (matricula, marca, modelo, color, plazas, eje, puertas, duenio) VALUES "
                     + "('" + matric + "', '" + marca + "', '" + modelo + "', '" + color + "', " + plazas + ", " + ejes + ", " + puertas + ", '" + dniduenio + "')";
+            stm.executeUpdate(sql);
+            
+            sql = "insert into lugares (matricula, espera, taller, itv, pintura) VALUES "
+                    + "('" + matric + "', " + 1 + ", " + taller + ", " + itv + ", " + pintura + ")";
             stm.executeUpdate(sql);
             
         } catch (SQLException ex) {
@@ -184,7 +188,7 @@ public class Consultas {
     
     public String[] getCoche (String matricula) {
         
-        String[] coche = new String[8];
+        String[] coche = new String[12];
         
         con.abrir();
         
@@ -215,6 +219,64 @@ public class Consultas {
         
     } // Cojer un coche.
     
+    public int contarLugarCoche (String matricula) {
+        
+        int c = 0;
+        
+        con.abrir();
+        
+        try {
+            
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select count(*) from lugares where matricula ='" + matricula + "'");
+            
+            if (rst.next()) c = rst.getInt(1);
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        
+        con.cerrar();
+        
+        return c;
+        
+    } // Cuenta lugar.
+    
+    public String[] getLugar (String matricula) {
+        
+        String[] lugar = new String[4];
+        
+        con.abrir();
+        
+        try {
+            
+            stm = con.getConexion().createStatement();
+            rst = stm.executeQuery("select taller, itv, pintura, espera from lugares where matricula = '" + matricula +"';");
+            
+            if (rst.next()) {
+                
+                for (int i = 1; i <= 4; i++) {
+                    
+                    lugar[i - 1] = rst.getString(i);
+                    
+                }
+                
+            }
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        
+        con.cerrar();
+        
+        return lugar;
+        
+    } // Cojer lugar.
+    
     public boolean modificarCoche (String matric, String marca, String modelo, String color, int plazas, int ejes, int puertas, String dniduenio) {
         
         con.abrir();
@@ -237,6 +299,51 @@ public class Consultas {
         return false;
         
     } // Modifica un coche.
+    
+    public boolean modificarLugar (String matric, int taller, int itv, int pintura, int espera) {
+        
+        con.abrir();
+        
+        try {
+            
+            String sql = "UPDATE lugares SET taller = " + taller + ", itv = " + itv + ", pintura = " + pintura + ", espera = " + espera + " where matricula = '" + matric + "'";
+            PreparedStatement s = con.getConexion().prepareStatement(sql);
+            s.execute();
+            
+        } catch (SQLException ex) {
+            
+            // ex.printStackTrace();
+            return true;
+            
+        }
+        
+        con.cerrar();
+        
+        return false;
+        
+    } // Modifica lugar.
+    
+    public void insertarLugar (String matric, int taller, int itv, int pintura) {
+        
+        con.abrir();
+        
+        try {
+            
+            stm = con.getConexion().createStatement();
+            String sql;
+            sql = "insert into lugares (matricula, espera, taller, itv, pintura) VALUES "
+                    + "('" + matric + "', " + 1 + ", " + taller + ", " + itv + ", " + pintura + ")";
+            stm.executeUpdate(sql);
+            
+        } catch (SQLException ex) {
+            
+            ex.printStackTrace();
+            
+        }
+        
+        con.cerrar();
+        
+    }// Insertar lugar.
     
     public int contarHistorialCoche (String matricula) {
         
@@ -270,6 +377,26 @@ public class Consultas {
         try {
             
             String sql = "delete from coches where matricula = '" + matricula + "'";
+            PreparedStatement s = con.getConexion().prepareStatement(sql);
+            s.execute();
+            
+        } catch (SQLException ex) {
+            
+            ex.printStackTrace();
+            
+        }
+        
+        con.cerrar();
+        
+    } // Elimina un coche.
+    
+    public void eliminarLugar (String matricula) {
+        
+        con.abrir();
+        
+        try {
+            
+            String sql = "delete from lugares where matricula = '" + matricula + "'";
             PreparedStatement s = con.getConexion().prepareStatement(sql);
             s.execute();
             

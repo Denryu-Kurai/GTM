@@ -43,6 +43,7 @@ public class ClienteView extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("GTM - Cliente");
         setMinimumSize(new java.awt.Dimension(1000, 686));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/texturaMetalica.png"))); // NOI18N

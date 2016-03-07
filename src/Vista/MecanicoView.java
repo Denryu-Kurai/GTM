@@ -15,7 +15,6 @@ public class MecanicoView extends javax.swing.JFrame {
     private void initComponents() {
 
         jLayeredPane3 = new javax.swing.JLayeredPane();
-        fondo = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         btnListCar = new javax.swing.JButton();
@@ -179,6 +178,8 @@ public class MecanicoView extends javax.swing.JFrame {
         btnEndCar_supITV3 = new javax.swing.JButton();
         L2_panelPresupuesto = new javax.swing.JPanel();
         btnEndCar_supPresupuesto = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        fondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         btnCerrarUsuario = new javax.swing.JMenuItem();
@@ -186,21 +187,27 @@ public class MecanicoView extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(980, 650));
-
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/texturaMetalica.png"))); // NOI18N
+        setTitle("GTM - Mecánico");
+        setMinimumSize(new java.awt.Dimension(1000, 686));
 
         jPanel4.setOpaque(false);
 
+        jPanel1.setOpaque(false);
         jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
-        btnListCar.setText("Lista de Coches");
+        btnListCar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/listaCoches.png"))); // NOI18N
+        btnListCar.setBorderPainted(false);
+        btnListCar.setContentAreaFilled(false);
         jPanel1.add(btnListCar);
 
-        btnTaller.setText("Taller");
+        btnTaller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/taller.jpg"))); // NOI18N
+        btnTaller.setBorderPainted(false);
+        btnTaller.setContentAreaFilled(false);
         jPanel1.add(btnTaller);
 
-        btnItv.setText("ITV");
+        btnItv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/itv.png"))); // NOI18N
+        btnItv.setBorderPainted(false);
+        btnItv.setContentAreaFilled(false);
         btnItv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnItvActionPerformed(evt);
@@ -208,13 +215,15 @@ public class MecanicoView extends javax.swing.JFrame {
         });
         jPanel1.add(btnItv);
 
-        btnPresup.setText("PRESUPUESTO");
+        btnPresup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/presupuesto.png"))); // NOI18N
+        btnPresup.setBorderPainted(false);
+        btnPresup.setContentAreaFilled(false);
         jPanel1.add(btnPresup);
 
         jLayeredPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLayeredPane1.setOpaque(true);
 
         L1_panelLista.setMaximumSize(new java.awt.Dimension(690, 540));
+        L1_panelLista.setOpaque(false);
         L1_panelLista.setPreferredSize(new java.awt.Dimension(742, 579));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos los coches", "Para presupuesto", "Para Arreglar" }));
@@ -248,12 +257,15 @@ public class MecanicoView extends javax.swing.JFrame {
 
         listaPintura.setText("PINTURA");
         listaPintura.setEnabled(false);
+        listaPintura.setOpaque(false);
 
         listaITV.setText("ITV");
         listaITV.setEnabled(false);
+        listaITV.setOpaque(false);
 
         listaTaller.setText("TALLER");
         listaTaller.setEnabled(false);
+        listaTaller.setOpaque(false);
 
         jLabel5.setText("Matrícula:");
 
@@ -307,7 +319,7 @@ public class MecanicoView extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(L1_panelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, L1_panelListaLayout.createSequentialGroup()
-                    .addContainerGap(308, Short.MAX_VALUE)
+                    .addContainerGap(352, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
@@ -346,10 +358,11 @@ public class MecanicoView extends javax.swing.JFrame {
                 .addGroup(L1_panelListaLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(216, Short.MAX_VALUE)))
+                    .addContainerGap(196, Short.MAX_VALUE)))
         );
 
         L1_panelTaller.setMaximumSize(new java.awt.Dimension(690, 540));
+        L1_panelTaller.setOpaque(false);
         L1_panelTaller.setPreferredSize(new java.awt.Dimension(742, 579));
 
         jTable5.setModel(new javax.swing.table.DefaultTableModel(
@@ -365,19 +378,27 @@ public class MecanicoView extends javax.swing.JFrame {
         ));
         jScrollPane6.setViewportView(jTable5);
 
-        jButton12.setText("Eliminar");
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar2.png"))); // NOI18N
+        jButton12.setBorderPainted(false);
+        jButton12.setContentAreaFilled(false);
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
-        jButton13.setText("Guardar");
+        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar.png"))); // NOI18N
+        jButton13.setBorderPainted(false);
+        jButton13.setContentAreaFilled(false);
 
         javax.swing.GroupLayout L1_panelTallerLayout = new javax.swing.GroupLayout(L1_panelTaller);
         L1_panelTaller.setLayout(L1_panelTallerLayout);
         L1_panelTallerLayout.setHorizontalGroup(
             L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, L1_panelTallerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, L1_panelTallerLayout.createSequentialGroup()
+            .addGroup(L1_panelTallerLayout.createSequentialGroup()
+                .addGroup(L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, L1_panelTallerLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -388,32 +409,38 @@ public class MecanicoView extends javax.swing.JFrame {
             L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(L1_panelTallerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+                .addComponent(jScrollPane6)
                 .addGap(18, 18, 18)
-                .addGroup(L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(L1_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton12)
+                    .addComponent(jButton13))
                 .addContainerGap())
         );
 
         L1_panelITV.setMaximumSize(new java.awt.Dimension(690, 540));
+        L1_panelITV.setOpaque(false);
         L1_panelITV.setPreferredSize(new java.awt.Dimension(742, 579));
 
-        jTabbedPane1.setOpaque(true);
-
         jPanel6.setEnabled(false);
+        jPanel6.setOpaque(false);
 
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Dirección", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jPanel9.setOpaque(false);
 
         jCheckBox7.setText("Desviación de ruedas");
+        jCheckBox7.setOpaque(false);
 
         jCheckBox8.setText("Volante y columna de d.");
+        jCheckBox8.setOpaque(false);
 
         jCheckBox9.setText("Caja de dirección");
+        jCheckBox9.setOpaque(false);
 
         jCheckBox10.setText("Timoneria y rotula");
+        jCheckBox10.setOpaque(false);
 
         jCheckBox11.setText("Servodirección");
+        jCheckBox11.setOpaque(false);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -446,12 +473,16 @@ public class MecanicoView extends javax.swing.JFrame {
         );
 
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Identificación", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jPanel10.setOpaque(false);
 
         jCheckBox1.setText("Documentación");
+        jCheckBox1.setOpaque(false);
 
         jCheckBox2.setText("Numero de bastidor");
+        jCheckBox2.setOpaque(false);
 
         jCheckBox3.setText("Placas de matricula");
+        jCheckBox3.setOpaque(false);
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -478,10 +509,13 @@ public class MecanicoView extends javax.swing.JFrame {
         );
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Emisiones Contaminantes", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jPanel11.setOpaque(false);
 
         jCheckBox4.setText("Ruido");
+        jCheckBox4.setOpaque(false);
 
         jCheckBox5.setText("Vehiculo con motor");
+        jCheckBox5.setOpaque(false);
         jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox5ActionPerformed(evt);
@@ -489,6 +523,7 @@ public class MecanicoView extends javax.swing.JFrame {
         });
 
         jCheckBox6.setText("Vehiculo con motor");
+        jCheckBox6.setOpaque(false);
         jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox6ActionPerformed(evt);
@@ -533,14 +568,19 @@ public class MecanicoView extends javax.swing.JFrame {
         );
 
         jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Ejes / Ruedas / Neumáticos / Suspensión", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jPanel12.setOpaque(false);
 
         jCheckBox12.setText("Ejes");
+        jCheckBox12.setOpaque(false);
 
         jCheckBox13.setText("Ruedas");
+        jCheckBox13.setOpaque(false);
 
         jCheckBox14.setText("Neumaticos");
+        jCheckBox14.setOpaque(false);
 
         jCheckBox15.setText("Suspensión");
+        jCheckBox15.setOpaque(false);
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -570,16 +610,22 @@ public class MecanicoView extends javax.swing.JFrame {
         );
 
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Motor y Transmisión", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jPanel13.setOpaque(false);
 
         jCheckBox16.setText("Estado general del motor");
+        jCheckBox16.setOpaque(false);
 
         jCheckBox17.setText("Sistema de alimentación");
+        jCheckBox17.setOpaque(false);
 
         jCheckBox18.setText("Sistema de escape");
+        jCheckBox18.setOpaque(false);
 
         jCheckBox19.setText("Transmisión");
+        jCheckBox19.setOpaque(false);
 
         jCheckBox20.setText("Vehiculo que utilizan gas");
+        jCheckBox20.setOpaque(false);
 
         jLabel17.setText(" como carburante");
 
@@ -619,18 +665,25 @@ public class MecanicoView extends javax.swing.JFrame {
         );
 
         jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Otros", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jPanel14.setOpaque(false);
 
         jCheckBox21.setText("Trans. mercancías peligrosas");
+        jCheckBox21.setOpaque(false);
 
         jCheckBox22.setText("Trans. mercancías perecederas");
+        jCheckBox22.setOpaque(false);
 
         jCheckBox23.setText("Transporte escolar");
+        jCheckBox23.setOpaque(false);
 
         jCheckBox24.setText("Tacografo");
+        jCheckBox24.setOpaque(false);
 
         jCheckBox25.setText("Limitación de velocidad");
+        jCheckBox25.setOpaque(false);
 
         jCheckBox26.setText("Reformas no autorizadas");
+        jCheckBox26.setOpaque(false);
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -673,11 +726,11 @@ public class MecanicoView extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -691,7 +744,7 @@ public class MecanicoView extends javax.swing.JFrame {
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -702,34 +755,49 @@ public class MecanicoView extends javax.swing.JFrame {
         jTabbedPane1.addTab("Unidad de Inspección [1]", jPanel6);
 
         jPanel7.setEnabled(false);
+        jPanel7.setOpaque(false);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Acondicionamiento Exterior / Carrocería / Chasis", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jPanel3.setOpaque(false);
 
         jCheckBox27.setText("Antiempotramiento d.");
+        jCheckBox27.setOpaque(false);
 
         jCheckBox28.setText("Dispositivo de acopl.");
+        jCheckBox28.setOpaque(false);
 
         jCheckBox29.setText("Protecciones laterales");
+        jCheckBox29.setOpaque(false);
 
         jCheckBox30.setText("Vidrios de seguridad");
+        jCheckBox30.setOpaque(false);
 
         jCheckBox31.setText("Puertas y peldaños");
+        jCheckBox31.setOpaque(false);
 
         jCheckBox32.setText("Limpia y lavaparabrisas");
+        jCheckBox32.setOpaque(false);
 
         jCheckBox33.setText("Señales en los vehiculos");
+        jCheckBox33.setOpaque(false);
 
         jCheckBox34.setText("Soporte exterior rueda repuesto");
+        jCheckBox34.setOpaque(false);
 
         jCheckBox35.setText("Elementos exclusivos de vehiculos M2 y M3");
+        jCheckBox35.setOpaque(false);
 
         jCheckBox36.setText("Guardabarros y dispositivo antiproyección");
+        jCheckBox36.setOpaque(false);
 
         jCheckBox37.setText("Protección trasera");
+        jCheckBox37.setOpaque(false);
 
         jCheckBox38.setText("Retrovisores");
+        jCheckBox38.setOpaque(false);
 
         jCheckBox39.setText("Carroceria y chasis");
+        jCheckBox39.setOpaque(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -787,12 +855,14 @@ public class MecanicoView extends javax.swing.JFrame {
                 .addComponent(jCheckBox35)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jCheckBox36)
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
 
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Acondicionamiento Interior", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jPanel16.setOpaque(false);
 
         jCheckBox40.setText("Asientos y sus anclajes");
+        jCheckBox40.setOpaque(false);
         jCheckBox40.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox40ActionPerformed(evt);
@@ -800,22 +870,31 @@ public class MecanicoView extends javax.swing.JFrame {
         });
 
         jCheckBox41.setText("Cinturones de seguridad y sus anclajes");
+        jCheckBox41.setOpaque(false);
 
         jCheckBox42.setText("Dispositivo de retencion para niños");
+        jCheckBox42.setOpaque(false);
 
         jCheckBox43.setText("Antihielo y antivaho");
+        jCheckBox43.setOpaque(false);
 
         jCheckBox44.setText("Antirobo y alarma");
+        jCheckBox44.setOpaque(false);
 
         jCheckBox45.setText("Campo de visión directa");
+        jCheckBox45.setOpaque(false);
 
         jCheckBox46.setText("Dispositivo de retención de la carga");
+        jCheckBox46.setOpaque(false);
 
         jCheckBox47.setText("Indicador de velocidad");
+        jCheckBox47.setOpaque(false);
 
         jCheckBox48.setText("Salientes interiores");
+        jCheckBox48.setOpaque(false);
 
         jCheckBox49.setText("Elementos exclusivos de vehiculos M2 y M3");
+        jCheckBox49.setOpaque(false);
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -869,7 +948,7 @@ public class MecanicoView extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
                 .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -885,9 +964,13 @@ public class MecanicoView extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Unidad de Inspección [2]", jPanel7);
 
+        jPanel8.setOpaque(false);
+
         jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "ALUMBRADO Y SEÑALIZACIÓN"));
+        jPanel17.setOpaque(false);
 
         jCheckBox50.setText("Luces de posición");
+        jCheckBox50.setOpaque(false);
         jCheckBox50.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox50ActionPerformed(evt);
@@ -895,32 +978,46 @@ public class MecanicoView extends javax.swing.JFrame {
         });
 
         jCheckBox51.setText("Luces de frenado");
+        jCheckBox51.setOpaque(false);
 
         jCheckBox52.setText("Señal de emergencia");
+        jCheckBox52.setOpaque(false);
 
         jCheckBox53.setText("Alumbrado interior");
+        jCheckBox53.setOpaque(false);
 
         jCheckBox54.setText("Luz de estacionamiento");
+        jCheckBox54.setOpaque(false);
 
         jCheckBox55.setText("Luces de marcha atras");
+        jCheckBox55.setOpaque(false);
 
         jCheckBox56.setText("Luces de cruce y carretera");
+        jCheckBox56.setOpaque(false);
 
         jCheckBox57.setText("Luces indicadoras de dirección");
+        jCheckBox57.setOpaque(false);
 
         jCheckBox58.setText("Señalización luminosa específica");
+        jCheckBox58.setOpaque(false);
 
         jCheckBox59.setText("Señalización de apertura de puerta");
+        jCheckBox59.setOpaque(false);
 
         jCheckBox60.setText("Luz de la placa de matricula trasera");
+        jCheckBox60.setOpaque(false);
 
         jCheckBox61.setText("Luces antiniebla");
+        jCheckBox61.setOpaque(false);
 
         jCheckBox62.setText("Luz de galibo");
+        jCheckBox62.setOpaque(false);
 
         jCheckBox63.setText("Avisador acustico");
+        jCheckBox63.setOpaque(false);
 
         jCheckBox64.setText("Catadióptricos");
+        jCheckBox64.setOpaque(false);
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -987,28 +1084,40 @@ public class MecanicoView extends javax.swing.JFrame {
         );
 
         jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "FRENOS"));
+        jPanel18.setOpaque(false);
 
         jCheckBox65.setText("Cables, varillas, palancas, conex.");
+        jCheckBox65.setOpaque(false);
 
         jCheckBox66.setText("Dispositivo de desaceleración");
+        jCheckBox66.setOpaque(false);
 
         jCheckBox67.setText("Válvula de regulacion del f.mano");
+        jCheckBox67.setOpaque(false);
 
         jCheckBox68.setText("Acumulador o deposito de presión");
+        jCheckBox68.setOpaque(false);
 
         jCheckBox69.setText("Tubos rígidos");
+        jCheckBox69.setOpaque(false);
 
         jCheckBox70.setText("Freno de inercia");
+        jCheckBox70.setOpaque(false);
 
         jCheckBox71.setText("Forros");
+        jCheckBox71.setOpaque(false);
 
         jCheckBox72.setText("Acoplamiento de f. de remolque");
+        jCheckBox72.setOpaque(false);
 
         jCheckBox73.setText("Cilindros del sist. de frenado");
+        jCheckBox73.setOpaque(false);
 
         jCheckBox74.setText("Pedal del dispositivo de frenado");
+        jCheckBox74.setOpaque(false);
 
         jCheckBox75.setText("Servofreno.cilindro de mando");
+        jCheckBox75.setOpaque(false);
         jCheckBox75.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox75ActionPerformed(evt);
@@ -1016,8 +1125,10 @@ public class MecanicoView extends javax.swing.JFrame {
         });
 
         jCheckBox76.setText("Bomba de vacio y depositos");
+        jCheckBox76.setOpaque(false);
 
         jCheckBox77.setText("Ajustadores de tensión auto.");
+        jCheckBox77.setOpaque(false);
         jCheckBox77.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox77ActionPerformed(evt);
@@ -1025,12 +1136,16 @@ public class MecanicoView extends javax.swing.JFrame {
         });
 
         jCheckBox78.setText("Tubos flexible");
+        jCheckBox78.setOpaque(false);
 
         jCheckBox79.setText("Válvula sensora de carga");
+        jCheckBox79.setOpaque(false);
 
         jCheckBox80.setText("Frenos de servicio");
+        jCheckBox80.setOpaque(false);
 
         jCheckBox81.setText("Válvula de frenado");
+        jCheckBox81.setOpaque(false);
         jCheckBox81.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox81ActionPerformed(evt);
@@ -1038,6 +1153,7 @@ public class MecanicoView extends javax.swing.JFrame {
         });
 
         jCheckBox82.setText("Tambores y discos");
+        jCheckBox82.setOpaque(false);
         jCheckBox82.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox82ActionPerformed(evt);
@@ -1045,12 +1161,16 @@ public class MecanicoView extends javax.swing.JFrame {
         });
 
         jCheckBox83.setText("Dispositivo antibloqueo");
+        jCheckBox83.setOpaque(false);
 
         jCheckBox84.setText("Freno secundario (SOS)");
+        jCheckBox84.setOpaque(false);
 
         jCheckBox85.setText("Freno de estacionamiento");
+        jCheckBox85.setOpaque(false);
 
         jCheckBox86.setText("Indicador de baja presión");
+        jCheckBox86.setOpaque(false);
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -1132,7 +1252,7 @@ public class MecanicoView extends javax.swing.JFrame {
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCheckBox86, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jCheckBox65, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -1170,6 +1290,7 @@ public class MecanicoView extends javax.swing.JFrame {
         );
 
         L1_panelPresupuesto.setMaximumSize(new java.awt.Dimension(690, 540));
+        L1_panelPresupuesto.setOpaque(false);
         L1_panelPresupuesto.setPreferredSize(new java.awt.Dimension(742, 579));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -1192,7 +1313,14 @@ public class MecanicoView extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(jList1);
 
-        btnQuitarLista.setText("Eliminar");
+        btnQuitarLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar2.png"))); // NOI18N
+        btnQuitarLista.setBorderPainted(false);
+        btnQuitarLista.setContentAreaFilled(false);
+        btnQuitarLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuitarListaActionPerformed(evt);
+            }
+        });
 
         jLabel14.setText("Matrícula:");
 
@@ -1213,7 +1341,7 @@ public class MecanicoView extends javax.swing.JFrame {
             L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(L1_panelPresupuestoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1223,11 +1351,11 @@ public class MecanicoView extends javax.swing.JFrame {
                             .addComponent(jLabel10)
                             .addComponent(jLabel14))
                         .addGap(18, 18, 18)
-                        .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(dueñoPresupuesto, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPrecioFinal_Presup, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(matriculaPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnQuitarLista, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnQuitarLista, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dueñoPresupuesto)
+                            .addComponent(txtPrecioFinal_Presup)
+                            .addComponent(matriculaPresupuesto, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         L1_panelPresupuestoLayout.setVerticalGroup(
@@ -1236,7 +1364,7 @@ public class MecanicoView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(L1_panelPresupuestoLayout.createSequentialGroup()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
+                        .addComponent(jScrollPane5)
                         .addGap(18, 18, 18)
                         .addComponent(btnQuitarLista, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -1251,7 +1379,7 @@ public class MecanicoView extends javax.swing.JFrame {
                         .addGroup(L1_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(txtPrecioFinal_Presup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1264,64 +1392,74 @@ public class MecanicoView extends javax.swing.JFrame {
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(L1_panelLista, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
+            .addComponent(L1_panelLista, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(L1_panelTaller, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE))
+                .addComponent(L1_panelTaller, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(L1_panelITV, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE))
+                .addComponent(L1_panelITV, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(L1_panelPresupuesto, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE))
+                .addComponent(L1_panelPresupuesto, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(L1_panelLista, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
+            .addComponent(L1_panelLista, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(L1_panelTaller, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE))
+                .addComponent(L1_panelTaller, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(L1_panelITV, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE))
+                .addComponent(L1_panelITV, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(L1_panelPresupuesto, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE))
+                .addComponent(L1_panelPresupuesto, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE))
         );
 
         jLayeredPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLayeredPane2.setOpaque(true);
         jLayeredPane2.setPreferredSize(new java.awt.Dimension(298, 581));
 
+        L2_panelLista.setOpaque(false);
         L2_panelLista.setPreferredSize(new java.awt.Dimension(298, 581));
 
-        btnUpImage.setText("SUBIR IMAGEN");
+        btnUpImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/subirImagen.png"))); // NOI18N
+        btnUpImage.setBorderPainted(false);
+        btnUpImage.setContentAreaFilled(false);
         btnUpImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpImageActionPerformed(evt);
             }
         });
 
-        btnGoPresup.setText("PASAR A PRESUPUESTO");
+        btnGoPresup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pasarPresupuesto.jpg"))); // NOI18N
+        btnGoPresup.setBorderPainted(false);
+        btnGoPresup.setContentAreaFilled(false);
         btnGoPresup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGoPresupActionPerformed(evt);
             }
         });
 
-        btnGoTaller.setText("PASAR A TALLER");
+        btnGoTaller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pasarTaller.jpg"))); // NOI18N
+        btnGoTaller.setBorderPainted(false);
+        btnGoTaller.setContentAreaFilled(false);
 
-        btnGoItv.setText("PASAR A ITV");
+        btnGoItv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pasarITV.jpg"))); // NOI18N
+        btnGoItv.setBorderPainted(false);
+        btnGoItv.setContentAreaFilled(false);
 
-        btnEndCar_supLista.setText("TERMINAR COCHE");
+        btnEndCar_supLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/terminarVehiculo.png"))); // NOI18N
+        btnEndCar_supLista.setBorderPainted(false);
+        btnEndCar_supLista.setContentAreaFilled(false);
 
         javax.swing.GroupLayout L2_panelListaLayout = new javax.swing.GroupLayout(L2_panelLista);
         L2_panelLista.setLayout(L2_panelListaLayout);
         L2_panelListaLayout.setHorizontalGroup(
             L2_panelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, L2_panelListaLayout.createSequentialGroup()
+            .addGroup(L2_panelListaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(L2_panelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnGoPresup, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                    .addComponent(btnEndCar_supLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnUpImage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGoItv, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGoTaller, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGroup(L2_panelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnEndCar_supLista, javax.swing.GroupLayout.PREFERRED_SIZE, 220, Short.MAX_VALUE)
+                    .addComponent(btnGoItv, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnGoTaller, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnGoPresup, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnUpImage, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         L2_panelListaLayout.setVerticalGroup(
             L2_panelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1334,49 +1472,61 @@ public class MecanicoView extends javax.swing.JFrame {
                 .addComponent(btnGoTaller, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnGoItv, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addComponent(btnEndCar_supLista, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
+        L2_panelTaller.setOpaque(false);
         L2_panelTaller.setPreferredSize(new java.awt.Dimension(298, 581));
 
-        btnEndCar_supTaller.setText("TERMINAR COCHE");
+        btnEndCar_supTaller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/terminarVehiculo.png"))); // NOI18N
+        btnEndCar_supTaller.setBorderPainted(false);
+        btnEndCar_supTaller.setContentAreaFilled(false);
         btnEndCar_supTaller.setEnabled(false);
 
         javax.swing.GroupLayout L2_panelTallerLayout = new javax.swing.GroupLayout(L2_panelTaller);
         L2_panelTaller.setLayout(L2_panelTallerLayout);
         L2_panelTallerLayout.setHorizontalGroup(
             L2_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, L2_panelTallerLayout.createSequentialGroup()
+            .addGroup(L2_panelTallerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnEndCar_supTaller, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(btnEndCar_supTaller, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         L2_panelTallerLayout.setVerticalGroup(
             L2_panelTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, L2_panelTallerLayout.createSequentialGroup()
-                .addContainerGap(416, Short.MAX_VALUE)
+                .addContainerGap(490, Short.MAX_VALUE)
                 .addComponent(btnEndCar_supTaller, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
+        L2_panelITV.setOpaque(false);
         L2_panelITV.setPreferredSize(new java.awt.Dimension(298, 581));
 
-        btnEndCar_supITV.setText("TERMINAR COCHE");
+        btnEndCar_supITV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/terminarVehiculo.png"))); // NOI18N
+        btnEndCar_supITV.setBorderPainted(false);
+        btnEndCar_supITV.setContentAreaFilled(false);
         btnEndCar_supITV.setEnabled(false);
 
-        btnEndCar_supITV1.setText("Comprobar 1º ITV");
+        btnEndCar_supITV1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/confirmarITV1.png"))); // NOI18N
+        btnEndCar_supITV1.setBorderPainted(false);
+        btnEndCar_supITV1.setContentAreaFilled(false);
         btnEndCar_supITV1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEndCar_supITV1ActionPerformed(evt);
             }
         });
 
-        btnEndCar_supITV2.setText("Comprobar 2º ITV");
+        btnEndCar_supITV2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/confirmarITV2.png"))); // NOI18N
+        btnEndCar_supITV2.setBorderPainted(false);
+        btnEndCar_supITV2.setContentAreaFilled(false);
         btnEndCar_supITV2.setEnabled(false);
 
-        btnEndCar_supITV3.setText("Comprobar 3º ITV");
+        btnEndCar_supITV3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/confirmarITV3.png"))); // NOI18N
+        btnEndCar_supITV3.setBorderPainted(false);
+        btnEndCar_supITV3.setContentAreaFilled(false);
         btnEndCar_supITV3.setEnabled(false);
 
         javax.swing.GroupLayout L2_panelITVLayout = new javax.swing.GroupLayout(L2_panelITV);
@@ -1385,12 +1535,13 @@ public class MecanicoView extends javax.swing.JFrame {
             L2_panelITVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(L2_panelITVLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(L2_panelITVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEndCar_supITV2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEndCar_supITV1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEndCar_supITV, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
-                    .addComponent(btnEndCar_supITV3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGroup(L2_panelITVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnEndCar_supITV3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, Short.MAX_VALUE)
+                    .addComponent(btnEndCar_supITV2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(L2_panelITVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnEndCar_supITV, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEndCar_supITV1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         L2_panelITVLayout.setVerticalGroup(
             L2_panelITVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1406,9 +1557,12 @@ public class MecanicoView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        L2_panelPresupuesto.setOpaque(false);
         L2_panelPresupuesto.setPreferredSize(new java.awt.Dimension(298, 581));
 
-        btnEndCar_supPresupuesto.setText("TERMINAR COCHE");
+        btnEndCar_supPresupuesto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/terminarVehiculo.png"))); // NOI18N
+        btnEndCar_supPresupuesto.setBorderPainted(false);
+        btnEndCar_supPresupuesto.setContentAreaFilled(false);
         btnEndCar_supPresupuesto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEndCar_supPresupuestoActionPerformed(evt);
@@ -1419,10 +1573,10 @@ public class MecanicoView extends javax.swing.JFrame {
         L2_panelPresupuesto.setLayout(L2_panelPresupuestoLayout);
         L2_panelPresupuestoLayout.setHorizontalGroup(
             L2_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, L2_panelPresupuestoLayout.createSequentialGroup()
+            .addGroup(L2_panelPresupuestoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnEndCar_supPresupuesto, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(btnEndCar_supPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         L2_panelPresupuestoLayout.setVerticalGroup(
             L2_panelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1455,13 +1609,13 @@ public class MecanicoView extends javax.swing.JFrame {
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 529, Short.MAX_VALUE)
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(L2_panelLista, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE))
+                .addComponent(L2_panelLista, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE))
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(L2_panelTaller, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE))
+                .addComponent(L2_panelTaller, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE))
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(L2_panelITV, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE))
+                .addComponent(L2_panelITV, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE))
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(L2_panelPresupuesto, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE))
+                .addComponent(L2_panelPresupuesto, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -1486,30 +1640,47 @@ public class MecanicoView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLayeredPane1)
-                    .addComponent(jLayeredPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE))
+                    .addComponent(jLayeredPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        jLayeredPane3.setLayer(fondo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/texturaMetalica.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 577, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 577, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 391, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 391, Short.MAX_VALUE))
+        );
+
         jLayeredPane3.setLayer(jPanel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane3Layout = new javax.swing.GroupLayout(jLayeredPane3);
         jLayeredPane3.setLayout(jLayeredPane3Layout);
         jLayeredPane3Layout.setHorizontalGroup(
             jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
-            .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, Short.MAX_VALUE))
+            .addGap(0, 1020, Short.MAX_VALUE)
             .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jLayeredPane3Layout.setVerticalGroup(
             jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 651, Short.MAX_VALUE)
-            .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 651, Short.MAX_VALUE))
+            .addGap(0, 673, Short.MAX_VALUE)
             .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Archivo");
@@ -1595,6 +1766,14 @@ public class MecanicoView extends javax.swing.JFrame {
     private void btnGoPresupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoPresupActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGoPresupActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void btnQuitarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitarListaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnQuitarListaActionPerformed
 
     
     public static void main(String args[]) {
@@ -1774,6 +1953,7 @@ public class MecanicoView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;

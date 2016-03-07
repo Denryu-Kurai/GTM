@@ -56,6 +56,7 @@ public class AdministrativoView extends javax.swing.JFrame {
         btnCInsertar = new javax.swing.JButton();
         btnCModificar = new javax.swing.JButton();
         btnCEliminar = new javax.swing.JButton();
+        btnCLugar = new javax.swing.JButton();
         txtCPropietario = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -72,6 +73,10 @@ public class AdministrativoView extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         cbCEjes = new javax.swing.JComboBox();
         txtCMatricula = new javax.swing.JTextField();
+        ckbTaller = new javax.swing.JCheckBox();
+        ckbITV = new javax.swing.JCheckBox();
+        ckbPintura = new javax.swing.JCheckBox();
+        ckbEspera = new javax.swing.JCheckBox();
         pnBlanco = new javax.swing.JPanel();
         pnFacturas = new javax.swing.JPanel();
         pnInformes = new javax.swing.JPanel();
@@ -341,9 +346,8 @@ public class AdministrativoView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(pnUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnUInsertar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnUEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnUModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnUModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -360,6 +364,10 @@ public class AdministrativoView extends javax.swing.JFrame {
         btnCEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         btnCEliminar.setBorderPainted(false);
         btnCEliminar.setContentAreaFilled(false);
+
+        btnCLugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lugar.png"))); // NOI18N
+        btnCLugar.setBorderPainted(false);
+        btnCLugar.setContentAreaFilled(false);
 
         try {
             txtCPropietario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########U")));
@@ -390,50 +398,73 @@ public class AdministrativoView extends javax.swing.JFrame {
 
         cbCEjes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2", "4" }));
 
+        ckbTaller.setText("Taller");
+        ckbTaller.setOpaque(false);
+
+        ckbITV.setText("ITV");
+        ckbITV.setOpaque(false);
+
+        ckbPintura.setText("Pintura");
+        ckbPintura.setOpaque(false);
+
+        ckbEspera.setText("Espera");
+        ckbEspera.setOpaque(false);
+
         javax.swing.GroupLayout pnCocheLayout = new javax.swing.GroupLayout(pnCoche);
         pnCoche.setLayout(pnCocheLayout);
         pnCocheLayout.setHorizontalGroup(
             pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnCocheLayout.createSequentialGroup()
-                .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(pnCocheLayout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtCMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(31, 31, 31)
+                            .addComponent(jLabel8)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtCPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnCocheLayout.createSequentialGroup()
+                            .addGap(13, 13, 13)
+                            .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel18)
+                                .addComponent(jLabel13))
+                            .addGap(18, 18, 18)
+                            .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(cbCPlazas, 0, 120, Short.MAX_VALUE)
+                                .addComponent(txtCMarca))
+                            .addGap(24, 24, 24)
+                            .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(pnCocheLayout.createSequentialGroup()
+                                    .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(cbCEjes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtCModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(26, 26, 26)
+                                    .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(cbCPuertas, 0, 120, Short.MAX_VALUE)
+                                        .addComponent(txtCColor)))
+                                .addGroup(pnCocheLayout.createSequentialGroup()
+                                    .addGap(14, 14, 14)
+                                    .addComponent(ckbEspera))))
+                        .addGroup(pnCocheLayout.createSequentialGroup()
+                            .addComponent(ckbTaller)
+                            .addGap(18, 18, 18)
+                            .addComponent(ckbITV)
+                            .addGap(18, 18, 18)
+                            .addComponent(ckbPintura)))
                     .addGroup(pnCocheLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(pnCocheLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtCMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(jLabel8)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtCPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnCocheLayout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel18)
-                                    .addComponent(jLabel13))
-                                .addGap(18, 18, 18)
-                                .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cbCPlazas, 0, 120, Short.MAX_VALUE)
-                                    .addComponent(txtCMarca))
-                                .addGap(24, 24, 24)
-                                .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(18, 18, 18)
-                                .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cbCEjes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtCModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(26, 26, 26)
-                                .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(18, 18, 18)
-                                .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cbCPuertas, 0, 120, Short.MAX_VALUE)
-                                    .addComponent(txtCColor)))))
-                    .addGroup(pnCocheLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnCLugar, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnCModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -477,11 +508,18 @@ public class AdministrativoView extends javax.swing.JFrame {
                             .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(cbCEjes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel11)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ckbTaller)
+                    .addComponent(ckbITV)
+                    .addComponent(ckbPintura)
+                    .addComponent(ckbEspera))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGroup(pnCocheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCLugar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -697,6 +735,7 @@ public class AdministrativoView extends javax.swing.JFrame {
     public javax.swing.JButton btnCBuscar;
     public javax.swing.JButton btnCEliminar;
     public javax.swing.JButton btnCInsertar;
+    public javax.swing.JButton btnCLugar;
     public javax.swing.JButton btnCModificar;
     public javax.swing.JMenuItem btnCerrarUsuario;
     public javax.swing.JButton btnFacturas;
@@ -712,6 +751,10 @@ public class AdministrativoView extends javax.swing.JFrame {
     public javax.swing.JComboBox cbCPlazas;
     public javax.swing.JComboBox cbCPuertas;
     public javax.swing.JComboBox<String> cbURol;
+    public javax.swing.JCheckBox ckbEspera;
+    public javax.swing.JCheckBox ckbITV;
+    public javax.swing.JCheckBox ckbPintura;
+    public javax.swing.JCheckBox ckbTaller;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

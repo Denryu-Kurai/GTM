@@ -17,6 +17,7 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
     AdministrativoView vAdmin;
     Consultas consulta = new Consultas();
     EncriptadorMD5 md5 = new EncriptadorMD5();
+    boolean b; // Este atributo actuara de bandera para indicar a los procedimientos relacionados a lugares que realicen funciones adicionales.
     
     public ControladorAdministrativo (AdministrativoView vA) {
         
@@ -40,7 +41,7 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
         
         // Coches
         __BuscarCoches, __AñadirCoche, __InsertarCoche,
-        __ModificarCoche, __EliminarCoche;
+        __ModificarCoche, __EliminarCoche, __NuevoLugar;
         
     }
     
@@ -83,6 +84,8 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
         vAdmin.btnCModificar.addActionListener(this);
         vAdmin.btnCEliminar.setActionCommand("__EliminarCoche");
         vAdmin.btnCEliminar.addActionListener(this);
+        vAdmin.btnCLugar.setActionCommand("__NuevoLugar");
+        vAdmin.btnCLugar.addActionListener(this);
         
         // Prepara las tablas.
         vAdmin.tblUsuarios.setModel(consulta.tablaUsuariosAdministrativo());
@@ -148,6 +151,8 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                 
                 limpiar();
                 
+                b = false;
+                
                 int fila = vAdmin.tblCoches.getSelectedRow();
                 String id = (String) vAdmin.tblCoches.getValueAt(fila, 0);
                 String[] coche = consulta.getCoche(id);
@@ -201,6 +206,35 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                     
                 }
                 
+                int c = consulta.contarLugarCoche(id);
+                
+                if (c == 0) {
+                    
+                    vAdmin.ckbTaller.setEnabled(false);
+                    vAdmin.ckbITV.setEnabled(false);
+                    vAdmin.ckbPintura.setEnabled(false);
+                    vAdmin.ckbEspera.setEnabled(false);
+                    
+                    vAdmin.btnCLugar.setEnabled(true);
+                    
+                } else {
+                    
+                    vAdmin.ckbTaller.setEnabled(true);
+                    vAdmin.ckbITV.setEnabled(true);
+                    vAdmin.ckbPintura.setEnabled(true);
+                    vAdmin.ckbEspera.setEnabled(true);
+                    
+                    vAdmin.btnCLugar.setEnabled(false);
+                    
+                    coche = consulta.getLugar(id);
+                    
+                    if (coche[0].equals("1")) vAdmin.ckbTaller.setSelected(true);
+                    if (coche[1].equals("1")) vAdmin.ckbITV.setSelected(true);
+                    if (coche[2].equals("1")) vAdmin.ckbPintura.setSelected(true);
+                    if (coche[3].equals("1")) vAdmin.ckbEspera.setSelected(true);
+                    
+                }
+                
             }
         });
         
@@ -222,7 +256,7 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
         String dni, nombre, apellidos, direccion, usuario, contraseña, rol;
         String matricula, propietario, marca, modelo, color;
         int telefono, fila, c;
-        int puertas, ejes, plazas;
+        int puertas, ejes, plazas, taller, itv, pintura, espera;
         boolean r;
         
         switch (ActionMVC.valueOf(e.getActionCommand())) {
@@ -437,6 +471,13 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                     
                     vAdmin.txtCPropietario.setText((String) vAdmin.tblUsuarios.getValueAt(fila, 0));
                     
+                    vAdmin.ckbTaller.setEnabled(true);
+                    vAdmin.ckbITV.setEnabled(true);
+                    vAdmin.ckbPintura.setEnabled(true);
+                    vAdmin.ckbEspera.setSelected(true);
+                   
+                    vAdmin.btnCLugar.setEnabled(false);
+                    
                 }
                 break;
                 
@@ -449,6 +490,7 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                 if (vAdmin.txtCMarca.getText().equals("")) c++;
                 if (vAdmin.txtCModelo.getText().equals("")) c++;
                 if (vAdmin.txtCColor.getText().equals("")) c++;
+                if (!vAdmin.ckbTaller.isSelected() && !vAdmin.ckbITV.isSelected() && !vAdmin.ckbPintura.isSelected()) c++;
                 
                 if (c > 0) {
                     
@@ -464,8 +506,23 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                     plazas = Integer.parseInt((String) vAdmin.cbCPlazas.getSelectedItem());
                     ejes = Integer.parseInt((String) vAdmin.cbCEjes.getSelectedItem());
                     puertas = Integer.parseInt((String) vAdmin.cbCPuertas.getSelectedItem());
+                    
+                    if (vAdmin.ckbTaller.isSelected())
+                        taller = 1;
+                    else
+                        taller = 0;
+                    
+                    if (vAdmin.ckbITV.isSelected())
+                        itv = 1;
+                    else
+                        itv = 0;
+                    
+                    if (vAdmin.ckbPintura.isSelected())
+                        pintura = 1;
+                    else
+                        pintura = 0;
                         
-                    r = consulta.insertarCoche(matricula, marca, modelo, color, plazas, ejes, puertas, propietario);
+                    r = consulta.insertarCoche(matricula, marca, modelo, color, plazas, ejes, puertas, propietario, taller, itv, pintura);
                     
                     if (r == true) {
                         
@@ -473,7 +530,7 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                         
                     } else {
                         
-                        vAdmin.tblCoches.setModel(consulta.tablaUsuariosAdministrativo());
+                        vAdmin.tblCoches.setModel(consulta.tablaCochesAdministrativo());
                     
                         vAdmin.pnUsuario.setVisible(false);
                         vAdmin.pnCoche.setVisible(false);
@@ -493,6 +550,7 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                 if (vAdmin.txtCMarca.getText().equals("")) c++;
                 if (vAdmin.txtCModelo.getText().equals("")) c++;
                 if (vAdmin.txtCColor.getText().equals("")) c++;
+                if (!vAdmin.ckbTaller.isSelected() && !vAdmin.ckbITV.isSelected() && !vAdmin.ckbPintura.isSelected() && b == true) c++;
                 
                 if (c > 0) {
                     
@@ -517,6 +575,51 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                         
                     } else {
                         
+                        if (b == true) {
+                            
+                            if (vAdmin.ckbTaller.isSelected())
+                                taller = 1;
+                            else
+                                taller = 0;
+                    
+                            if (vAdmin.ckbITV.isSelected())
+                                itv = 1;
+                            else
+                                itv = 0;
+                    
+                            if (vAdmin.ckbPintura.isSelected())
+                                pintura = 1;
+                            else
+                                pintura = 0;
+                            
+                            consulta.insertarLugar(matricula, taller, itv, pintura);
+                            
+                        } else {
+                            
+                            if (vAdmin.ckbTaller.isSelected())
+                                taller = 1;
+                            else
+                                taller = 0;
+                    
+                            if (vAdmin.ckbITV.isSelected())
+                                itv = 1;
+                            else
+                                itv = 0;
+                    
+                            if (vAdmin.ckbPintura.isSelected())
+                                pintura = 1;
+                            else
+                                pintura = 0;
+                            
+                            if (vAdmin.ckbEspera.isSelected())
+                                espera = 1;
+                            else
+                                espera = 0;
+                            
+                            consulta.modificarLugar(matricula, taller, itv, pintura, espera);
+                            
+                        }
+                        
                         vAdmin.tblUsuarios.setModel(consulta.tablaUsuariosAdministrativo());
                     
                         vAdmin.pnUsuario.setVisible(false);
@@ -535,6 +638,7 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                 
                 if (c == 0) {
                     
+                    consulta.eliminarLugar(matricula);
                     consulta.eliminarCoche(matricula);
                     
                     vAdmin.tblCoches.setModel(consulta.tablaCochesAdministrativo());
@@ -548,6 +652,17 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
                     JOptionPane.showMessageDialog(vAdmin, "Error. Ya hay un historial almacenado con este coche.");
                     
                 }
+                break;
+                
+            case __NuevoLugar:
+                b = true;
+                
+                vAdmin.ckbTaller.setEnabled(true);
+                vAdmin.ckbITV.setEnabled(true);
+                vAdmin.ckbPintura.setEnabled(true);
+                vAdmin.ckbEspera.setSelected(true);
+                   
+                vAdmin.btnCLugar.setEnabled(false);
                 break;
             
         }
@@ -572,6 +687,10 @@ public class ControladorAdministrativo implements ActionListener, MouseListener 
         vAdmin.cbCPlazas.setSelectedIndex(0);
         vAdmin.cbCEjes.setSelectedIndex(0);
         vAdmin.cbCPuertas.setSelectedIndex(0);
+        vAdmin.ckbTaller.setSelected(false);
+        vAdmin.ckbITV.setSelected(false);
+        vAdmin.ckbPintura.setSelected(false);
+        vAdmin.ckbEspera.setSelected(false);
         
     }
 

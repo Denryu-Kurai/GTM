@@ -37,8 +37,9 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="GTM - Mec&#xe1;nico"/>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[980, 650]"/>
+      <Dimension value="[1000, 686]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -76,35 +77,28 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="1000" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="1020" max="32767" attributes="0"/>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Component id="fondo" alignment="0" pref="1000" max="32767" attributes="0"/>
+                  <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                  <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="651" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="673" max="32767" attributes="0"/>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Component id="fondo" alignment="0" pref="651" max="32767" attributes="0"/>
+                  <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                  <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="fondo">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/texturaMetalica.png"/>
-            </Property>
-          </Properties>
-        </Component>
         <Container class="javax.swing.JPanel" name="jPanel4">
           <Properties>
             <Property name="opaque" type="boolean" value="false"/>
@@ -135,7 +129,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLayeredPane1" max="32767" attributes="0"/>
-                          <Component id="jLayeredPane2" pref="531" max="32767" attributes="0"/>
+                          <Component id="jLayeredPane2" pref="553" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -144,6 +138,9 @@
           </Layout>
           <SubComponents>
             <Container class="javax.swing.JPanel" name="jPanel1">
+              <Properties>
+                <Property name="opaque" type="boolean" value="false"/>
+              </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
@@ -155,7 +152,11 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="btnListCar">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Lista de Coches"/>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagenes/listaCoches.png"/>
+                    </Property>
+                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -163,7 +164,11 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnTaller">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Taller"/>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagenes/taller.jpg"/>
+                    </Property>
+                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -171,7 +176,11 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnItv">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="ITV"/>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagenes/itv.png"/>
+                    </Property>
+                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnItvActionPerformed"/>
@@ -182,7 +191,11 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnPresup">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="PRESUPUESTO"/>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagenes/presupuesto.png"/>
+                    </Property>
+                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -197,7 +210,6 @@
                     <LineBorder/>
                   </Border>
                 </Property>
-                <Property name="opaque" type="boolean" value="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="MecanicoView_jLayeredPane1"/>
@@ -207,29 +219,29 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="L1_panelLista" alignment="0" pref="718" max="32767" attributes="0"/>
+                      <Component id="L1_panelLista" alignment="0" pref="738" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Component id="L1_panelTaller" alignment="0" pref="718" max="32767" attributes="0"/>
+                          <Component id="L1_panelTaller" alignment="0" pref="738" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                          <Component id="L1_panelITV" alignment="0" pref="718" max="32767" attributes="0"/>
+                          <Component id="L1_panelITV" alignment="0" pref="738" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
-                          <Component id="L1_panelPresupuesto" alignment="0" pref="718" max="32767" attributes="0"/>
+                          <Component id="L1_panelPresupuesto" alignment="0" pref="738" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="L1_panelLista" alignment="0" pref="529" max="32767" attributes="0"/>
+                      <Component id="L1_panelLista" alignment="0" pref="551" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Component id="L1_panelTaller" alignment="0" pref="529" max="32767" attributes="0"/>
+                          <Component id="L1_panelTaller" alignment="0" pref="551" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                          <Component id="L1_panelITV" alignment="0" pref="529" max="32767" attributes="0"/>
+                          <Component id="L1_panelITV" alignment="0" pref="551" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
-                          <Component id="L1_panelPresupuesto" alignment="0" pref="529" max="32767" attributes="0"/>
+                          <Component id="L1_panelPresupuesto" alignment="0" pref="551" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -240,6 +252,7 @@
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[690, 540]"/>
                     </Property>
+                    <Property name="opaque" type="boolean" value="false"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[742, 579]"/>
                     </Property>
@@ -301,7 +314,7 @@
                           </Group>
                           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="308" max="32767" attributes="0"/>
+                                  <EmptySpace pref="352" max="32767" attributes="0"/>
                                   <Component id="jPanel5" min="-2" pref="380" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -350,7 +363,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel5" min="-2" pref="280" max="-2" attributes="0"/>
-                                  <EmptySpace pref="216" max="32767" attributes="0"/>
+                                  <EmptySpace pref="196" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -417,6 +430,7 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="PINTURA"/>
                         <Property name="enabled" type="boolean" value="false"/>
+                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -426,6 +440,7 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="ITV"/>
                         <Property name="enabled" type="boolean" value="false"/>
+                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -435,6 +450,7 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="TALLER"/>
                         <Property name="enabled" type="boolean" value="false"/>
+                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -497,6 +513,7 @@
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[690, 540]"/>
                     </Property>
+                    <Property name="opaque" type="boolean" value="false"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[742, 579]"/>
                     </Property>
@@ -509,11 +526,10 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jScrollPane6" pref="674" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jScrollPane6" pref="732" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       <Component id="jButton13" min="-2" pref="160" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -528,11 +544,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane6" pref="403" max="32767" attributes="0"/>
+                              <Component id="jScrollPane6" max="32767" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jButton12" pref="60" max="32767" attributes="0"/>
-                                  <Component id="jButton13" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jButton12" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton13" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -567,15 +583,26 @@
                     </Container>
                     <Component class="javax.swing.JButton" name="jButton12">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Eliminar"/>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/imagenes/eliminar2.png"/>
+                        </Property>
+                        <Property name="borderPainted" type="boolean" value="false"/>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton12ActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                       </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton13">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Guardar"/>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/imagenes/guardar.png"/>
+                        </Property>
+                        <Property name="borderPainted" type="boolean" value="false"/>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -588,6 +615,7 @@
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[690, 540]"/>
                     </Property>
+                    <Property name="opaque" type="boolean" value="false"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[742, 579]"/>
                     </Property>
@@ -610,9 +638,6 @@
                   </Layout>
                   <SubComponents>
                     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
-                      <Properties>
-                        <Property name="opaque" type="boolean" value="true"/>
-                      </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                       </AuxValues>
@@ -622,6 +647,7 @@
                         <Container class="javax.swing.JPanel" name="jPanel6">
                           <Properties>
                             <Property name="enabled" type="boolean" value="false"/>
+                            <Property name="opaque" type="boolean" value="false"/>
                           </Properties>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -643,12 +669,12 @@
                                           <Component id="jPanel12" max="32767" attributes="0"/>
                                           <Component id="jPanel10" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="60" max="32767" attributes="0"/>
+                                      <EmptySpace pref="72" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
                                           <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="59" max="32767" attributes="0"/>
+                                      <EmptySpace pref="71" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="jPanel14" max="32767" attributes="0"/>
                                           <Component id="jPanel9" max="32767" attributes="0"/>
@@ -666,7 +692,7 @@
                                           <Component id="jPanel11" max="32767" attributes="0"/>
                                           <Component id="jPanel9" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="129" max="32767" attributes="0"/>
+                                      <EmptySpace pref="151" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="jPanel13" alignment="1" max="32767" attributes="0"/>
                                           <Component id="jPanel12" max="32767" attributes="0"/>
@@ -689,6 +715,7 @@
                                     </TitledBorder>
                                   </Border>
                                 </Property>
+                                <Property name="opaque" type="boolean" value="false"/>
                               </Properties>
 
                               <Layout>
@@ -729,6 +756,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox7">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Desviaci&#xf3;n de ruedas"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -737,6 +765,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox8">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Volante y columna de d."/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -745,6 +774,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox9">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Caja de direcci&#xf3;n"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -753,6 +783,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox10">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Timoneria y rotula"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -761,6 +792,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox11">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Servodirecci&#xf3;n"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -779,6 +811,7 @@
                                     </TitledBorder>
                                   </Border>
                                 </Property>
+                                <Property name="opaque" type="boolean" value="false"/>
                               </Properties>
 
                               <Layout>
@@ -813,6 +846,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox1">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Documentaci&#xf3;n"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -821,6 +855,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox2">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Numero de bastidor"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -829,6 +864,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox3">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Placas de matricula"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -847,6 +883,7 @@
                                     </TitledBorder>
                                   </Border>
                                 </Property>
+                                <Property name="opaque" type="boolean" value="false"/>
                               </Properties>
 
                               <Layout>
@@ -892,6 +929,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox4">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Ruido"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -900,6 +938,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox5">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Vehiculo con motor"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <Events>
                                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox5ActionPerformed"/>
@@ -911,6 +950,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox6">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Vehiculo con motor"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <Events>
                                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox6ActionPerformed"/>
@@ -942,6 +982,7 @@
                                     </TitledBorder>
                                   </Border>
                                 </Property>
+                                <Property name="opaque" type="boolean" value="false"/>
                               </Properties>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -982,6 +1023,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox12">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Ejes"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -990,6 +1032,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox13">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Ruedas"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -998,6 +1041,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox14">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Neumaticos"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1006,6 +1050,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox15">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Suspensi&#xf3;n"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1024,6 +1069,7 @@
                                     </TitledBorder>
                                   </Border>
                                 </Property>
+                                <Property name="opaque" type="boolean" value="false"/>
                               </Properties>
 
                               <Layout>
@@ -1070,6 +1116,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox16">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Estado general del motor"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1078,6 +1125,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox17">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Sistema de alimentaci&#xf3;n"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1086,6 +1134,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox18">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Sistema de escape"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1094,6 +1143,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox19">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Transmisi&#xf3;n"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1102,6 +1152,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox20">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Vehiculo que utilizan gas"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1125,6 +1176,7 @@
                                     </TitledBorder>
                                   </Border>
                                 </Property>
+                                <Property name="opaque" type="boolean" value="false"/>
                               </Properties>
 
                               <Layout>
@@ -1167,6 +1219,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox21">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Trans. mercanc&#xed;as peligrosas"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1175,6 +1228,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox22">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Trans. mercanc&#xed;as perecederas"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1183,6 +1237,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox23">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Transporte escolar"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1191,6 +1246,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox24">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Tacografo"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1199,6 +1255,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox25">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Limitaci&#xf3;n de velocidad"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1207,6 +1264,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox26">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Reformas no autorizadas"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1219,6 +1277,7 @@
                         <Container class="javax.swing.JPanel" name="jPanel7">
                           <Properties>
                             <Property name="enabled" type="boolean" value="false"/>
+                            <Property name="opaque" type="boolean" value="false"/>
                           </Properties>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1237,7 +1296,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="146" max="32767" attributes="0"/>
+                                      <EmptySpace pref="170" max="32767" attributes="0"/>
                                       <Component id="jPanel16" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -1268,6 +1327,7 @@
                                     </TitledBorder>
                                   </Border>
                                 </Property>
+                                <Property name="opaque" type="boolean" value="false"/>
                               </Properties>
 
                               <Layout>
@@ -1335,7 +1395,7 @@
                                           <Component id="jCheckBox35" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jCheckBox36" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="192" max="32767" attributes="0"/>
+                                          <EmptySpace pref="214" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -1344,6 +1404,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox27">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Antiempotramiento d."/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1352,6 +1413,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox28">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Dispositivo de acopl."/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1360,6 +1422,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox29">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Protecciones laterales"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1368,6 +1431,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox30">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Vidrios de seguridad"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1376,6 +1440,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox31">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Puertas y pelda&#xf1;os"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1384,6 +1449,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox32">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Limpia y lavaparabrisas"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1392,6 +1458,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox33">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Se&#xf1;ales en los vehiculos"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1400,6 +1467,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox34">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Soporte exterior rueda repuesto"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1408,6 +1476,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox35">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Elementos exclusivos de vehiculos M2 y M3"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1416,6 +1485,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox36">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Guardabarros y dispositivo antiproyecci&#xf3;n"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1424,6 +1494,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox37">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Protecci&#xf3;n trasera"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1432,6 +1503,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox38">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Retrovisores"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1440,6 +1512,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox39">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Carroceria y chasis"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1458,6 +1531,7 @@
                                     </TitledBorder>
                                   </Border>
                                 </Property>
+                                <Property name="opaque" type="boolean" value="false"/>
                               </Properties>
 
                               <Layout>
@@ -1514,6 +1588,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox40">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Asientos y sus anclajes"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <Events>
                                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox40ActionPerformed"/>
@@ -1525,6 +1600,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox41">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Cinturones de seguridad y sus anclajes"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1533,6 +1609,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox42">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Dispositivo de retencion para ni&#xf1;os"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1541,6 +1618,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox43">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Antihielo y antivaho"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1549,6 +1627,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox44">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Antirobo y alarma"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1557,6 +1636,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox45">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Campo de visi&#xf3;n directa"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1565,6 +1645,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox46">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Dispositivo de retenci&#xf3;n de la carga"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1573,6 +1654,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox47">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Indicador de velocidad"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1581,6 +1663,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox48">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Salientes interiores"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1589,6 +1672,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox49">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Elementos exclusivos de vehiculos M2 y M3"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1599,6 +1683,9 @@
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JPanel" name="jPanel8">
+                          <Properties>
+                            <Property name="opaque" type="boolean" value="false"/>
+                          </Properties>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                           </AuxValues>
@@ -1647,6 +1734,7 @@
                                     </TitledBorder>
                                   </Border>
                                 </Property>
+                                <Property name="opaque" type="boolean" value="false"/>
                               </Properties>
 
                               <Layout>
@@ -1729,6 +1817,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox50">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Luces de posici&#xf3;n"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <Events>
                                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox50ActionPerformed"/>
@@ -1740,6 +1829,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox51">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Luces de frenado"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1748,6 +1838,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox52">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Se&#xf1;al de emergencia"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1756,6 +1847,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox53">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Alumbrado interior"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1764,6 +1856,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox54">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Luz de estacionamiento"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1772,6 +1865,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox55">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Luces de marcha atras"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1780,6 +1874,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox56">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Luces de cruce y carretera"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1788,6 +1883,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox57">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Luces indicadoras de direcci&#xf3;n"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1796,6 +1892,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox58">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Se&#xf1;alizaci&#xf3;n luminosa espec&#xed;fica"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1804,6 +1901,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox59">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Se&#xf1;alizaci&#xf3;n de apertura de puerta"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1812,6 +1910,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox60">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Luz de la placa de matricula trasera"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1820,6 +1919,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox61">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Luces antiniebla"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1828,6 +1928,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox62">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Luz de galibo"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1836,6 +1937,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox63">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Avisador acustico"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1844,6 +1946,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox64">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Catadi&#xf3;ptricos"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1862,6 +1965,7 @@
                                     </TitledBorder>
                                   </Border>
                                 </Property>
+                                <Property name="opaque" type="boolean" value="false"/>
                               </Properties>
 
                               <Layout>
@@ -1958,7 +2062,7 @@
                                               <Component id="jCheckBox86" alignment="1" min="-2" max="-2" attributes="0"/>
                                               <Component id="jCheckBox65" alignment="1" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace pref="165" max="32767" attributes="0"/>
+                                          <EmptySpace pref="187" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -1967,6 +2071,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox65">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Cables, varillas, palancas, conex."/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1975,6 +2080,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox66">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Dispositivo de desaceleraci&#xf3;n"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1983,6 +2089,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox67">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="V&#xe1;lvula de regulacion del f.mano"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1991,6 +2098,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox68">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Acumulador o deposito de presi&#xf3;n"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1999,6 +2107,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox69">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Tubos r&#xed;gidos"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2007,6 +2116,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox70">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Freno de inercia"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2015,6 +2125,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox71">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Forros"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2023,6 +2134,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox72">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Acoplamiento de f. de remolque"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2031,6 +2143,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox73">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Cilindros del sist. de frenado"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2039,6 +2152,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox74">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Pedal del dispositivo de frenado"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2047,6 +2161,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox75">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Servofreno.cilindro de mando"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <Events>
                                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox75ActionPerformed"/>
@@ -2058,6 +2173,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox76">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Bomba de vacio y depositos"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2066,6 +2182,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox77">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Ajustadores de tensi&#xf3;n auto."/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <Events>
                                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox77ActionPerformed"/>
@@ -2077,6 +2194,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox78">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Tubos flexible"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2085,6 +2203,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox79">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="V&#xe1;lvula sensora de carga"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2093,6 +2212,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox80">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Frenos de servicio"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2101,6 +2221,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox81">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="V&#xe1;lvula de frenado"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <Events>
                                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox81ActionPerformed"/>
@@ -2112,6 +2233,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox82">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Tambores y discos"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <Events>
                                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox82ActionPerformed"/>
@@ -2123,6 +2245,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox83">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Dispositivo antibloqueo"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2131,6 +2254,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox84">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Freno secundario (SOS)"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2139,6 +2263,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox85">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Freno de estacionamiento"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2147,6 +2272,7 @@
                                 <Component class="javax.swing.JCheckBox" name="jCheckBox86">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Indicador de baja presi&#xf3;n"/>
+                                    <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2165,6 +2291,7 @@
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[690, 540]"/>
                     </Property>
+                    <Property name="opaque" type="boolean" value="false"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[742, 579]"/>
                     </Property>
@@ -2178,7 +2305,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" pref="380" max="32767" attributes="0"/>
+                              <Component id="jScrollPane2" pref="368" max="32767" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jScrollPane5" alignment="1" min="-2" pref="320" max="-2" attributes="0"/>
@@ -2189,13 +2316,13 @@
                                           <Component id="jLabel14" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="btnQuitarLista" alignment="1" max="32767" attributes="0"/>
                                           <Component id="dueñoPresupuesto" alignment="0" max="32767" attributes="0"/>
                                           <Component id="txtPrecioFinal_Presup" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="matriculaPresupuesto" min="-2" pref="160" max="-2" attributes="0"/>
+                                          <Component id="matriculaPresupuesto" alignment="1" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="btnQuitarLista" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -2206,8 +2333,8 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jScrollPane5" pref="355" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jScrollPane5" max="32767" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="btnQuitarLista" min="-2" pref="60" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -2226,7 +2353,7 @@
                                           <Component id="txtPrecioFinal_Presup" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="jScrollPane2" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane2" pref="449" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -2282,8 +2409,15 @@
                     </Container>
                     <Component class="javax.swing.JButton" name="btnQuitarLista">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Eliminar"/>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/imagenes/eliminar2.png"/>
+                        </Property>
+                        <Property name="borderPainted" type="boolean" value="false"/>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQuitarListaActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                       </AuxValues>
@@ -2339,7 +2473,6 @@
                     <LineBorder/>
                   </Border>
                 </Property>
-                <Property name="opaque" type="boolean" value="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[298, 581]"/>
                 </Property>
@@ -2367,16 +2500,16 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <EmptySpace min="0" pref="529" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Component id="L2_panelLista" alignment="0" pref="529" max="32767" attributes="0"/>
+                          <Component id="L2_panelLista" alignment="0" pref="551" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                          <Component id="L2_panelTaller" alignment="0" pref="529" max="32767" attributes="0"/>
+                          <Component id="L2_panelTaller" alignment="0" pref="551" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
-                          <Component id="L2_panelITV" alignment="0" pref="529" max="32767" attributes="0"/>
+                          <Component id="L2_panelITV" alignment="0" pref="551" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
-                          <Component id="L2_panelPresupuesto" alignment="0" pref="529" max="32767" attributes="0"/>
+                          <Component id="L2_panelPresupuesto" alignment="0" pref="551" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2384,6 +2517,7 @@
               <SubComponents>
                 <Container class="javax.swing.JPanel" name="L2_panelLista">
                   <Properties>
+                    <Property name="opaque" type="boolean" value="false"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[298, 581]"/>
                     </Property>
@@ -2395,16 +2529,16 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="btnGoPresup" pref="220" max="32767" attributes="0"/>
-                                  <Component id="btnEndCar_supLista" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="btnUpImage" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnGoItv" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnGoTaller" alignment="1" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="btnEndCar_supLista" pref="220" max="32767" attributes="0"/>
+                                  <Component id="btnGoItv" alignment="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="btnGoTaller" alignment="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="btnGoPresup" alignment="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="btnUpImage" min="-2" pref="220" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace pref="73" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2419,7 +2553,7 @@
                               <Component id="btnGoTaller" min="-2" pref="70" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btnGoItv" min="-2" pref="70" max="-2" attributes="0"/>
-                              <EmptySpace pref="61" max="32767" attributes="0"/>
+                              <EmptySpace pref="135" max="32767" attributes="0"/>
                               <Component id="btnEndCar_supLista" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -2429,7 +2563,11 @@
                   <SubComponents>
                     <Component class="javax.swing.JButton" name="btnUpImage">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="SUBIR IMAGEN"/>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/imagenes/subirImagen.png"/>
+                        </Property>
+                        <Property name="borderPainted" type="boolean" value="false"/>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpImageActionPerformed"/>
@@ -2440,7 +2578,11 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="btnGoPresup">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="PASAR A PRESUPUESTO"/>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/imagenes/pasarPresupuesto.jpg"/>
+                        </Property>
+                        <Property name="borderPainted" type="boolean" value="false"/>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGoPresupActionPerformed"/>
@@ -2451,7 +2593,11 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="btnGoTaller">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="PASAR A TALLER"/>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/imagenes/pasarTaller.jpg"/>
+                        </Property>
+                        <Property name="borderPainted" type="boolean" value="false"/>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2459,7 +2605,11 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="btnGoItv">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="PASAR A ITV"/>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/imagenes/pasarITV.jpg"/>
+                        </Property>
+                        <Property name="borderPainted" type="boolean" value="false"/>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2467,7 +2617,11 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="btnEndCar_supLista">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="TERMINAR COCHE"/>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/imagenes/terminarVehiculo.png"/>
+                        </Property>
+                        <Property name="borderPainted" type="boolean" value="false"/>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2477,6 +2631,7 @@
                 </Container>
                 <Container class="javax.swing.JPanel" name="L2_panelTaller">
                   <Properties>
+                    <Property name="opaque" type="boolean" value="false"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[298, 581]"/>
                     </Property>
@@ -2488,17 +2643,17 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnEndCar_supTaller" pref="220" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnEndCar_supTaller" min="-2" pref="220" max="-2" attributes="0"/>
+                              <EmptySpace pref="73" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="416" max="32767" attributes="0"/>
+                              <EmptySpace pref="490" max="32767" attributes="0"/>
                               <Component id="btnEndCar_supTaller" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -2508,7 +2663,11 @@
                   <SubComponents>
                     <Component class="javax.swing.JButton" name="btnEndCar_supTaller">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="TERMINAR COCHE"/>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/imagenes/terminarVehiculo.png"/>
+                        </Property>
+                        <Property name="borderPainted" type="boolean" value="false"/>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
@@ -2519,6 +2678,7 @@
                 </Container>
                 <Container class="javax.swing.JPanel" name="L2_panelITV">
                   <Properties>
+                    <Property name="opaque" type="boolean" value="false"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[298, 581]"/>
                     </Property>
@@ -2530,15 +2690,17 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnEndCar_supITV2" max="32767" attributes="0"/>
-                                  <Component id="btnEndCar_supITV1" max="32767" attributes="0"/>
-                                  <Component id="btnEndCar_supITV" pref="278" max="32767" attributes="0"/>
-                                  <Component id="btnEndCar_supITV3" alignment="1" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="btnEndCar_supITV3" pref="220" max="32767" attributes="0"/>
+                                  <Component id="btnEndCar_supITV2" alignment="0" pref="0" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="btnEndCar_supITV" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                      <Component id="btnEndCar_supITV1" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace pref="73" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2561,7 +2723,11 @@
                   <SubComponents>
                     <Component class="javax.swing.JButton" name="btnEndCar_supITV">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="TERMINAR COCHE"/>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/imagenes/terminarVehiculo.png"/>
+                        </Property>
+                        <Property name="borderPainted" type="boolean" value="false"/>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
@@ -2570,7 +2736,11 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="btnEndCar_supITV1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Comprobar 1&#xba; ITV"/>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/imagenes/confirmarITV1.png"/>
+                        </Property>
+                        <Property name="borderPainted" type="boolean" value="false"/>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEndCar_supITV1ActionPerformed"/>
@@ -2581,7 +2751,11 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="btnEndCar_supITV2">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Comprobar 2&#xba; ITV"/>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/imagenes/confirmarITV2.png"/>
+                        </Property>
+                        <Property name="borderPainted" type="boolean" value="false"/>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
@@ -2590,7 +2764,11 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="btnEndCar_supITV3">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Comprobar 3&#xba; ITV"/>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/imagenes/confirmarITV3.png"/>
+                        </Property>
+                        <Property name="borderPainted" type="boolean" value="false"/>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
@@ -2601,6 +2779,7 @@
                 </Container>
                 <Container class="javax.swing.JPanel" name="L2_panelPresupuesto">
                   <Properties>
+                    <Property name="opaque" type="boolean" value="false"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[298, 581]"/>
                     </Property>
@@ -2612,10 +2791,10 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnEndCar_supPresupuesto" pref="278" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnEndCar_supPresupuesto" min="-2" pref="220" max="-2" attributes="0"/>
+                              <EmptySpace pref="73" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2632,7 +2811,11 @@
                   <SubComponents>
                     <Component class="javax.swing.JButton" name="btnEndCar_supPresupuesto">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="TERMINAR COCHE"/>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/imagenes/terminarVehiculo.png"/>
+                        </Property>
+                        <Property name="borderPainted" type="boolean" value="false"/>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEndCar_supPresupuestoActionPerformed"/>
@@ -2645,6 +2828,36 @@
                 </Container>
               </SubComponents>
             </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel2">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="577" max="32767" attributes="0"/>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Component id="fondo" alignment="0" pref="577" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="391" max="32767" attributes="0"/>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Component id="fondo" alignment="0" pref="391" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="fondo">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/texturaMetalica.png"/>
+                </Property>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>
